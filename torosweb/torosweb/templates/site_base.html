@@ -26,13 +26,13 @@
           <li>
             {% if user.is_authenticated %}
             <div class="btn-group">
-                <a class="btn btn-success btn-sm" href="#">{{ user.username }}</a>
-                <a class="btn btn-danger btn-sm" href="#">Log out</a>
+                <a class="btn btn-success btn-sm" href="{% url 'account:profile' user.username %}">{{ user.username }}</a>
+                <a class="btn btn-danger btn-sm" href="{% url 'logout' %}">Log out</a>
             </div>
             {% else %}
             <div class="btn-group">
               <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#loginmodal">Log in</button>
-              <a class="btn btn-primary btn-sm" href="#">Sign Up</a>
+              <a class="btn btn-primary btn-sm" href="{% url 'account:signup' %}">Sign Up</a>
             </div>
             {% endif %}
           </li>
@@ -47,7 +47,7 @@
               <h4 class="modal-title">Log in</h4>
               <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-            <form method="post" role="form" action="#">
+            <form method="post" role="form" action="{% url 'login' %}">
               <div class="modal-body">
                 {% csrf_token %}
                 <div class="form-group">
