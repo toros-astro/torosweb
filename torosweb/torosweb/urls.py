@@ -23,4 +23,5 @@ urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
     url(r'^account/', include('account.urls', namespace="account")),
     url(r'^account/', include('django.contrib.auth.urls')),
+    url(r'^broker/', include('broker.urls', namespace='broker')),
 ]
