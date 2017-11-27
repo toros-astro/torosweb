@@ -17,8 +17,6 @@
       <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <a class="navbar-brand" href="{% url 'home' %}">Toros Website</a>
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
           <li class="nav-item"><a class="nav-link" href="{% url 'broker:index' %}">Broker</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Wiki</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Winnow</a></li>
@@ -70,5 +68,10 @@
       </div id="loginmodal" class="modal fade" role="dialog">
 
       <div class="container" style="padding: 20px;">{% block content %}{% endblock %}</div>
+      <div id="footer">
+    <div class="container">
+        <p class="text-muted">Copyright The TOROS project {% now "Y" %}</p>
+    </div>
+    </div>
     </body>
   </html>

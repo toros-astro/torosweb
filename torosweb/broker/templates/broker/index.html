@@ -7,23 +7,31 @@
 {% block content %}
 
 
+<div class="alert alert-warning alert-dismissable my-1">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <h1>Guidelines</h1>
+    <p>The ranking by observatory is shown in the following tables, once a target is selected for observation please check the 'Selected' checkbox,
+    once the images are completely taken then check the 'Observed' checkbox.</p>
+</div>
+
 {% if alerts %}
-<ul class="nav nav-tabs">
+<ul class="nav nav-tabs my-4">
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown">{{the_alert}}<span class="caret"></span></a>
     <div class="dropdown-menu">
       {% for alert in alerts %}
-      <a class="dropdown-item" href="{% url 'broker:alert_detail' alert.grace_id %}">
+      <a class="dropdown-item" href="#">
           {{alert}} ({{alert.datetime | date:"N j, Y"}})
       </a>
       {% endfor %}
-      <a class="dropdown-item">No alerts</a>
     </div>
   </li>
   <li class="nav-item">
-    <a class="nav-link" data-toggle="modal" data-target="#circularUploadModal">Upload Targets</a>
+    <a class="nav-link" data-toggle="modal" data-target="#targetUploadModal">Upload Targets</a>
   </li>
-  <li><a class="nav-link" href="#" target=_blank>Generate Circular</a></li>
+  <li>
+    <a class="nav-link" data-toggle="modal" data-target="#circularCreationModal">Generate Circular</a>
+  </li>
 </ul>
 {% endif %}
 
@@ -39,7 +47,7 @@
 {% endif %}
 
 <!-- Modal to upload targets manually -->
-<div class="modal fade" id="circularUploadModal">
+<div class="modal fade" id="targetUploadModal">
   <div class="modal-dialog">
     <!-- Modal content-->
     <div class="modal-content">
@@ -65,23 +73,39 @@
       </div>
     </div class="modal-content">
   </div class="modal-dialog modal-sm">
-</div id="circularUploadModal" class="modal fade">
+</div id="targetUploadModal" class="modal fade">
 
+<!-- Modal to generate circular -->
+<div class="modal fade" id="circularCreationModal">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Circular for {{ the_alert }}</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+    <p>TOROS Collaboration circular for the observations for the LVC alert {{ the_alert }} on {{ the_alert.datetime.date }}.</p>
+    <br>
+    {% for obs, assignments_obs in assn_per_obs %}
+    <p>{{obs.name}}:<br>
+    Lat: {{obs.latitude}}, Long: {{obs.longitude}}<br></p>
+    {% for asg in assignments_obs %}{% if asg.was_observed %}
+    {{asg.target.name}}: RA: {{asg.target.ra}} deg Dec: {{asg.target.dec}} deg<br>
+    {% endif %}{% endfor %}
+    <p></p>
+    {% endfor %}
+      </div>
+    </div>  
+  </div>
+</div>
 
 {% if alerts %}
 <h1>Assignments for the LVC alert {{the_alert}}</h1>
 {% else %}
 <h1>No alerts to show</h1>
 {% endif %}
-<div class="card bg-light my-5">
-  <div class="card-header">
-    <h1>Guidelines</h1>
-  </div>
-  <div class="card-body">
-    <p>The ranking by observatory is shown in the following tables, once a target is selected for observation please check the 'Selected' checkbox,
-    once the images are completely taken then check the 'Observed' checkbox.</p>
-  </div>
-</div>
+
 
 <div class="card my-5">
     <div class="card-header bg-primary text-white">Selected targets for all observatories</div>
@@ -181,22 +205,18 @@
                             <th>PGC</th>
                             <th>Name</th>
                             <th class="dropdown">
-                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">
-                                    RA <span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a onclick="set_column_ra_hourangle('table_{{obs.id}}')">hour angle</a></li>
-                                    <li><a onclick="set_column_ra_hms('table_{{obs.id}}')">hh:mm:ss</a></li>
-                                </ul>
+                              <a class="dropdown-toggle" data-toggle="dropdown">RA <span class="caret"></span></a>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item" onclick="set_column_ra_hourangle('table_{{obs.id}}')">hour angle</a>
+                                <a class="dropdown-item" onclick="set_column_ra_hms('table_{{obs.id}}')">hh:mm:ss</a>
+                              </div>
                             </th>
                             <th class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    Dec <span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a onclick="set_column_dec_degree('table_{{obs.id}}')">degrees</a></li>
-                                    <li><a onclick="set_column_dec_dms('table_{{obs.id}}')">dd:mm:ss</a></li>
-                                </ul>
+                              <a class="dropdown-toggle" data-toggle="dropdown">Dec <span class="caret"></span></a>
+                              <div class="dropdown-menu">
+                                    <a class="dropdown-item" onclick="set_column_dec_degree('table_{{obs.id}}')">degrees</a>
+                                    <a class="dropdown-item" onclick="set_column_dec_dms('table_{{obs.id}}')">dd:mm:ss</a>
+                                </div>
                             </th>
                             <th>Apparent Magnitude</th>
                             <th>Absolute Magnitude</th>
@@ -243,9 +263,4 @@
 </div class="card bg-primary">
 {% endfor %}
 
-<div id="footer">
-    <div class="container">
-        <p class="text-muted">Copyright The TOROS project 2017</p>
-    </div>
-</div>
 {% endblock %}

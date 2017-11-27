@@ -1,0 +1,7 @@
+{% extends 'site_base.html' %}
+{% block title %}Page Not Found (404){% endblock %}
+{% block content %}
+<h1>404</h1>
+<h3>Sorry, the requested page does not exist on this server</h3>
+<p>Return to the <a href="{% url 'home' %}">homepage</a>.</p>
+{% endblock %}

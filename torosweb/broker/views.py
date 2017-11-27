@@ -99,11 +99,6 @@ def index(request, the_alert=None):
     return render(request, 'broker/index.html', context)
 
 
-def alert_detail(request, alert_name):
-    the_alert = Alert.objects.filter(grace_id=alert_name).first()
-    return index(request, the_alert)
-
-
 def upload(request):
     from django.utils import timezone
 
