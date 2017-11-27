@@ -11,6 +11,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
       <meta http-equiv="x-ua-compatible" content="ie=edge">
+      {% block headerextra %}{% endblock %}
     </head>
     <body>
       <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -18,7 +19,7 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Broker</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'broker:index' %}">Broker</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Wiki</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Winnow</a></li>
         </ul>
@@ -68,6 +69,6 @@
         </div class="modal-dialog modal-sm">
       </div id="loginmodal" class="modal fade" role="dialog">
 
-      <div class="container">{% block content %}{% endblock %}</div>
+      <div class="container" style="padding: 20px;">{% block content %}{% endblock %}</div>
     </body>
   </html>

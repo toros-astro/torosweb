@@ -1,0 +1,251 @@
+{% extends 'site_base.html' %}
+{% load staticfiles %}
+{% load humanize %}
+{% block headerextra %}
+<script src="{% static 'broker/equatorial.js' %}"></script>
+{% endblock %}
+{% block content %}
+
+
+{% if alerts %}
+<ul class="nav nav-tabs">
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown">{{the_alert}}<span class="caret"></span></a>
+    <div class="dropdown-menu">
+      {% for alert in alerts %}
+      <a class="dropdown-item" href="{% url 'broker:alert_detail' alert.grace_id %}">
+          {{alert}} ({{alert.datetime | date:"N j, Y"}})
+      </a>
+      {% endfor %}
+      <a class="dropdown-item">No alerts</a>
+    </div>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="modal" data-target="#circularUploadModal">Upload Targets</a>
+  </li>
+  <li><a class="nav-link" href="#" target=_blank>Generate Circular</a></li>
+</ul>
+{% endif %}
+
+
+{% if errors %}
+<div class="alert alert-danger">
+  <ul>
+    {% for aline in errors %}
+    <li>{{aline}}</li>
+    {% endfor %}
+</ul>
+</div>
+{% endif %}
+
+<!-- Modal to upload targets manually -->
+<div class="modal fade" id="circularUploadModal">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Targets Upload</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+          <form method='post' action="{% url 'broker:upload' %}">
+              {% csrf_token %}
+              <div class="form-group">
+                  <label>Alert</label>
+                  <select name="alert">
+                      {% for alert in alerts %}
+                      <option value="{{alert.pk}}">{{alert}} ({{alert.datetime | date:"N j, Y"}})</option>
+                      {% endfor %}
+                  </select>
+              </div class="form-group">
+              <p><label>Assignments</label></p>
+              <textarea placeholder="EABA: PGC000004 1.2E-3, UGC12895 0.5E-4, IC5376; Mamalluca: PGC000006 3.2E-5, NGC7802 1.1E-2, UGC12905 5.2E-6;" cols=40 rows=1name="assignments"></textarea>
+              <p><input type='submit' class="btn btn-primary"/></p>
+          </form>
+      </div>
+    </div class="modal-content">
+  </div class="modal-dialog modal-sm">
+</div id="circularUploadModal" class="modal fade">
+
+
+{% if alerts %}
+<h1>Assignments for the LVC alert {{the_alert}}</h1>
+{% else %}
+<h1>No alerts to show</h1>
+{% endif %}
+<div class="card bg-light my-5">
+  <div class="card-header">
+    <h1>Guidelines</h1>
+  </div>
+  <div class="card-body">
+    <p>The ranking by observatory is shown in the following tables, once a target is selected for observation please check the 'Selected' checkbox,
+    once the images are completely taken then check the 'Observed' checkbox.</p>
+  </div>
+</div>
+
+<div class="card my-5">
+    <div class="card-header bg-primary text-white">Selected targets for all observatories</div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover" id="general_table">
+                <thead>
+                    <tr>
+                        <th>PGC</th>
+                        <th>Name</th>
+                        <th class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown">RA <span class="caret"></span></a>
+                          <div class="dropdown-menu">
+                            <a class="dropdown-item" onclick="set_column_ra_hourangle('general_table')">hour angle</a>
+                            <a class="dropdown-item" onclick="set_column_ra_hms('general_table')">hh:mm:ss</a>
+                          </div>
+                        </th>
+
+                        <th class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown">Dec <span class="caret"></span></a>
+                          <div class="dropdown-menu">
+                                <a class="dropdown-item" onclick="set_column_dec_degree('general_table')">degrees</a>
+                                <a class="dropdown-item" onclick="set_column_dec_dms('general_table')">dd:mm:ss</a>
+                            </div>
+                        </th>
+                        <th>Apparent Magnitude</th>
+                        <th>Absolute Magnitude</th>
+                        <th>Distance (MPc)</th>
+                        <th>Localization probability</th>
+                        <th>Selected</th>
+                        <th>Observed</th>
+                        <th>Observation date/time</th>
+                        <th>Observatory</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for asg in all_assingments %}
+                    <tr>
+                        <td>{{asg.target.pgc}}</td>
+                        <td>{{asg.target.name}}</td>
+                        <td>{{asg.target.ra}}</td>
+                        <td>{{asg.target.dec}}</td>
+                        <td>{{asg.target.app_mag }}</td>
+                        <td>{{asg.target.abs_mag}}</td>
+                        <td>{{asg.target.dist}}</td>
+                        <td>{{asg.probability|stringformat:".3e"}}</td>
+                        <td>
+                            <div align="center">
+                                <input type="checkbox" name="istaken" {% if asg.is_taken %}checked{% endif %} disabled>
+                            </div>
+                        </td>
+                        <td>
+                            <div align="center">
+                                <input type="checkbox" name="istaken" {% if asg.was_observed %}checked{% endif %} disabled>
+                            </div>
+                        </td>
+                        <td></td>
+                        {% if asg.observatory.short_name %}
+                        <td>{{asg.observatory.short_name}}</td>
+                        {% else %}
+                        <td>{{asg.observatory}}</td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div class="table-responsive">
+        <p>Total observed galaxies: {{observed_targets}}</p>
+        <p>Total ongoing galaxy observations: {{selected_targets}}</p>
+    </div class="card-body">
+</div class="card">
+
+{% for obs, assignments_obs in assn_per_obs %}
+<div class="panel panel-primary">
+    <div class="panel-heading">{{obs.name}}{% if obs.short_name %} ({{obs.short_name}}){% endif %}
+        at {{obs.city}}, {{obs.country}}
+    </div>
+    <div class="panel-body">
+        <p>Geo long: {{obs.longitude}} lat: {{obs.latitude}}
+            Elevation: {{obs.elevation|floatformat:0|intcomma}} m (<span id="obs{{obs.id}}">None</span> ft)
+        </p>
+        <script>
+        document.getElementById("obs{{obs.id}}").innerHTML = intcomma(mtofeet({{obs.elevation}}).toFixed(0))
+        </script>
+        {% if not assignments_obs %}
+        <p>No targets for this observatory.</p>
+        {% else %}
+        <p>WARNING: A red background means that the target was selected by another observatory.</p>
+        <form method="post" action="{% url 'broker:index' %}">
+            <input type="hidden" value="{{ the_alert.pk }}" name="alert_id">
+            <input type="hidden" value="{{ obs.pk }}" name="obs_id">
+            {% csrf_token %}
+            <div class="table-responsive">
+                <table class="table table-striped table-hover" id="table_{{obs.id}}">
+                    <thead>
+                        <tr>
+                            <th>PGC</th>
+                            <th>Name</th>
+                            <th class="dropdown">
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                                    RA <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a onclick="set_column_ra_hourangle('table_{{obs.id}}')">hour angle</a></li>
+                                    <li><a onclick="set_column_ra_hms('table_{{obs.id}}')">hh:mm:ss</a></li>
+                                </ul>
+                            </th>
+                            <th class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Dec <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a onclick="set_column_dec_degree('table_{{obs.id}}')">degrees</a></li>
+                                    <li><a onclick="set_column_dec_dms('table_{{obs.id}}')">dd:mm:ss</a></li>
+                                </ul>
+                            </th>
+                            <th>Apparent Magnitude</th>
+                            <th>Absolute Magnitude</th>
+                            <th>Distance (MPc)</th>
+                            <th>Localization probability</th>
+                            <th>Selected</th>
+                            <th>Observed</th>
+                            <th>Observation date/time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for asg in assignments_obs %}
+                        <tr {% if asg.flag_unavailable %}class="danger"{% endif %}>
+
+                            <td>{{asg.target.pgc}}</td>
+                            <td>{{asg.target.name}}</td>
+                            <td>{{asg.target.ra}}</td>
+                            <td>{{asg.target.dec}}</td>
+                            <td>{{asg.target.app_mag }}</td>
+                            <td>{{asg.target.abs_mag}}</td>
+                            <td>{{asg.target.dist}}</td>
+                            <td>{{asg.probability|stringformat:".3e"}}</td>
+                            <td>
+                                <div align="center">
+                                    <input type="checkbox" name="istaken[]" {% if asg.is_taken %}checked{% endif %} value="{{asg.pk}}">
+                                </div>
+                            </td>
+                            <td>
+                                <div align="center">
+                                    <input type="checkbox" name="wasobserved[]" {% if asg.was_observed %}checked{% endif %} value="{{asg.pk}}">
+                                </div>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div class="table-responsive">
+            <input type="submit" class="btn btn-primary" value="Submit" />
+        </form>
+        {% endif %}
+    </div class="panel-body">
+</div class="card bg-primary">
+{% endfor %}
+
+<div id="footer">
+    <div class="container">
+        <p class="text-muted">Copyright The TOROS project 2017</p>
+    </div>
+</div>
+{% endblock %}
