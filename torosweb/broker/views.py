@@ -38,7 +38,6 @@ def process_assignment_form(request):
                 turn_on_taken(asg)
             else:
                 turn_off_taken(asg)
-                # Change mode to taken
         else:
             turn_off_taken(asg)
         if asg.id in areobservedlist:
@@ -48,6 +47,7 @@ def process_assignment_form(request):
             if asg.was_observed is True:
                 asg.was_observed = False
         asg.save()
+    return 200, []
 
 
 def process_upload_target_form(request):
@@ -130,7 +130,7 @@ def index(request, the_alert=None):
     context['the_alert'] = the_alert
 
     context['all_assingments'] = Assignment.objects\
-        .filter(alert=the_alert, is_taken=True)\
+        .filter(alert=the_alert, was_observed=True)\
         .order_by('target__name')
 
     selected_targets = Assignment.objects.filter(
