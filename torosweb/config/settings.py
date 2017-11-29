@@ -99,6 +99,7 @@ SITE_ID = 1
 AUTH_PASSWORD_VALIDATORS = []
 
 # Authentication 
+LOGIN_URL = '/account/login'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 AUTH_USER_MODEL = 'account.User'
