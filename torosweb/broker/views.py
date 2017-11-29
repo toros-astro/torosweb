@@ -130,7 +130,7 @@ def index(request, the_alert=None):
     context['the_alert'] = the_alert
 
     context['all_assingments'] = Assignment.objects\
-        .filter(alert=the_alert, was_observed=True)\
+        .filter((Q(is_taken=True) | Q(was_observed=True)), alert=the_alert)\
         .order_by('target__name')
 
     selected_targets = Assignment.objects.filter(
