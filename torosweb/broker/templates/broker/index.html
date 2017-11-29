@@ -7,7 +7,7 @@
 {% block content %}
 
 
-<div class="alert alert-warning alert-dismissable my-1">
+<div class="alert alert-success alert-dismissable my-1">
   <button type="button" class="close" data-dismiss="alert">&times;</button>
   <h1>Guidelines</h1>
     <p>The ranking by observatory is shown in the following tables, once a target is selected for observation please check the 'Selected' checkbox,
@@ -26,15 +26,16 @@
       {% endfor %}
     </div>
   </li>
+{% if is_admin %}
   <li class="nav-item">
     <a class="nav-link" data-toggle="modal" data-target="#targetUploadModal">Upload Targets</a>
   </li>
+{% endif %}
   <li>
     <a class="nav-link" data-toggle="modal" data-target="#circularCreationModal">Generate Circular</a>
   </li>
 </ul>
 {% endif %}
-
 
 {% if errors %}
 <div class="alert alert-danger">
@@ -56,7 +57,7 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body">
-          <form method='post' action="{% url 'broker:upload' %}">
+          <form method='post' action="{% url 'broker:index' %}">
               {% csrf_token %}
               <div class="form-group">
                   <label>Alert</label>
@@ -67,8 +68,8 @@
                   </select>
               </div class="form-group">
               <p><label>Assignments</label></p>
-              <textarea placeholder="EABA: PGC000004 1.2E-3, UGC12895 0.5E-4, IC5376; Mamalluca: PGC000006 3.2E-5, NGC7802 1.1E-2, UGC12905 5.2E-6;" cols=40 rows=1name="assignments"></textarea>
-              <p><input type='submit' class="btn btn-primary"/></p>
+              <textarea placeholder="EABA: PGC000004 1.2E-3, UGC12895 0.5E-4, IC5376; Mamalluca: PGC000006 3.2E-5, NGC7802 1.1E-2, UGC12905 5.2E-6;" cols=40 rows=1 name="assignments"></textarea>
+              <p><input type='submit' class="btn btn-primary" name="upload_target"/></p>
           </form>
       </div>
     </div class="modal-content">
@@ -77,7 +78,7 @@
 
 <!-- Modal to generate circular -->
 <div class="modal fade" id="circularCreationModal">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
@@ -105,7 +106,6 @@
 {% else %}
 <h1>No alerts to show</h1>
 {% endif %}
-
 
 <div class="card my-5">
     <div class="card-header bg-primary text-white">Selected targets for all observatories</div>
@@ -179,11 +179,12 @@
 </div class="card">
 
 {% for obs, assignments_obs in assn_per_obs %}
-<div class="panel panel-primary">
-    <div class="panel-heading">{{obs.name}}{% if obs.short_name %} ({{obs.short_name}}){% endif %}
+<div class="card my-5">
+    <div class="card-header bg-primary text-white">
+        {{obs.name}}{% if obs.short_name %} ({{obs.short_name}}){% endif %}
         at {{obs.city}}, {{obs.country}}
     </div>
-    <div class="panel-body">
+    <div class="card-body">
         <p>Geo long: {{obs.longitude}} lat: {{obs.latitude}}
             Elevation: {{obs.elevation|floatformat:0|intcomma}} m (<span id="obs{{obs.id}}">None</span> ft)
         </p>
