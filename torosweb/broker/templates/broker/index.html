@@ -20,7 +20,7 @@
     <a class="nav-link dropdown-toggle" data-toggle="dropdown">{{the_alert}}<span class="caret"></span></a>
     <div class="dropdown-menu">
       {% for alert in alerts %}
-      <a class="dropdown-item" href="#">
+      <a class="dropdown-item" href="{% url 'broker:alert_detail' alert.grace_id %}">
           {{alert}} ({{alert.datetime | date:"N j, Y"}})
       </a>
       {% endfor %}

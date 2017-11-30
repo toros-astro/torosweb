@@ -115,7 +115,7 @@ def has_broker_access(user):
 
 
 @user_passes_test(has_broker_access)
-def index(request, the_alert=None):
+def index(request, alert_name=None):
     context = {}
     status = 200
     if request.method == 'POST' and 'upload_target' in request.POST:
@@ -125,8 +125,10 @@ def index(request, the_alert=None):
 
     context['alerts'] = Alert.objects.order_by('-datetime')
 
-    if the_alert is None:
+    if alert_name is None:
         the_alert = Alert.objects.order_by('-datetime').first()
+    else:
+        the_alert = Alert.objects.filter(grace_id=alert_name).first()
     context['the_alert'] = the_alert
 
     context['all_assingments'] = Assignment.objects\
@@ -157,8 +159,7 @@ def index(request, the_alert=None):
                 asg.flag_unavailable = False
         assn_per_obs.append([obs, assgnms])
     context['assn_per_obs'] = assn_per_obs
-    context['is_admin'] = request.user.groups\
-        .filter(name='broker_admins').exists()
+    context['is_admin'] = request.user.groups.filter(name='broker_admins').exists()
 
     return render(request, 'broker/index.html', context, status=status)
 
