@@ -16,6 +16,8 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.views.generic.base import TemplateView
+from wiki.urls import get_pattern as get_wiki_pattern
+from django_nyt.urls import get_pattern as get_nyt_pattern
 
 
 urlpatterns = [
@@ -24,4 +26,6 @@ urlpatterns = [
     url(r'^account/', include('account.urls', namespace="account")),
     url(r'^account/', include('django.contrib.auth.urls')),
     url(r'^broker/', include('broker.urls', namespace='broker')),
+    url(r'^wiki/notifications/', get_nyt_pattern()),
+    url(r'^wiki/', get_wiki_pattern())
 ]
