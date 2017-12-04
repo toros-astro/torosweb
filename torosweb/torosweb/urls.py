@@ -27,5 +27,6 @@ urlpatterns = [
     url(r'^account/', include('django.contrib.auth.urls')),
     url(r'^broker/', include('broker.urls', namespace='broker')),
     url(r'^wiki/notifications/', get_nyt_pattern()),
-    url(r'^wiki/', get_wiki_pattern())
+    url(r'^wiki/', get_wiki_pattern()),
+    url(r'^winnow/', include('winnow.urls', namespace='winnow')),
 ]

@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'torosweb',
     'account',
     'broker',
+    'winnow',
 ] + WIKI_APPS
 
 MIDDLEWARE = [
