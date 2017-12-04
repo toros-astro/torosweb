@@ -159,7 +159,7 @@ def data(request):
                       {'page_data': 'selected', 'datasets': datasets})
 
 
-def rb(request):
+def rbmanager(request):
     if request.method == "POST":
         notification_failed = {'value': True, 'type': 'danger',
                                'message': 'The experiment could not be saved'}

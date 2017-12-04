@@ -10,5 +10,5 @@ urlpatterns = [
     url(r'^rank/$', views.rank, name='rank'),
     url(r'^object/(?P<object_slug>\w+)/$', views.object_detail, name='object_detail'),
     url(r'^data/$', views.data, name='data'),
-    url(r'^rb$', views.rb, name='rb'),
+    url(r'^rb$', views.rbmanager, name='rbmanager'),
 ]

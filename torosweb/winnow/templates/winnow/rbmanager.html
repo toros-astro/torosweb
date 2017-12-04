@@ -15,7 +15,7 @@
     </div class="page-header">
 
     <ul class="nav nav-tabs">
-      <li class="active"><a href="{% url 'winnow:rb' %}">Data</a></li>
+      <li class="active"><a href="{% url 'winnow:rbmanager' %}">Data</a></li>
       <li><a href="#">Upload</a></li>
   </ul>
 
@@ -41,7 +41,7 @@
       <div class="panel-collapse collapse" id="enterexp">
       <div class="panel-body">
 
-            <form role="form" method="post" action="{% url 'winnow:rb' %}">
+            <form role="form" method="post" action="{% url 'winnow:rbmanager' %}">
             {% csrf_token %}
             {% for field in exp_form %}
             <div class="form-group">
