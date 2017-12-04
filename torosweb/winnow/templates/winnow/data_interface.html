@@ -1,0 +1,56 @@
+{% extends 'winnow/base.html' %}
+
+{% load winnow_tags %}
+
+{% block title %}Winnow - Home{% endblock %}
+
+{% block content %}
+
+<section id="content">
+
+<div id="block" style="width:90%; margin:1em auto; border:2px; display:inline-block">
+    <h1>Data Set Information</h1>
+    <br>
+    <form id="dump_db" method="post" action="{% url 'winnow:data' %}">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Request a DB Dump</legend>
+            <p>
+            <label>Select Data Set</label>
+            <select name="dataset">
+            {% for ads in datasets %}
+               <option value = "{{ads.name}}">{{ads.name}}</option>
+            {% endfor %}
+            </select>
+          </p>
+       </fieldset>
+        Click here to get all your data: <input type="submit" class="button" name="submit" value="Request DB Dump" />
+    </form>
+</div>
+
+<div id="block" style="width:90%; margin:1em auto; border:2px; display:inline-block">
+    <h3>Statistics</h3>
+    <table cellspacing="0">
+        <tr>
+            <th>Dataset Name</th>
+            <th>Reals</th>
+            <th>Bogus</th>
+            <th>Unclassified</th>
+            <th>Not Ranked</th>
+            <th>Total</th>
+        </tr>
+        {% for ads in datasets %}
+        <tr>
+            <td>{{ ads.name }}</td>
+            <td>{{ ads.number_of_reals }}</td>
+            <td>{{ ads.number_of_bogus }}</td>
+            <td>{{ ads.number_of_unclassified }}</td>
+            <td>{{ ads.number_not_ranked }}</td>
+            <td>{{ ads.number_of_objects }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+</section>
+{% endblock %}

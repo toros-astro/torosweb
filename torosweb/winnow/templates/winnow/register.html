@@ -1,0 +1,53 @@
+{% extends 'winnow/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Winnow - Register{% endblock %}
+
+{% block content %}
+<section id="content">
+    <h1>Register to Winnow</h1>
+
+    {% if registered %}
+    	<p><strong>Thank you for registering!</strong></p>
+    	<p><a href="{% url 'winnow:index' %}">Return to the homepage.</a></p><br />
+    {% else %}
+     <fieldset>
+     	<legend>Required fields are marked in red</legend>
+    	<form id="user_form" method="post" action="{% url 'winnow:register' %}" enctype="multipart/form-data">
+		{% csrf_token %}
+		{% for field in user_form %}
+    		<p>{% if field.field.required %}
+				<span class="required">
+				<label for="{{ field.name }}">{{ field.label }}:</label>
+			    </span>
+			{% else %}
+		        <label for="{{ field.name }}">{{ field.label }}:</label>
+			{% endif %}
+			{{ field }}
+		    {% for error in field.errors %}
+		 	    <i>({{ error }})</i>
+		    {% endfor %}
+		</p>
+		{% endfor %}
+		{% for field in profile_form %}
+		    <p>{% if field.field.required %}
+			    <span class="required">
+        	    <label for="{{ field.name }}">{{ field.label }}:</label>
+				</span>
+			    {% else %}
+        	    <label for="{{ field.name }}">{{ field.label }}:</label>
+				{% endif %}
+			{{ field }}
+		    {% for error in field.errors %}
+		 	    <i>({{ error }})</i>
+		    {% endfor %}
+		</p>
+		{% endfor %}					
+        <p><input name="submit" style="margin-left: 150px;" class="formbutton" value="Register" type="submit" /></p>
+        </form>
+    </fieldset>
+    {% endif %}
+</section>
+
+{% endblock %}
