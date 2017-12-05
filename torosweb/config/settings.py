@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.humanize',
     'torosweb',
+    'stdimage',
     'account',
     'broker',
     'winnow',

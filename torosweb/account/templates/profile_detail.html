@@ -7,7 +7,15 @@
 {% block content %}
 <div class="card">
 {% if the_user %}
-  <div class="card-header">Profile for {{ the_user.get_full_name }}</div>
+  <div class="card-header">
+    <a href="{{ the_user.picture.url }}"><img alt="" src="{{ the_user.picture.thumbnail.url }}"/></a>
+    Profile for
+{% if the_user.get_full_name %}
+{{ the_user.get_full_name}}
+{% else %}
+{{ the_user.username }}
+{% endif %}
+  </div>
     <div class="card-body">
     	<p>Username: {{ the_user.username }}</p>
         <p>Full Name: {{ the_user.get_full_name }}</p>

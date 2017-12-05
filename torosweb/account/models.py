@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from stdimage.models import StdImageField
 
 
 class User(AbstractUser):
@@ -16,3 +17,8 @@ class User(AbstractUser):
         choices=institutions_choice,
         default='OTHER',
     )
+    picture = StdImageField(upload_to='profile_images', blank=True, null=True,
+        variations={
+        'thumbnail': (100, 100, True),
+        'medium': (200, 200),
+    })
