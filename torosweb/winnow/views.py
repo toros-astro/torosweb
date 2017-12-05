@@ -13,15 +13,6 @@ from django.contrib.auth import get_user_model
 
 
 def rank(request):
-    UserModel = get_user_model()
-
-    if not request.user.is_authenticated():
-        context = {}
-        context['message'] = {
-            'headline': "Access denied",
-            'body': "You need to be logged in to view this page"}
-        return render(request, 'winnow/message.html', context)
-
     if request.method == "POST":
         form = RankingForm(request.POST)
         if form.is_valid():
@@ -58,11 +49,10 @@ def rank(request):
         except IndexError:
             # Fetch any tc not ranked by the current user
             try:
-                current_user = UserModel.objects.get(user=request.user)
                 ds = Dataset.objects.filter(isCurrent=True).reverse()[0]
                 tc = TransientCandidate.objects.filter(dataset=ds)\
                     .exclude(
-                        ranking=Ranking.objects.filter(ranker=current_user))[0]
+                        ranking=Ranking.objects.filter(ranker=request.user))[0]
             except IndexError:
                 tc = None
 
@@ -87,22 +77,22 @@ def object_detail(request, object_slug):
     int_users_list = UserModel.objects.filter(ranking=ranked_interesting)
     int_counts = len(int_users_list)
 
-    if request.method == "POST":
-        if request.user.is_authenticated():
-            # Save the comment if there is one.
-            comment_text = request.POST.get('comment')
-            if len(comment_text) > 0:
-                # save the comment
-                new_comment = Comment()
-                new_comment.user = request.user
-                new_comment.user_name = request.user.username
-                new_comment.user_email = request.user.email
-                new_comment.user_url = \
-                    UserModel.objects.get(user=request.user).website
-                new_comment.comment = comment_text
-                new_comment.site = get_current_site(request)
-                new_comment.content_object = trans_obj
-                new_comment.save()
+    # if request.method == "POST":
+    #     if request.user.is_authenticated():
+    #         # Save the comment if there is one.
+    #         # comment_text = request.POST.get('comment')
+    #         # if len(comment_text) > 0:
+    #         #     # save the comment
+    #         #     new_comment = Comment()
+    #         #     new_comment.user = request.user
+    #         #     new_comment.user_name = request.user.username
+    #         #     new_comment.user_email = request.user.email
+    #         #     new_comment.user_url = \
+    #         #         UserModel.objects.get(user=request.user).website
+    #         #     new_comment.comment = comment_text
+    #         #     new_comment.site = get_current_site(request)
+    #         #     new_comment.content_object = trans_obj
+    #         #     new_comment.save()
 
     return render(request, 'winnow/trans_detail.html',
                   {'object': trans_obj, 'interesting_count': str(int_counts),

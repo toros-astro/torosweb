@@ -28,9 +28,9 @@
     </div>
     {% endif %}
 
-  <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h6 class="panel-title">        
+  <div class="card">
+      <div class="card-header bg-primary">
+        <h6>        
         <a data-toggle="collapse" href="#enterexp">
         <span class="caret"></span>
         Enter your new experiment here 
@@ -54,7 +54,7 @@
             {% endif %}
             {{ field }}
             {% for error in field.errors %}
-                <i>({{ error }})</i>
+            <i>({{ error }})</i>
             {% endfor %}
             </div class="form-group">
             {% endfor %}
