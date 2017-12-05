@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.exceptions import ValidationError
+from stdimage.models import StdImageField
 
 
 class Dataset(models.Model):
@@ -71,15 +72,15 @@ class TransientCandidate(models.Model):
     dataset = models.ForeignKey(Dataset)
     object_id = models.IntegerField()
     slug = models.SlugField(max_length=110)
-    # refImg = StdImageField(upload_to=GetFilePathForObject("ref"),
-    #                        variations={'thumbnail': (50, 50, True),
-    #                                    'normal': (400, 400), })
-    # origImg = StdImageField(upload_to=GetFilePathForObject("orig"),
-    #                         variations={'thumbnail': (50, 50, True),
-    #                                     'normal': (400, 400), })
-    # subtImg = StdImageField(upload_to=GetFilePathForObject("subt"),
-    #                         variations={'thumbnail': (50, 50, True),
-    #                                     'normal': (400, 400), })
+    refImg = StdImageField(upload_to="winnow_cutouts",
+                           variations={'thumbnail': (50, 50, True),
+                                       'normal': (400, 400), })
+    origImg = StdImageField(upload_to="winnow_cutouts",
+                            variations={'thumbnail': (50, 50, True),
+                                        'normal': (400, 400), })
+    subtImg = StdImageField(upload_to="winnow_cutouts",
+                            variations={'thumbnail': (50, 50, True),
+                                        'normal': (400, 400), })
     mag_orig = models.FloatField(default=0., null=True)
     mag_ref = models.FloatField(default=0., null=True)
     mag_subt = models.FloatField(default=0., null=True)
