@@ -89,12 +89,16 @@ class TransientCandidate(models.Model):
     def aladin_coords(self):
         ra = self.ra
         dec = self.dec
-        ra_deg = int(ra)
-        ra_min = int((ra - ra_deg) * 60.)
-        dec_deg = int(dec)
-        dec_min = abs(int((dec - dec_deg) * 60.))
+        ra_hourangle = int(ra / 15.0)
+        ra_minangle = int(((ra / 15.0) % 1) * 60.)
+        ra_secangle = (((ra / 15.0) % 1) * 60.) % 1 * 60
         sgn = "+" if dec > 0 else ""
-        return "%d %02d %s%02d %02d" % (ra_deg, ra_min, sgn, dec_deg, dec_min)
+        dec_deg = int(dec)
+        dec_min = int(abs(dec - dec_deg) * 60)
+        dec_sec = ((abs(dec - dec_deg) * 60) % 1) * 60
+        return "{:d} {:02d} {:.5f} {}{} {} {:.5f}".format(
+            ra_hourangle, ra_minangle, ra_secangle,
+            sgn, dec_deg, dec_min, dec_sec)
 
     def number_of_real_votes(self):
         num_real = Ranking.objects.filter(trans_candidate=self).\

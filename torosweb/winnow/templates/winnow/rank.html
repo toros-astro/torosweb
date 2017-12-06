@@ -2,15 +2,68 @@
 {% block title %}Winnow - Classify{% endblock %}
 {% block winnow_content %}
 {% if not user.is_authenticated %}
-<div >
+<div class="my-5">
 <h1>Access denied</h1>
-<p>You need to be logged in to view this page</p>
+<p>You need to be logged in to be able to classify.</p>
+<p>You can register <a href="{% url 'account:signup' %}">here</a>.</p>
 </div>
 {% else %}
 {% if not object %}
 <p>There are no objects to classify.</p>
 {% else %}
-<h1>Rank here.</h1>
+<div class="card my-3">
+	<div class="card-header">
+		<h1>Is this a real transient?</h1>
+	</div>
+	<div class="card-body">
+      <div class="row">
+      	<div class="col">
+      	  <img src="{{ object.origImg.normal.url }}" width=100%/>
+      	  <h5 style="text-align:center;">Candidate</h5>
+      	</div>
+        <div class="col">
+          <img src="{{ object.refImg.normal.url }}" width=100%/>	
+	      <h5 style="text-align:center;">Reference</h5>
+	    </div>
+	    <div class="col">
+	      <img src="{{ object.subtImg.normal.url }}" width=100%/>
+	      <h5 style="text-align:center;">Subtraction</h5>
+        </div>
+      </div>
+  <div class="my-5">
+    <button class="btn btn-primary" data-toggle="collapse" data-target="#metadata">Meta data</button>
+    <div id="metadata" class="collapse show">
+    {% include "winnow/trans_cand_infobox.html" %}
+ 	</div>
+  </div class="my-5">
+	<form id="page_form" method="post" action="{% url 'winnow:rank' %}">
+	<input type="hidden" value="{{ object.pk }}" name="tc_id">
+	{% csrf_token %}
+
+	<div class="form-check form-check-inline">
+  	  <label class="form-check-label">
+        <input class="form-check-input" type="radio" name="rank" id="id_rank_0" value="1"> Yes
+      </label>
+    </div>
+    <div class="form-check form-check-inline">
+  	  <label class="form-check-label">
+        <input class="form-check-input" type="radio" name="rank" id="id_rank_1" value="-1" checked> No
+      </label>
+    </div>
+    <div class="form-check form-check-inline">
+  	  <label class="form-check-label">
+        <input class="form-check-input" type="radio" name="rank" id="id_rank_2" value="0"> I don't know
+      </label>
+    </div>
+    <div class="form-check">
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox"> Mark as interesting
+    </label>
+    </div>
+	<input type="submit" class="btn btn-primary" name="submit" value="Rank Transient" />
+	</form>
+  </div class="card-body">
+</div class="card">
 {% endif %}
 {% endif %}
 {% endblock %}
