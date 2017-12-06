@@ -1,37 +1,31 @@
 {% extends 'winnow/base.html' %}
-
-{% load winnow_tags %}
-
-{% block title %}Winnow - Home{% endblock %}
-
-{% block content %}
-
-<section id="content">
-
-<div id="block" style="width:90%; margin:1em auto; border:2px; display:inline-block">
+{% block title %}Winnow - Data{% endblock %}
+{% block winnow_content %}
+{% if not user.is_superuser %}
+<div class="my-5">
+<h1>Access denied</h1>
+<p>You need to be logged in to be able to classify.</p>
+<p>You can register <a href="{% url 'account:signup' %}">here</a>.</p>
+</div>
+{% else %}
+<div class="my-5">
     <h1>Data Set Information</h1>
-    <br>
     <form id="dump_db" method="post" action="{% url 'winnow:data' %}">
         {% csrf_token %}
-        <fieldset>
-            <legend>Request a DB Dump</legend>
-            <p>
-            <label>Select Data Set</label>
-            <select name="dataset">
-            {% for ads in datasets %}
-               <option value = "{{ads.name}}">{{ads.name}}</option>
-            {% endfor %}
-            </select>
-          </p>
-       </fieldset>
-        Click here to get all your data: <input type="submit" class="button" name="submit" value="Request DB Dump" />
+        <div class="form-group">
+          <label for="#datasets">Request a DB Dump</label>
+          <select class="form-control-sm" id="datasets" name="dataset">
+{% for ads in datasets %}<option value = "{{ads.name}}">{{ads.name}}</option>{% endfor %}
+          </select>
+        </div>
+        Click here to get all your data: <input type="submit" class="btn btn-primary" name="submit" value="Request DB Dump" />
     </form>
 </div>
 
-<div id="block" style="width:90%; margin:1em auto; border:2px; display:inline-block">
+<div class="my-3">
     <h3>Statistics</h3>
-    <table cellspacing="0">
-        <tr>
+    <table class="table table-hover">
+        <tr class="bg-light">
             <th>Dataset Name</th>
             <th>Reals</th>
             <th>Bogus</th>
@@ -51,6 +45,5 @@
         {% endfor %}
     </table>
 </div>
-
-</section>
+{% endif %}
 {% endblock %}

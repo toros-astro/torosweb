@@ -17,7 +17,7 @@ def rank(request):
         form = RankingForm(request.POST)
         if form.is_valid():
             r = form.save(commit=False)
-            r.ranker = UserModel.objects.get(user=request.user)
+            r.ranker = request.user
             tc_id = int(request.POST.get('tc_id'))
             r.trans_candidate = TransientCandidate.objects.get(pk=tc_id)
             r.save()
@@ -41,18 +41,17 @@ def rank(request):
             tc_id = int(request.POST.get('tc_id'))
             tc = TransientCandidate.objects.get(pk=tc_id)
     else:
-        try:
-            # Fetch any tc not ranked yet
-            ds = Dataset.objects.filter(isCurrent=True).reverse()[0]
-            tc = TransientCandidate.objects.filter(dataset=ds).\
-                exclude(ranking=Ranking.objects.all())[0]
-        except IndexError:
+        # Fetch any tc not ranked yet
+        ds = Dataset.objects.filter(isCurrent=True).reverse().first()
+        tc = TransientCandidate.objects.filter(dataset=ds).\
+            exclude(ranking__in=Ranking.objects.all()).first()
+        if tc is None:
             # Fetch any tc not ranked by the current user
             try:
                 ds = Dataset.objects.filter(isCurrent=True).reverse()[0]
                 tc = TransientCandidate.objects.filter(dataset=ds)\
                     .exclude(
-                        ranking=Ranking.objects.filter(ranker=request.user))[0]
+                        ranking__in=Ranking.objects.filter(ranker=request.user))[0]
             except IndexError:
                 tc = None
 
