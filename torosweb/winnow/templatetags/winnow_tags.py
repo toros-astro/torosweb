@@ -11,7 +11,7 @@ def get_top3interesting():
     # This just returns 3 interesting objects
     # (it does nothing with how many likes it has)
     top3_intr = TransientCandidate.objects.filter(
-        ranking=Ranking.objects.filter(isInteresting=True)
+        ranking__in=Ranking.objects.filter(isInteresting=True)
         ).order_by('-pk')[:3]
     return top3_intr
 
