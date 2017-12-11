@@ -58,6 +58,9 @@ INSTALLED_APPS = [
     'account',
     'broker',
     'winnow',
+    'fluent_comments',
+    'crispy_forms',
+    'django_comments',
 ] + WIKI_APPS
 
 MIDDLEWARE = [
@@ -106,8 +109,6 @@ DATABASES = {
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
-# MIGRATIONS CONFIGURATION
-# ------------------------------------------------------------------------------
 MIGRATION_MODULES = {
     'sites': 'torosweb.contrib.sites.migrations'
 }
@@ -140,6 +141,11 @@ MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+COMMENTS_APP = 'fluent_comments'
+FLUENT_COMMENTS_EXCLUDE_FIELDS = ('name', 'url', 'email',)
+FLUENT_COMMENTS_USE_EMAIL_NOTIFICATION = False
 
 # Override with local settings:
 try:

@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^wiki/notifications/', get_nyt_pattern()),
     url(r'^wiki/', get_wiki_pattern()),
     url(r'^winnow/', include('winnow.urls', namespace='winnow')),
+    url(r'^comments/', include('fluent_comments.urls')),
 ]
 
 from django.conf import settings

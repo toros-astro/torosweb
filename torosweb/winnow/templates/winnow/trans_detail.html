@@ -1,13 +1,14 @@
 {% extends 'winnow/base.html' %}
-
 {% load staticfiles %}
 {% load comments %}
-{% load winnow_tags %}
 
 {% block title %}Winnow - Detail View {{ object.slug }}{% endblock %}
-{% block header_extra %}
-<script src="{% static "js/d3.v3.min.js" %}"></script>
-<link rel="stylesheet" type="text/css" href="{% static "css/barplot.css" %}">
+{% block headerextra %}
+<link rel="stylesheet" type="text/css" href="{% static 'fluent_comments/css/ajaxcomments.css' %}" />
+<script type="text/javascript" src="{% static 'fluent_comments/js/ajaxcomments.js' %}"></script>
+
+<script src="{% static 'js/d3.v3.min.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'css/barplot.css' %}">
 <script>
 var real_votes = {{ object.number_of_real_votes }}
 var bogus_votes = {{ object.number_of_bogus_votes }}
@@ -15,58 +16,69 @@ var unknown_votes = {{ object.number_of_unclassified_votes }}
 </script>
 {% endblock %}
 
-{% block content %}
-	<section id="content">
+{% block winnow_content %}
 
-    <div id="all_plots" style="width:90%; margin:1em auto; background-color:#eee; border:2px outset #aaa; display:inline-block; border-radius:10px;">
-    	<div id="orig" class="plot">
-    		<img src="{{ object.origImg.normal.url }}" width=100%/>
-    		<h5 style="text-align:center;">Candidate</h5>
-    	</div><!--orig-->
-    	<div id="ref" class="plot">
-    		<img src="{{ object.refImg.normal.url }}" width=100%/>
-    		<h5 style="text-align:center;">Reference</h5>
-    	</div><!--ref-->
-    	<div id="subtraction" class="plot">
-    		<img src="{{ object.subtImg.normal.url }}" width=100%/>
-    		<h5 style="text-align:center;">Subtraction</h5>
-    	</div><!--subtraction-->
-    </div><!-- all_plots -->
 
-    <h5>Meta data</h5>
+<div class="card my-3">
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <img src="{{ object.origImg.normal.url }}" width=100%/>
+          <h5 style="text-align:center;">Candidate</h5>
+        </div>
+        <div class="col">
+          <img src="{{ object.refImg.normal.url }}" width=100%/>    
+          <h5 style="text-align:center;">Reference</h5>
+        </div>
+        <div class="col">
+          <img src="{{ object.subtImg.normal.url }}" width=100%/>
+          <h5 style="text-align:center;">Subtraction</h5>
+        </div>
+      </div>
+
+  <div class="my-5">
+    <button class="btn btn-primary">Meta data</button>
     {% include "winnow/trans_cand_infobox.html" %}
+  </div>
 
-	<h5>Ranking</h5>
-	<div id=barplot>
-	</div>
-	<script src="{% static 'js/barplot.js' %}"></script>
+    <div class="row">
+        <div class="col">
+          <h5>Ranking</h5>
+          <div id=barplot></div>
+          <script src="{% static 'js/barplot.js' %}"></script>
+        </div>
+        <div class="col">
+    {% if interesting_count != "0" %}
+          <h5>Likes</h5>
+          <p>It has been marked interesting {{ interesting_count }} time{%if interesting_count != "1" %}s{% endif %} by:</p>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+    {% for name in interesting_user_list %}
+            <li><a href="{% url 'winnow:profile_detail' name %}">{{ name }}</a></li>
+    {% endfor %}
+          </ul>
+    {% endif %}
+        </div>
+    </div>
+
+{% get_comment_count for object as comment_count %}
+{% if comment_count == 0 %}
+    <h5>This object has no comments.</h5>
+{% else %}
+    <h5>This object has {{ comment_count }} comment{% if comment_count != 1 %}s{% endif %}</h5>
+{% render_comment_list for object %}
+{% endif %}
+    <br>
+
+{% if user.is_authenticated %}
+{% render_comment_form for object %}
+{% endif %}
+
+  </div>
+</div>
+
 	
-	<h5>Likes</h5>
-		{% if interesting_count != 0 %}
-		It has been marked interesting {{ interesting_count }} time{%if interesting_count != "1" %}s{% endif %} by:<br>
-		<ul style="list-style: none; padding: 0; margin: 0;">
-		{% for name in interesting_user_list %}
-			<li><a href="{% url 'winnow:profile_detail' name %}">{{ name }}</a></li>
-		{% endfor %}
-	    </ul>
-		<br>
-		{% endif %}
+
 			
-		{% get_comment_count for winnow.transientcandidate object.pk as comment_count %}
-		<h5>This object has {{ comment_count }} comment{%if comment_count != "1" %}s{% endif %}</h5>
-		{% render_comment_list for winnow.transientcandidate object.pk %}
-		<br>
+
 		
-		{% if user.is_authenticated %}
-		<form id="page_form" method="post" action="{% url 'winnow:object_detail' object.slug %}">
-		{% csrf_token %}
-		<input type="hidden" value="{{ object.pk }}" name="tc_id">
-		<p>Enter your comment below</p>
-		<textarea name="comment" rows="5" cols="50" wrap="soft" maxlength="3000"></textarea>
-		<br>
-		<input type="submit" name="submit" value="Comment" />
-		</form>
-		{% endif %}
-		
-	</section>
 {% endblock %}
