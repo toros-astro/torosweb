@@ -28,70 +28,63 @@
   <div class="col-sm-9">
  {% block winnow_content %}{% endblock %}
   </div>
+</nav>
+
+
   <div class="col-sm-3">
-	<div class="card">
-	  <div class="card-body">
-	<ul>
-		<li>
-			<h4>Latest interesting objects</h4>
-			{% get_top3interesting as top3int %}
-        	<ul>
-				{% if top3int %}
-				{% for astro_object in top3int %}                    	
-					<a href="{% url 'winnow:object_detail' astro_object.slug %}">
-					<li class="sidebarInteresting">
-					<img src="{{ astro_object.subtImg.thumbnail.url }}" width="40" height="40" align=bottom>
-					{{ astro_object }}
-					</li>
-					</a>
-				{% endfor %}
-				{% else %}
-				<li class="sidebarInteresting">No objects found for this list.</li>
-				{% endif %}
+	<nav class="navbar bg-light">
+		<ul class="navbar-nav">
+		<li class="nav-item"><a class="nav-link">Latest Interesting objects</a>
+		{% get_top3interesting as top3int %}
+          <ul class="navbar-nav">
+		{% if top3int %}
+		{% for astro_object in top3int %}                    	
+			<a href="{% url 'winnow:object_detail' astro_object.slug %}">
+			<li class="nav-item small muted">
+			<img src="{{ astro_object.subtImg.thumbnail.url }}" width="40" height="40">
+			{{ astro_object }}
+			</li>
+			</a>
+			{% endfor %}
+			{% else %}
+			<li class="nav-item small">No interesting objects so far.</li>
+			{% endif %}
         	</ul>
 		</li>
-		{% comment %}
-		<li>
-			<h4>Latest comments</h4>
+		<hr>
+
+		<li class="nav-item"><a class="nav-link">Latest comments</a></li>
 			{% get_last3comments as last3comm %}
-        	<ul>
+        	<ul class="navbar-nav">
 			{% if last3comm %}
 				{% for comment in last3comm %}
-				<li class="sidebarInteresting">
-				{% get_userprofile comment.user_name as userprofile %}
-			    <a href="{% url 'winnow:profile_detail' comment.user_name %}">
-				{% if userprofile.picture %} 
-					<div class="profilethumb" style="background-image:url({{ userprofile.picture.thumbnail.url }}); float:left;"></div>
+				<li class="nav-item small">
+			    <a href="{% url 'account:profile' comment.user %}">
+				{% if user.picture %} 
+					<div class="profilethumb" style="background-image:url({{ user.picture.thumbnail.url }}); float:left;"></div>
 				{% else %} 
 					<div class="profilethumb" style="background-image:url(/media/profile_images/default.thumbnail.png); float:left;"></div>
 				{% endif %}
 				</a>
-            	On {{comment.submit_date}} <a href="{% url 'winnow:profile_detail' comment.user_name %}">{{comment.user_name}}</a>
+            	On {{comment.submit_date}} <a href="{% url 'account:profile' comment.user %}">{{ comment.user }}</a>
 				commented on <a href="{% url 'winnow:object_detail' comment.content_object.slug %}">object {{ comment.content_object.slug }}:</a>
-				<br clear=all>
             	"{{ comment.comment }}"
-				<br>
-				<hr>
 			    </li>
 				{% endfor %}
 			{% else %}
-				<li class="sidebarInteresting">No comments to show.</li>
+				<li class="nav-item small">No comments to show.</li>
 			{% endif %}
          	</ul>
 		</li>
-		{% endcomment %}
-		<li>
-			<h4>Most voted objects</h4>
-        	<ul>
-                {% for i in "123" %}
-                    <li class="sidebarInteresting">Interesting object {{i}}</li>
-                {% endfor %}
-            </ul>
-		</li>
+		<hr>
+
+		<li class="nav-item">Most voted objects</li>
+		  <ul class="navbar-nav">{% for i in "123" %}
+            <li class="nav-item small">Interesting object {{i}}</li>
+            {% endfor %}
+          </ul>
 		</ul>
-	  </div class="card-body">
-    </div class="card">
-  </div>
+	  </div class="col-sm-3">
 </div>				
 
 {% comment %}

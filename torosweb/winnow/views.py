@@ -41,25 +41,24 @@ def rank(request):
             tc_id = int(request.POST.get('tc_id'))
             tc = TransientCandidate.objects.get(pk=tc_id)
     else:
-        # Fetch any tc not ranked yet
-        ds = Dataset.objects.filter(isCurrent=True).reverse().first()
-        tc = TransientCandidate.objects.filter(dataset=ds).\
-            exclude(ranking__in=Ranking.objects.all()).first()
-        if tc is None:
-            # Fetch any tc not ranked by the current user
-            try:
-                ds = Dataset.objects.filter(isCurrent=True).reverse()[0]
-                tc = TransientCandidate.objects.filter(dataset=ds)\
-                    .exclude(
-                        ranking__in=Ranking.objects.filter(ranker=request.user))[0]
-            except IndexError:
-                tc = None
-
-        if tc is None:
-            tc_id = -1
+        if request.user.is_authenticated:
+            # Fetch any tc not ranked yet
+            ds = Dataset.objects.filter(isCurrent=True).reverse().first()
+            tc = TransientCandidate.objects.filter(dataset=ds).\
+                exclude(ranking__in=Ranking.objects.all()).first()
+            if tc is None:
+                # Fetch any tc not ranked by the current user
+                try:
+                    ds = Dataset.objects.filter(isCurrent=True).reverse()[0]
+                    tc = TransientCandidate.objects.filter(dataset=ds)\
+                        .exclude(
+                            ranking__in=Ranking.objects.filter(ranker=request.user))[0]
+                except IndexError:
+                    tc = None
         else:
-            tc_id = tc.id
+            tc = None
 
+        tc_id = -1 if tc is None else tc.id
         form = RankingForm()
 
     return render(request, 'winnow/rank.html',
@@ -76,36 +75,12 @@ def object_detail(request, object_slug):
     int_users_list = UserModel.objects.filter(ranking=ranked_interesting)
     int_counts = len(int_users_list)
 
-    # if request.method == "POST":
-    #     if request.user.is_authenticated():
-    #         # Save the comment if there is one.
-    #         # comment_text = request.POST.get('comment')
-    #         # if len(comment_text) > 0:
-    #         #     # save the comment
-    #         #     new_comment = Comment()
-    #         #     new_comment.user = request.user
-    #         #     new_comment.user_name = request.user.username
-    #         #     new_comment.user_email = request.user.email
-    #         #     new_comment.user_url = \
-    #         #         UserModel.objects.get(user=request.user).website
-    #         #     new_comment.comment = comment_text
-    #         #     new_comment.site = get_current_site(request)
-    #         #     new_comment.content_object = trans_obj
-    #         #     new_comment.save()
-
     return render(request, 'winnow/trans_detail.html',
                   {'object': trans_obj, 'interesting_count': str(int_counts),
                    'interesting_user_list': int_users_list})
 
 
 def data(request):
-    if not request.user.is_superuser:
-        context = {}
-        context['message'] = {
-            'headline': "Access denied",
-            'body': "You need to be a logged in superuser to view this page"}
-        return render(request, 'winnow/message.html', context)
-
     from django.db.models import Sum
     if request.method == 'POST':
         dataset = request.POST['dataset']
