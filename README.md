@@ -10,7 +10,7 @@ This website was designed to work with python 3.6 and Django v1.11.7.
 
 ### Clone the repository
 ```
-git clone git@github.com:toros-astro/toroswebsite.git
+git clone git@github.com:toros-astro/torosweb.git
 ```
 
 ### Install the requirements, preferably on a virtual environment
