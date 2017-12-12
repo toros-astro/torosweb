@@ -7,11 +7,6 @@ from .forms import ExperimentForm
 from django.contrib.auth import get_user_model
 
 
-# For the comments
-# from django_comments.models import Comment
-# from django.contrib.sites.shortcuts import get_current_site
-
-
 def rank(request):
     if request.method == "POST":
         form = RankingForm(request.POST)
@@ -140,8 +135,8 @@ def rbmanager(request):
                 # Create and save the associated features
                 all_features = []
                 for name, description in exp_form.cleaned_data['features']:
-                    new_feat, created = Feature.objects.\
-                        get_or_create(name=name.lower())
+                    new_feat, created = Feature.objects.get_or_create(
+                        name=name.lower())
                     if description != '' and (new_feat.description is None
                                               or new_feat.description == ''):
                         new_feat.description = description
