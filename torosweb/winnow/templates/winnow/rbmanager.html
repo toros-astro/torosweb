@@ -10,7 +10,7 @@
 {% block winnow_content %}
 
 <div class="container-fluid">
-  <h1>Real-Bogus Classifier</h1>
+  <h1 class="mt-5">Real-Bogus Classifier</h1>
 
   <h3>Browse past experiments or input a new one</h3>
 
@@ -21,34 +21,40 @@
     </div>
     {% endif %}
 
-  <div class="card">
-    <div class="card-header bg-primary text-white">Enter your experiment here</div>
-    <div class="card-body">
-      <form role="form" method="post" action="{% url 'winnow:rbmanager' %}">
-        {% csrf_token %}
-        {% for field in exp_form %}
-        <div class="form-group">
-        {% if field.field.required %}
-        <span class="required">{{ field.label_tag }}</span>
-        {% else %}
-        {{ field.label_tag }}
-        {% endif %}
-        {{ field }}
-        {% for error in field.errors %}
-        <i>({{ error }})</i>
-        {% endfor %}
-        </div class="form-group">
-        {% endfor %}
-        <input name="submit" class="btn btn-default" value="Submit" type="submit" />
-        </form>
+  <div class="card my-4">
+    <div class="card-header bg-primary">
+      <a class="collapsed card-link text-white" data-toggle="collapse" href="#newexpform">
+      Enter your new experiment here <span class="caret"></span>
+      </a>
+    </div>
+    <div id="newexpform" class="collapse">
+      <div class="card-body">
+        <form role="form" method="post" action="{% url 'winnow:rbmanager' %}">
+          {% csrf_token %}
+          {% for field in exp_form %}
+          <div class="form-group">
+          {% if field.field.required %}
+          <span class="required">{{ field.label_tag }}</span>
+          {% else %}
+          {{ field.label_tag }}
+          {% endif %}
+          {{ field }}
+          {% for error in field.errors %}
+          <i>({{ error }})</i>
+          {% endfor %}
+          </div class="form-group">
+          {% endfor %}
+          <input name="submit" class="btn btn-default" value="Submit" type="submit" />
+          </form>
+      </div>
     </div>
   </div>
 
 
 
-<div class="panel panel-primary">
-  <div class="panel-heading">Latest Experiments</div>
-  <div class="panel-body">
+<div class="card">
+  <div class="card-header bg-primary text-white">Latest Experiments</div>
+  <div class="card-body">
     {% if experiment_list %}
     <div class="table-responsive">
         <table class="table table-bordered table-hover">
@@ -90,12 +96,12 @@
           <tr>
             <td>{{ exp.pk }}</td>
             <td>{{ exp.date }}</td>
-            <td><a href="{% url 'winnow:profile_detail' exp.user %}">{{ exp.user }}</a></td>
+            <td><a href="{% url 'account:profile' exp.user %}">{{ exp.user }}</a></td>
             <td>
               <a data-toggle="modal" data-target="#datasetmodal">
                 {{ exp.dataset }}
               </a>
-                {% include "dataset_modal.html" with dataset_object=exp.dataset %}
+                {% include "winnow/dataset_modal.html" with dataset_object=exp.dataset %}
             </td>
             <td>{{ exp.alg_name }} </td>
             <td>
@@ -149,8 +155,8 @@
     {% else %}
     <p>No experiments to show</p>
     {% endif %}
-  </div class="panel-body">
-</div class="panel panel-primary">
+  </div class="card-body">
+</div class="card bg-primary">
 
 </div class="container-fluid">
 
