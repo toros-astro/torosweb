@@ -11,11 +11,13 @@
 {% if not object %}
 <p>There are no objects to classify.</p>
 {% else %}
-<div class="card my-3">
-	<div class="card-header">
-		<h1>Is this a real transient?</h1>
-	</div>
-	<div class="card-body">
+    <div class="card my-3">
+	    <div class="card-header">
+		    <h1>Is this a real transient?</h1>
+	    </div>
+
+    <div class="card-body">
+
       <div class="row">
       	<div class="col">
       	  <img src="{{ object.origImg.normal.url }}" width=100%/>
@@ -30,40 +32,55 @@
 	      <h5 style="text-align:center;">Subtraction</h5>
         </div>
       </div>
-  <div class="my-5">
-    <button class="btn btn-primary" data-toggle="collapse" data-target="#metadata">Meta data</button>
-    <div id="metadata" class="collapse show">
-    {% include "winnow/trans_cand_infobox.html" %}
- 	</div>
-  </div class="my-5">
-	<form id="page_form" method="post" action="{% url 'winnow:rank' %}">
-	<input type="hidden" value="{{ object.pk }}" name="tc_id">
-	{% csrf_token %}
 
-	<div class="form-check form-check-inline">
-  	  <label class="form-check-label">
-        <input class="form-check-input" type="radio" name="rank" id="id_rank_0" value="1"> Yes
-      </label>
-    </div>
-    <div class="form-check form-check-inline">
-  	  <label class="form-check-label">
-        <input class="form-check-input" type="radio" name="rank" id="id_rank_1" value="-1" checked> No
-      </label>
-    </div>
-    <div class="form-check form-check-inline">
-  	  <label class="form-check-label">
-        <input class="form-check-input" type="radio" name="rank" id="id_rank_2" value="0"> I don't know
-      </label>
-    </div>
-    <div class="form-check">
-    <label class="form-check-label">
-      <input class="form-check-input" type="checkbox" name="isInteresting"> Mark as interesting
-    </label>
-    </div>
-	<input type="submit" class="btn btn-primary" name="submit" value="Rank Transient" />
-	</form>
-  </div class="card-body">
-</div class="card">
+        <form id="page_form" method="post" action="{% url 'winnow:rank' %}">
+        <input type="hidden" value="{{ object.pk }}" name="tc_id">
+        {% csrf_token %}
+
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="rank" id="id_rank_0" value="1"> Yes
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="rank" id="id_rank_1" value="-1" checked> No
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="rank" id="id_rank_2" value="0"> I don't know
+          </label>
+        </div>
+        <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" name="isInteresting"> Mark as interesting
+        </label>
+        </div>
+        <input type="submit" class="btn btn-primary" name="submit" value="Rank Transient" />
+        </form>
+
+    <div class="my-5">
+        <div id="examples" class="collapse">
+            {% include "winnow/training_examples.html" %}
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-primary" data-toggle="collapse" data-target="#examples">Show Examples</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-primary" data-toggle="collapse" data-target="#metadata">Meta data</button>
+            </div>
+        </div>
+
+        <div id="metadata" class="collapse show">
+            {% include "winnow/trans_cand_infobox.html" %}
+        </div>
+    </div class="my-5">
+
+    </div class="card-body">
+    </div class="card">
 {% endif %}
 {% endif %}
 {% endblock %}
