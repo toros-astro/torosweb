@@ -4,7 +4,9 @@
 <div class="card">
 {% if the_user %}
   <div class="card-header">
-    <a href="{{ the_user.picture.url }}"><img alt="" src="{{ the_user.picture.thumbnail.url }}"/></a>
+    {% if the_user.picture %}
+      <a href="{{ the_user.picture.url }}"><img alt="" src="{{ the_user.picture.thumbnail.url }}"/></a>
+    {% endif %}
     Profile for
 {% if the_user.get_full_name %}
 {{ the_user.get_full_name}}
