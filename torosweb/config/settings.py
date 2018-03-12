@@ -155,5 +155,4 @@ FLUENT_COMMENTS_USE_EMAIL_NOTIFICATION = False
 try:
     from .local_settings import *  # noqa
 except ImportError:
-    print("Could not import")
     pass
