@@ -22,3 +22,4 @@ class User(AbstractUser):
         'thumbnail': (100, 100, True),
         'medium': (200, 200),
     })
+    is_active = models.BooleanField(_('active'), default=False)
