@@ -7,7 +7,7 @@ class Activity(models.Model):
     activity = models.CharField(max_length=500)
     email = models.EmailField(max_length=70, blank=True, null=True)
     phone = models.CharField(max_length=20)
-    STATUS_CHOICES = [('ok', 'Accepted'),
+    STATUS_CHOICES = [('ok', 'Approved'),
                       ('no', 'Rejected'),
                       ('pe', 'Pending'),
                       ]
