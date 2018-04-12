@@ -1,0 +1,28 @@
+{% extends 'site_base.html' %}
+{% block title %}CTMO Inauguration{% endblock %}
+{% block content %}
+  <h2>Enter your activity here</h2>
+  <p>Some special note</p>            
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>School</th>
+        <th>Email</th>
+        <th>Phone #</th>
+        <th>Activity</th>
+      </tr>
+    </thead>
+    <tbody>
+{% for act in activities %}
+      <tr>
+        <td>{{ act.name }}</td>
+        <td>{{ act.school }}</td>
+        <td>{{ act.email }}</td>
+        <td>{{ act.phone }}</td>
+        <td>{{ act.activity }}</td>
+      </tr>
+{% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

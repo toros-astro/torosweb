@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'fluent_comments',
     'crispy_forms',
     'django_comments',
+    'ctmoinaug',
 ] + WIKI_APPS
 
 MIDDLEWARE = [

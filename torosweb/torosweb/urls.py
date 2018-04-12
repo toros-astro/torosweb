@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^wiki/', get_wiki_pattern()),
     url(r'^winnow/', include('winnow.urls', namespace='winnow')),
     url(r'^comments/', include('fluent_comments.urls')),
+    url(r'^inauguration/', include('ctmoinaug.urls', namespace='ctmoinaug')),
 ]
 
 from django.conf import settings
