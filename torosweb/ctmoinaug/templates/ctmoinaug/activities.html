@@ -1,15 +1,17 @@
 {% extends 'site_base.html' %}
 {% block title %}CTMO Inauguration{% endblock %}
 {% block content %}
-  <h2>Enter your activity here</h2>
-  <p>Some special note</p>            
+  <h2>Activities for the inauguration of the CTMO Observatory</h2>
+  <p>Your phone number and email will not appear after you enter them.</p>            
   <table class="table table-striped">
     <thead>
       <tr>
         <th>Name</th>
         <th>School</th>
+{% if user.username == "mcastillo" %}
         <th>Email</th>
         <th>Phone #</th>
+{% endif %}
         <th>Activity</th>
       </tr>
     </thead>
@@ -18,14 +20,17 @@
       <tr>
         <td>{{ act.name }}</td>
         <td>{{ act.school }}</td>
+{% if user.username == "admin" %}
         <td>{{ act.email }}</td>
         <td>{{ act.phone }}</td>
+{% endif %}
         <td>{{ act.activity }}</td>
       </tr>
 {% endfor %}
     </tbody>
   </table>
 
+<h2>Enter new activity here:</h2>
 <form method="POST" class="post-form">{% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="save btn btn-default">Save</button>
