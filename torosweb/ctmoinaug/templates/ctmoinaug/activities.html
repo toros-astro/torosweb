@@ -8,7 +8,7 @@
       <tr>
         <th>Name</th>
         <th>School</th>
-{% if user.username == "mcastillo" %}
+{% if do_disclose %}
         <th>Email</th>
         <th>Phone #</th>
 {% endif %}
@@ -21,7 +21,7 @@
       <tr>
         <td>{{ act.name }}</td>
         <td>{{ act.school }}</td>
-{% if user.username == "mcastillo" %}
+{% if do_disclose %}
         <td>{{ act.email }}</td>
         <td>{{ act.phone }}</td>
 {% endif %}
