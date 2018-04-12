@@ -13,6 +13,7 @@
         <th>Phone #</th>
 {% endif %}
         <th>Activity</th>
+        <th>Status</th>
       </tr>
     </thead>
     <tbody>
@@ -20,11 +21,18 @@
       <tr>
         <td>{{ act.name }}</td>
         <td>{{ act.school }}</td>
-{% if user.username == "admin" %}
+{% if user.username == "mcastillo" %}
         <td>{{ act.email }}</td>
         <td>{{ act.phone }}</td>
 {% endif %}
         <td>{{ act.activity }}</td>
+{% if act.status == "pe" %}
+        <td><button type="button" class="btn btn-primary" disabled>{{ act.get_status_display }}</button></td>
+{% elif act.status == "ok" %}
+        <td><button type="button" class="btn btn-success" disabled>{{ act.get_status_display }}</button></td>
+{% else %}
+        <td><button type="button" class="btn btn-danger" disabled>{{ act.get_status_display }}</button></td>
+{% endif %}
       </tr>
 {% endfor %}
     </tbody>
