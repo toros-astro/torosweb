@@ -11,7 +11,6 @@ def activity_detail(request):
     else:
         form = ActivityForm()
     can_see_info = request.user.groups.filter(name='ctmo_admin').exists()
-    print(can_see_info)
     activities = Activity.objects.all()
     return render(request, 'ctmoinaug/activities.html', 
                   {'activities': activities, 'form': form,

@@ -2,12 +2,15 @@
 {% block title %}CTMO Inauguration{% endblock %}
 {% block content %}
   <h2>Activities for the inauguration of the CTMO Observatory</h2>
-  <p>Your phone number and email will not appear after you enter them.</p>            
+  <p>Your phone number and email will not appear after you enter them.</p> 
+  <!-- Button to Open the Modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newactform">Enter new activity here</button>
+
   <table class="table table-striped">
     <thead>
       <tr>
         <th>Name</th>
-        <th>School</th>
+        <th>Organization</th>
 {% if do_disclose %}
         <th>Email</th>
         <th>Phone #</th>
@@ -20,7 +23,7 @@
 {% for act in activities %}
       <tr>
         <td>{{ act.name }}</td>
-        <td>{{ act.school }}</td>
+        <td>{{ act.organization }}</td>
 {% if do_disclose %}
         <td>{{ act.email }}</td>
         <td>{{ act.phone }}</td>
@@ -38,9 +41,66 @@
     </tbody>
   </table>
 
-<h2>Enter new activity here:</h2>
-<form method="POST" class="post-form">{% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="save btn btn-default">Save</button>
+<!-- The Modal -->
+<div class="modal fade" id="newactform">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Activity</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form method="POST" class="post-form">{% csrf_token %}
+
+    <label for="id_name">Name:</label><br>
+  <input type="text" class="form-control" name="name" maxlength="100" required id="id_name" />
+<label for="id_organization">Organization:</label><br>
+  <input type="text" class="form-control" name="organization" maxlength="100" required id="id_organization" />
+<label for="id_activity">Activity:</label><br>
+  <input type="text" class="form-control" name="activity" maxlength="500" required id="id_activity" />
+<label for="id_description">Brief Description:</label><br>
+<textarea class="form-control" name="description" cols="40" rows="4" id="id_description"></textarea>
+<br>
+<label for="id_email">Email:</label><br> <input type="email" class="form-control" name="email" maxlength="70" id="id_email" />
+<label for="id_phone">Phone:</label><br> <input type="text" class="form-control" name="phone" maxlength="20" required id="id_phone" />
+<fieldset>
+  <legend>Additional Requirements</legend>
+  <div>
+    <input type="checkbox" name="requires_power" id="id_requires_power">
+    <label for="id_requires_power">Power</label>
+  </div>
+  <div>
+    <input type="checkbox" name="requires_table" id="id_requires_table">
+    <label for="id_requires_table">Table</label>
+  </div>
+  <div>
+    <input type="checkbox" name="requires_chair" id="id_requires_chair">
+    <label for="id_requires_chair">Chair</label>
+  </div>
+  <div>
+    <input type="checkbox" name="requires_volunteer" id="id_requires_volunteer">
+    <label for="id_requires_volunteer">Volunteer (depends on availability)</label>
+  </div>
+</fieldset>
+<label for="id_comment">Additional Comments:</label><br>
+<textarea class="form-control" name="comment" cols="40" rows="4" id="id_comment"></textarea>
+
+
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+<button type="submit" class="save btn btn-success">Save</button>
+      </div>
 </form>
+
+    </div>
+  </div>
+</div>
+
+
 {% endblock %}
