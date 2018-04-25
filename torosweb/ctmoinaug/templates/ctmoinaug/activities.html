@@ -1,8 +1,14 @@
 {% extends 'site_base.html' %}
+{% load static %}
 {% block title %}CTMO Inauguration{% endblock %}
 {% block content %}
   <h2>Activities for the inauguration of the CTMO Observatory</h2>
   <p>Your phone number and email will not appear after you enter them.</p> 
+
+  <h5>Check our poster</h5>
+  <a href="{% static 'poster_ctmo_inaug.pdf' %}" target="_blank">Poster</a> <a href="{% static 'poster_ctmo_inaug_ES.pdf' %}" target="_blank">(Spanish version)</a><br>
+  <a href="{% static 'flyer_ctmo_inaug.pdf' %}" target="_blank">Flyer</a> <a href="{% static 'flyer_ctmo_inaug_ES.pdf' %}" target="_blank">(Spanish version)</a><br>
+  <p>Feel free to download and distribute them!</p>
   <!-- Button to Open the Modal -->
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newactform">Enter new activity here</button>
 
