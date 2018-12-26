@@ -117,12 +117,28 @@ targetsjson = """{
 }
 """
 
-url_uploadjson = 'http://127.0.0.1:8000/broker/uploadjson/'
+site_url = 'http://127.0.0.1:8000/'
+url_login = site_url + 'account/login/'
+url_uploadjson = site_url + 'broker/uploadjson/'
+url_logout = site_url + 'account/logout/'
 
 import requests
-response = requests.post(url_uploadjson, data={'targets.json': targetsjson})
 
-if response.ok:
-    print("The targets have been loaded successfully.")
-else:
-    print("Error: Could not upload target list using HTTP post method.")
+# Log into a session with our user
+client = requests.session()
+client.get(url_login)
+csrftoken = client.cookies['csrftoken']
+login_data = {'username':'admin',
+              'password':'1234',
+              'csrfmiddlewaretoken':csrftoken,
+              }
+r1 = client.post(url_login, data=login_data)
+
+sessionid = client.cookies['sessionid']
+loadjson_data = {'targets.json':targetsjson,
+                 'csrfmiddlewaretoken':csrftoken,
+                 'sessionid': sessionid}
+r2 = client.post(url_uploadjson, data=loadjson_data)
+
+# Log out
+r3 = client.get(url_logout, data={'sessionid': sessionid})

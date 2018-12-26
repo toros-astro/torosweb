@@ -4,7 +4,7 @@ from django.http import HttpResponse, HttpResponseBadRequest
 from django.db.models import Q
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
-from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.decorators import login_required, user_passes_test
 
 
 def process_assignment_form(request):
@@ -164,6 +164,7 @@ def index(request, alert_name=None):
     return render(request, 'broker/index.html', context, status=status)
 
 
+@login_required
 @require_POST
 @csrf_exempt
 def uploadjson(request):
