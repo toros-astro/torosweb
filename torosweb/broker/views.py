@@ -178,14 +178,14 @@ def uploadjson(request):
         dt = pytz.utc.localize(dt)
         thealert = Alert(grace_id=alert["graceid"], datetime=dt)
         thealert.save()
-        for obs_name, obs_assgn in alert["assignments"].iteritems():
+        for obs_name, obs_assgn in alert["assignments"].items():
             name_lookup = (Q(name__contains=obs_name) |
                            Q(short_name__contains=obs_name))
             try:
                 theobs = Observatory.objects.get(name_lookup)
             except:
                 continue
-            for obj, prob in obs_assgn.iteritems():
+            for obj, prob in obs_assgn.items():
                 try:
                     theobj = GWGCCatalog.objects.get(name=obj)
                 except:
