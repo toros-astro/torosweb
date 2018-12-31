@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Assignment, Observatory, Alert, GWGCCatalog
+from .models import Assignment, Observatory, SuperEvent, GWGCCatalog, GCNNotice
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.db.models import Q
 from django.views.decorators.csrf import csrf_exempt
@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 
 
 def process_assignment_form(request):
-    the_alert = Alert.objects.filter(pk=request.POST['alert_id']).get()
+    the_alert = SuperEvent.objects.filter(pk=request.POST['alert_id']).get()
     obs_id = int(request.POST['obs_id'])
     obs = Observatory.objects.get(pk=obs_id)
 
@@ -55,7 +55,7 @@ def process_upload_target_form(request):
 
     assgn_text = request.POST.get('assignments', '')
     alert_id = request.POST.get('alert', None)
-    thealert = Alert.objects.get(pk=alert_id)
+    thealert = SuperEvent.objects.get(pk=alert_id)
 
     was_error = False
     error_msg = []
@@ -123,12 +123,12 @@ def index(request, alert_name=None):
     if request.method == 'POST' and 'upload_target' not in request.POST:
         status, context['errors'] = process_assignment_form(request)
 
-    context['alerts'] = Alert.objects.order_by('-datetime')
+    context['alerts'] = SuperEvent.objects.order_by('-datetime')
 
     if alert_name is None:
-        the_alert = Alert.objects.order_by('-datetime').first()
+        the_alert = SuperEvent.objects.order_by('-datetime').first()
     else:
-        the_alert = Alert.objects.filter(grace_id=alert_name).first()
+        the_alert = SuperEvent.objects.filter(grace_id=alert_name).first()
     context['the_alert'] = the_alert
 
     context['all_assingments'] = Assignment.objects\
@@ -177,7 +177,7 @@ def uploadjson(request):
         alert = json.loads(request.POST["targets.json"])
         dt = d.datetime.strptime(alert["datetime"], "%Y-%m-%dT%H:%M:%S.%f")
         dt = pytz.utc.localize(dt)
-        thealert = Alert(grace_id=alert["graceid"], datetime=dt)
+        thealert = SuperEvent(grace_id=alert["graceid"], datetime=dt)
         thealert.save()
         for obs_name, obs_assgn in alert["assignments"].items():
             name_lookup = (Q(name__contains=obs_name) |
