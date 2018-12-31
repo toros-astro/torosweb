@@ -123,35 +123,35 @@ def index(request, alert_name=None):
     if request.method == 'POST' and 'upload_target' not in request.POST:
         status, context['errors'] = process_assignment_form(request)
 
-    context['alerts'] = SuperEvent.objects.order_by('-datetime')
+    context['alerts'] = GCNNotice.objects.order_by('-datetime')
 
     if alert_name is None:
-        the_alert = SuperEvent.objects.order_by('-datetime').first()
+        the_alert = GCNNotice.objects.order_by('-datetime').first()
     else:
-        the_alert = SuperEvent.objects.filter(grace_id=alert_name).first()
+        the_alert = GCNNotice.objects.filter(superevent__grace_id=alert_name).first()
     context['the_alert'] = the_alert
 
     context['all_assingments'] = Assignment.objects\
-        .filter((Q(is_taken=True) | Q(was_observed=True)), alert=the_alert)\
+        .filter((Q(is_taken=True) | Q(was_observed=True)), gcnnotice=the_alert)\
         .order_by('target__name')
 
     selected_targets = Assignment.objects.filter(
-        alert=the_alert, is_taken=True).count()
+        gcnnotice=the_alert, is_taken=True).count()
     context['selected_targets'] = selected_targets
 
     observed_targets = Assignment.objects.filter(
-        alert=the_alert, was_observed=True).count()
+        gcnnotice=the_alert, was_observed=True).count()
     context['observed_targets'] = observed_targets
 
     def taken_by_others(asg):
-        other_assng = Assignment.objects.filter(alert=the_alert)\
+        other_assng = Assignment.objects.filter(gcnnotice=the_alert)\
             .exclude(observatory=asg.observatory)\
             .filter(is_taken=True, target=asg.target)
         return other_assng.exists()
 
     assn_per_obs = []
     for obs in Observatory.objects.all():
-        assgnms = Assignment.objects.filter(alert=the_alert, observatory=obs)
+        assgnms = Assignment.objects.filter(gcnnotice=the_alert, observatory=obs)
         for asg in assgnms:
             if (not asg.is_taken) and taken_by_others(asg):
                 asg.flag_unavailable = True

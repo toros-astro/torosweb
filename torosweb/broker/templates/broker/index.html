@@ -20,7 +20,7 @@
     <a class="nav-link dropdown-toggle" data-toggle="dropdown">{{the_alert}}<span class="caret"></span></a>
     <div class="dropdown-menu">
       {% for alert in alerts %}
-      <a class="dropdown-item" href="{% url 'broker:alert_detail' alert.grace_id %}">
+      <a class="dropdown-item" href="{% url 'broker:alert_detail' alert.superevent.grace_id %}">
           {{alert}} ({{alert.datetime | date:"N j, Y"}})
       </a>
       {% endfor %}
@@ -47,6 +47,7 @@
 </div>
 {% endif %}
 
+{% if is_admin %}
 <!-- Modal to upload targets manually -->
 <div class="modal fade" id="targetUploadModal">
   <div class="modal-dialog">
@@ -75,7 +76,7 @@
     </div class="modal-content">
   </div class="modal-dialog modal-sm">
 </div id="targetUploadModal" class="modal fade">
-
+{% endif %}
 <!-- Modal to generate circular -->
 <div class="modal fade" id="circularCreationModal">
   <div class="modal-dialog modal-lg">
@@ -86,7 +87,7 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body">
-    <p>TOROS Collaboration circular for the observations for the LVC alert {{ the_alert }} on {{ the_alert.datetime.date }}.</p>
+    <p>TOROS Collaboration circular for the observations for the LVC alert {{ the_alert.superevent }} on {{ the_alert.superevent.datetime.date }}.</p>
     <br>
     {% for obs, assignments_obs in assn_per_obs %}
     <p>{{obs.name}}:<br>
