@@ -8,17 +8,17 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 
 
 def process_assignment_form(request):
-    the_alert = SuperEvent.objects.filter(pk=request.POST['alert_id']).get()
+    the_alert = GCNNotice.objects.filter(pk=request.POST['alert_id']).get()
     obs_id = int(request.POST['obs_id'])
     obs = Observatory.objects.get(pk=obs_id)
 
-    obs_asg = Assignment.objects.filter(alert=the_alert, observatory=obs)
+    obs_asg = Assignment.objects.filter(gcnnotice=the_alert, observatory=obs)
 
     aretakenlist = [int(k) for k in request.POST.getlist('istaken[]')]
     areobservedlist = [int(k) for k in request.POST.getlist('wasobserved[]')]
 
     def taken_by_others(asg):
-        other_assng = Assignment.objects.filter(alert=the_alert)\
+        other_assng = Assignment.objects.filter(gcnnotice=the_alert)\
             .exclude(observatory=asg.observatory)\
             .filter(is_taken=True, target=asg.target)
         return other_assng.exists()
