@@ -62,6 +62,21 @@ class Alert(models.Model):
         return self.grace_id
 
 
+class GCNNotice(models.Model):
+    "Gamma-ray Coordinates Network Notice"
+    GCNORIGIN_OPTIONS = (('GW', 'Gravitational Wave'),
+                         ('GRB', 'Gamma Ray Burst'),
+                         ('OTH', 'Other'))
+    gcnorigin = models.CharField(
+        default='GW', max_length=3, choices=GCNORIGIN_OPTIONS)
+    GCNTYPE_OPTIONS = ((0, 'Preliminary'),
+                       (1, 'Initial'),
+                       (2, 'Update'),
+                       (3, 'Retraction'))
+    gcntype = models.IntegerField(default=0, choices=GCNTYPE_OPTIONS)
+    superevent = models.ForeignKey(Alert)
+
+
 class Assignment(models.Model):
     target = models.ForeignKey(GWGCCatalog)
     observatory = models.ForeignKey(Observatory)
