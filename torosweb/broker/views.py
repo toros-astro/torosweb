@@ -55,7 +55,7 @@ def process_upload_target_form(request):
 
     assgn_text = request.POST.get('assignments', '')
     alert_id = request.POST.get('alert', None)
-    thealert = SuperEvent.objects.get(pk=alert_id)
+    thealert = GCNNotice.objects.get(pk=alert_id)
 
     was_error = False
     error_msg = []
@@ -64,7 +64,7 @@ def process_upload_target_form(request):
         error_msq = ["You don't have enough permissions to upload targets."]
         return 403, error_msg
 
-    obss = filter(None, assgn_text.split(';'))
+    obss = list(filter(None, assgn_text.split(';')))
     for anobs_text in obss:
         split = anobs_text.split(':')
         try:
@@ -84,7 +84,7 @@ def process_upload_target_form(request):
         objs = [obj.strip() for obj in filter(None, obj_text.split(','))]
         for obj_prob in objs:
             try:
-                obj_prob_split = filter(None, obj_prob.split())
+                obj_prob_split = list(filter(None, obj_prob.split()))
                 if len(obj_prob_split) == 1:
                     obj = obj_prob_split[0]
                     prob = 0.0
@@ -103,7 +103,7 @@ def process_upload_target_form(request):
                 continue
             new_assgn = Assignment(
                 target=theobj, observatory=theobs,
-                alert=thealert, datetime=timezone.now(), probability=prob)
+                gcnnotice=thealert, datetime=timezone.now(), probability=prob)
             new_assgn.save()
 
     return (200, error_msg) if not error_msg else (400, error_msg)
