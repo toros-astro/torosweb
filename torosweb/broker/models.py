@@ -50,11 +50,17 @@ class Observatory(models.Model):
         verbose_name_plural = "observatories"
 
 
-class Alert(models.Model):
+class SuperEvent(models.Model):
     ligo_run = models.CharField("LIGO run", max_length=20,
                                 null=True, blank=True)
     grace_id = models.CharField("GraceDB ID", max_length=20)
-    alert_number = models.IntegerField(null=True, blank=True)
+    SETYPE_OPTIONS = (('T', 'Test'),
+                      ('M', 'Mock'),
+                      ('S', 'Production'),
+                      ('D', 'Drill'))
+    se_type = models.CharField(max_length=1, choices=SETYPE_OPTIONS, default='S', verbose_name="Super Event type")
+    was_retracted = models.BooleanField(default=False)
+    was_confirmed_GW = models.BooleanField(default=False)
     datetime = models.DateTimeField()
     description = models.TextField(null=True, blank=True)
 
@@ -62,10 +68,33 @@ class Alert(models.Model):
         return self.grace_id
 
 
+class GCNNotice(models.Model):
+    "Gamma-ray Coordinates Network Notice"
+    GCNORIGIN_OPTIONS = (('GW', 'Gravitational Wave'),
+                         ('GRB', 'Gamma Ray Burst'),
+                         ('OTH', 'Other'))
+    gcnorigin = models.CharField(
+        default='GW', max_length=3, choices=GCNORIGIN_OPTIONS, verbose_name="GCN Origin")
+    GCNTYPE_OPTIONS = ((0, 'Preliminary'),
+                       (1, 'Initial'),
+                       (2, 'Update'),
+                       (3, 'Retraction'))
+    gcntype = models.IntegerField(default=0, choices=GCNTYPE_OPTIONS, verbose_name="GCN Type")
+    superevent = models.ForeignKey(SuperEvent, verbose_name="Super Event")
+    datetime = models.DateTimeField()
+
+    class Meta():
+        verbose_name = "GCN Notice"
+        verbose_name_plural = "GCN Notices"
+
+    def __str__(self):
+        return "{} GCN for {}".format(self.get_gcntype_display(), self.superevent.grace_id)
+
+
 class Assignment(models.Model):
     target = models.ForeignKey(GWGCCatalog)
     observatory = models.ForeignKey(Observatory)
-    alert = models.ForeignKey(Alert)
+    gcnnotice = models.ForeignKey(GCNNotice)
     datetime = models.DateTimeField()
     is_taken = models.BooleanField(default=False)
     was_observed = models.BooleanField(default=False)
@@ -75,5 +104,5 @@ class Assignment(models.Model):
         obs_name = self.observatory.short_name
         if obs_name is None:
             obs_name = self.observatory
-        return "{} for obs {} for alert {}".format(
-            self.target, obs_name, self.alert)
+        return "{} for obs {} for {}".format(
+            self.target, obs_name, self.gcnnotice)

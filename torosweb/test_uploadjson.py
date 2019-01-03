@@ -1,7 +1,15 @@
 # Upload targets directly:
 targetsjson = """{
-  "graceid": "Test_debug",
-  "datetime": "2018-12-21T19:03:36.873627",
+  "alert": {
+    "ligo_run": "O3",
+    "graceid": "MS181101ab",
+    "SEtype": "T",
+    "datetime": "2018-11-01T22:22:46.654437"
+  },
+  "gcnnotice": {
+    "gcntype": "Initial",
+    "datetime": "2018-11-01T22:36:25"
+  },
   "assignments": {
     "EABA": {
       "PGC079541": 6.464510575796884e-05,

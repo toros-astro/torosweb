@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Assignment, Observatory, Alert, GWGCCatalog
+from .models import Assignment, Observatory, SuperEvent, GWGCCatalog, GCNNotice
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.db.models import Q
 from django.views.decorators.csrf import csrf_exempt
@@ -8,17 +8,17 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 
 
 def process_assignment_form(request):
-    the_alert = Alert.objects.filter(pk=request.POST['alert_id']).get()
+    the_alert = GCNNotice.objects.filter(pk=request.POST['alert_id']).get()
     obs_id = int(request.POST['obs_id'])
     obs = Observatory.objects.get(pk=obs_id)
 
-    obs_asg = Assignment.objects.filter(alert=the_alert, observatory=obs)
+    obs_asg = Assignment.objects.filter(gcnnotice=the_alert, observatory=obs)
 
     aretakenlist = [int(k) for k in request.POST.getlist('istaken[]')]
     areobservedlist = [int(k) for k in request.POST.getlist('wasobserved[]')]
 
     def taken_by_others(asg):
-        other_assng = Assignment.objects.filter(alert=the_alert)\
+        other_assng = Assignment.objects.filter(gcnnotice=the_alert)\
             .exclude(observatory=asg.observatory)\
             .filter(is_taken=True, target=asg.target)
         return other_assng.exists()
@@ -55,7 +55,7 @@ def process_upload_target_form(request):
 
     assgn_text = request.POST.get('assignments', '')
     alert_id = request.POST.get('alert', None)
-    thealert = Alert.objects.get(pk=alert_id)
+    thealert = GCNNotice.objects.get(pk=alert_id)
 
     was_error = False
     error_msg = []
@@ -64,7 +64,7 @@ def process_upload_target_form(request):
         error_msq = ["You don't have enough permissions to upload targets."]
         return 403, error_msg
 
-    obss = filter(None, assgn_text.split(';'))
+    obss = list(filter(None, assgn_text.split(';')))
     for anobs_text in obss:
         split = anobs_text.split(':')
         try:
@@ -84,7 +84,7 @@ def process_upload_target_form(request):
         objs = [obj.strip() for obj in filter(None, obj_text.split(','))]
         for obj_prob in objs:
             try:
-                obj_prob_split = filter(None, obj_prob.split())
+                obj_prob_split = list(filter(None, obj_prob.split()))
                 if len(obj_prob_split) == 1:
                     obj = obj_prob_split[0]
                     prob = 0.0
@@ -103,7 +103,7 @@ def process_upload_target_form(request):
                 continue
             new_assgn = Assignment(
                 target=theobj, observatory=theobs,
-                alert=thealert, datetime=timezone.now(), probability=prob)
+                gcnnotice=thealert, datetime=timezone.now(), probability=prob)
             new_assgn.save()
 
     return (200, error_msg) if not error_msg else (400, error_msg)
@@ -123,35 +123,35 @@ def index(request, alert_name=None):
     if request.method == 'POST' and 'upload_target' not in request.POST:
         status, context['errors'] = process_assignment_form(request)
 
-    context['alerts'] = Alert.objects.order_by('-datetime')
+    context['alerts'] = GCNNotice.objects.order_by('-datetime')
 
     if alert_name is None:
-        the_alert = Alert.objects.order_by('-datetime').first()
+        the_alert = GCNNotice.objects.order_by('-datetime').first()
     else:
-        the_alert = Alert.objects.filter(grace_id=alert_name).first()
+        the_alert = GCNNotice.objects.filter(superevent__grace_id=alert_name).first()
     context['the_alert'] = the_alert
 
     context['all_assingments'] = Assignment.objects\
-        .filter((Q(is_taken=True) | Q(was_observed=True)), alert=the_alert)\
+        .filter((Q(is_taken=True) | Q(was_observed=True)), gcnnotice=the_alert)\
         .order_by('target__name')
 
     selected_targets = Assignment.objects.filter(
-        alert=the_alert, is_taken=True).count()
+        gcnnotice=the_alert, is_taken=True).count()
     context['selected_targets'] = selected_targets
 
     observed_targets = Assignment.objects.filter(
-        alert=the_alert, was_observed=True).count()
+        gcnnotice=the_alert, was_observed=True).count()
     context['observed_targets'] = observed_targets
 
     def taken_by_others(asg):
-        other_assng = Assignment.objects.filter(alert=the_alert)\
+        other_assng = Assignment.objects.filter(gcnnotice=the_alert)\
             .exclude(observatory=asg.observatory)\
             .filter(is_taken=True, target=asg.target)
         return other_assng.exists()
 
     assn_per_obs = []
     for obs in Observatory.objects.all():
-        assgnms = Assignment.objects.filter(alert=the_alert, observatory=obs)
+        assgnms = Assignment.objects.filter(gcnnotice=the_alert, observatory=obs)
         for asg in assgnms:
             if (not asg.is_taken) and taken_by_others(asg):
                 asg.flag_unavailable = True
@@ -174,12 +174,34 @@ def uploadjson(request):
     from django.utils import timezone
     try:
         # Parse alert
-        alert = json.loads(request.POST["targets.json"])
+        targetsjson = json.loads(request.POST["targets.json"])
+        alert = targetsjson['alert']
         dt = d.datetime.strptime(alert["datetime"], "%Y-%m-%dT%H:%M:%S.%f")
         dt = pytz.utc.localize(dt)
-        thealert = Alert(grace_id=alert["graceid"], datetime=dt)
+        thealert = SuperEvent(
+            grace_id=alert["graceid"],
+            datetime=dt,
+            ligo_run=alert['ligo_run'],
+            se_type=alert['SEtype']
+            )
         thealert.save()
-        for obs_name, obs_assgn in alert["assignments"].items():
+        gcnnotice = targetsjson['gcnnotice']
+        dt = d.datetime.strptime(gcnnotice["datetime"], "%Y-%m-%dT%H:%M:%S")
+        dt = pytz.utc.localize(dt)
+        gcntype_translation = {
+            'Preliminary': 0,
+            'Initial': 1,
+            'Update': 2,
+            'Retraction': 3,
+            }
+        thegcn = GCNNotice(
+            gcnorigin='GW',
+            gcntype=gcntype_translation[gcnnotice['gcntype']],
+            datetime=dt,
+            superevent=thealert,
+            )
+        thegcn.save()
+        for obs_name, obs_assgn in targetsjson["assignments"].items():
             name_lookup = (Q(name__contains=obs_name) |
                            Q(short_name__contains=obs_name))
             try:
@@ -192,8 +214,12 @@ def uploadjson(request):
                 except:
                     continue
                 new_assgn = Assignment(
-                    target=theobj, observatory=theobs,
-                    alert=thealert, datetime=timezone.now(), probability=prob)
+                    target=theobj,
+                    observatory=theobs,
+                    gcnnotice=thegcn,
+                    datetime=timezone.now(),
+                    probability=prob
+                    )
                 new_assgn.save()
     except:
         return HttpResponseBadRequest()
