@@ -104,5 +104,5 @@ class Assignment(models.Model):
         obs_name = self.observatory.short_name
         if obs_name is None:
             obs_name = self.observatory
-        return "{} for obs {} for alert {}".format(
-            self.target, obs_name, self.alert)
+        return "{} for obs {} for {}".format(
+            self.target, obs_name, self.gcnnotice)

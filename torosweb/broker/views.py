@@ -174,12 +174,34 @@ def uploadjson(request):
     from django.utils import timezone
     try:
         # Parse alert
-        alert = json.loads(request.POST["targets.json"])
+        targetsjson = json.loads(request.POST["targets.json"])
+        alert = targetsjson['alert']
         dt = d.datetime.strptime(alert["datetime"], "%Y-%m-%dT%H:%M:%S.%f")
         dt = pytz.utc.localize(dt)
-        thealert = SuperEvent(grace_id=alert["graceid"], datetime=dt)
+        thealert = SuperEvent(
+            grace_id=alert["graceid"],
+            datetime=dt,
+            ligo_run=alert['ligo_run'],
+            se_type=alert['SEtype']
+            )
         thealert.save()
-        for obs_name, obs_assgn in alert["assignments"].items():
+        gcnnotice = targetsjson['gcnnotice']
+        dt = d.datetime.strptime(gcnnotice["datetime"], "%Y-%m-%dT%H:%M:%S")
+        dt = pytz.utc.localize(dt)
+        gcntype_translation = {
+            'Preliminary': 0,
+            'Initial': 1,
+            'Update': 2,
+            'Retraction': 3,
+            }
+        thegcn = GCNNotice(
+            gcnorigin='GW',
+            gcntype=gcntype_translation[gcnnotice['gcntype']],
+            datetime=dt,
+            superevent=thealert,
+            )
+        thegcn.save()
+        for obs_name, obs_assgn in targetsjson["assignments"].items():
             name_lookup = (Q(name__contains=obs_name) |
                            Q(short_name__contains=obs_name))
             try:
@@ -192,8 +214,12 @@ def uploadjson(request):
                 except:
                     continue
                 new_assgn = Assignment(
-                    target=theobj, observatory=theobs,
-                    alert=thealert, datetime=timezone.now(), probability=prob)
+                    target=theobj,
+                    observatory=theobs,
+                    gcnnotice=thegcn,
+                    datetime=timezone.now(),
+                    probability=prob
+                    )
                 new_assgn.save()
     except:
         return HttpResponseBadRequest()
