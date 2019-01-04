@@ -103,7 +103,11 @@
 </div>
 
 {% if alerts %}
+{% if the_alert.superevent.was_retracted %}
+<h1 class="bg-warning">Assignments for the LVC alert {{the_alert}} (retracted)</h1>
+{% else %}
 <h1>Assignments for the LVC alert {{the_alert}}</h1>
+{% endif %}
 {% else %}
 <h1>No alerts to show</h1>
 {% endif %}
