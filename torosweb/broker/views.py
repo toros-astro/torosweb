@@ -202,26 +202,30 @@ def uploadjson(request):
             superevent=thealert,
             )
         thegcn.save()
-        for obs_name, obs_assgn in targetsjson["assignments"].items():
-            name_lookup = (Q(name__contains=obs_name) |
-                           Q(short_name__contains=obs_name))
-            try:
-                theobs = Observatory.objects.get(name_lookup)
-            except:
-                continue
-            for obj, prob in obs_assgn.items():
+        if gcntype == 'Retraction':
+            thealert.was_retracted = True
+            thealert.save()
+        else:  # Do not load assignments if it's a retraction
+            for obs_name, obs_assgn in targetsjson["assignments"].items():
+                name_lookup = (Q(name__contains=obs_name) |
+                               Q(short_name__contains=obs_name))
                 try:
-                    theobj = GWGCCatalog.objects.get(name=obj)
+                    theobs = Observatory.objects.get(name_lookup)
                 except:
                     continue
-                new_assgn = Assignment(
-                    target=theobj,
-                    observatory=theobs,
-                    gcnnotice=thegcn,
-                    datetime=timezone.now(),
-                    probability=prob
-                    )
-                new_assgn.save()
+                for obj, prob in obs_assgn.items():
+                    try:
+                        theobj = GWGCCatalog.objects.get(name=obj)
+                    except:
+                        continue
+                    new_assgn = Assignment(
+                        target=theobj,
+                        observatory=theobs,
+                        gcnnotice=thegcn,
+                        datetime=timezone.now(),
+                        probability=prob
+                        )
+                    new_assgn.save()
     except:
         return HttpResponseBadRequest()
     return HttpResponse()
