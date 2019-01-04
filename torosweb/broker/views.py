@@ -178,13 +178,14 @@ def uploadjson(request):
         alert = targetsjson['alert']
         dt = d.datetime.strptime(alert["datetime"], "%Y-%m-%dT%H:%M:%S.%f")
         dt = pytz.utc.localize(dt)
-        thealert = SuperEvent(
+        thealert, created = SuperEvent.objects.get_or_create(
             grace_id=alert["graceid"],
-            datetime=dt,
-            ligo_run=alert['ligo_run'],
-            se_type=alert['SEtype']
+            defaults={
+                'datetime':dt,
+                'ligo_run':alert['ligo_run'],
+                'se_type':alert['SEtype'],
+                },
             )
-        thealert.save()
         gcnnotice = targetsjson['gcnnotice']
         dt = d.datetime.strptime(gcnnotice["datetime"], "%Y-%m-%dT%H:%M:%S")
         dt = pytz.utc.localize(dt)

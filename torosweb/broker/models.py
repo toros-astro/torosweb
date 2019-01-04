@@ -53,7 +53,7 @@ class Observatory(models.Model):
 class SuperEvent(models.Model):
     ligo_run = models.CharField("LIGO run", max_length=20,
                                 null=True, blank=True)
-    grace_id = models.CharField("GraceDB ID", max_length=20)
+    grace_id = models.CharField("GraceDB ID", max_length=20, unique=True)
     SETYPE_OPTIONS = (('T', 'Test'),
                       ('M', 'Mock'),
                       ('S', 'Production'),
