@@ -205,7 +205,7 @@ def uploadjson(request):
         if gcnnotice['gcntype'] == 'Retraction':
             thealert.was_retracted = True
             thealert.save()
-        else:  # Do not load assignments if it's a retraction
+        if "assignments" in targetsjson:
             for obs_name, obs_assgn in targetsjson["assignments"].items():
                 name_lookup = (Q(name__contains=obs_name) |
                                Q(short_name__contains=obs_name))
