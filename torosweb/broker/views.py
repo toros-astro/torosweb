@@ -202,7 +202,7 @@ def uploadjson(request):
             superevent=thealert,
             )
         thegcn.save()
-        if gcntype == 'Retraction':
+        if gcnnotice['gcntype'] == 'Retraction':
             thealert.was_retracted = True
             thealert.save()
         else:  # Do not load assignments if it's a retraction
