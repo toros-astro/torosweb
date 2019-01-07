@@ -56,7 +56,7 @@ class SuperEvent(models.Model):
     grace_id = models.CharField("GraceDB ID", max_length=20, unique=True)
     SETYPE_OPTIONS = (('T', 'Test'),
                       ('M', 'Mock'),
-                      ('S', 'Production'),
+                      ('S', 'Observation'),
                       ('D', 'Drill'))
     se_type = models.CharField(max_length=1, choices=SETYPE_OPTIONS, default='S', verbose_name="Super Event type")
     was_retracted = models.BooleanField(default=False)
