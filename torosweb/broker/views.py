@@ -128,7 +128,8 @@ def index(request, alert_name=None):
     if alert_name is None:
         the_alert = GCNNotice.objects.order_by('-datetime').first()
     else:
-        the_alert = GCNNotice.objects.filter(superevent__grace_id=alert_name).first()
+        the_alert = GCNNotice.objects.filter(superevent__grace_id=alert_name)\
+            .order_by('-datetime').first()
     context['the_alert'] = the_alert
 
     context['all_assingments'] = Assignment.objects\
