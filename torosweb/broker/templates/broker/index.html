@@ -104,10 +104,26 @@
 
 {% if alerts %}
 {% if the_alert.superevent.was_retracted %}
-<h1 class="bg-warning">Assignments for the LVC alert {{the_alert}} (retracted)</h1>
+<div class="alert alert-danger">
+  <h1>Assignments for the LVC alert {{the_alert}}</h1>
+  <p>This Super Event has been retracted.</p>
+</div>
 {% else %}
 <h1>Assignments for the LVC alert {{the_alert}}</h1>
 {% endif %}
+{% if the_alert.superevent.se_type == "T" %}
+<div class="alert alert-dismissable alert-warning">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <p>This is a test.</p>
+</div>
+{% endif %}
+{% if the_alert.superevent.se_type == "D" %}
+<div class="alert alert-dismissable alert-warning">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <p>This is a drill.</p>
+</div>
+{% endif %}
+
 {% else %}
 <h1>No alerts to show</h1>
 {% endif %}
