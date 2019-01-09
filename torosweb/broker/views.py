@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from .models import Assignment, Observatory, SuperEvent, GWGCCatalog, GCNNotice
-from django.http import HttpResponse, HttpResponseBadRequest
+from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseNotFound
 from django.db.models import Q
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.shortcuts import get_object_or_404, get_list_or_404
 
 
 def process_assignment_form(request):
@@ -115,7 +116,7 @@ def has_broker_access(user):
 
 
 @user_passes_test(has_broker_access)
-def index(request, alert_name=None):
+def index(request, grace_id=None, gcn_pk=None):
     context = {}
     status = 200
     if request.method == 'POST' and 'upload_target' in request.POST:
@@ -125,11 +126,17 @@ def index(request, alert_name=None):
 
     context['alerts'] = GCNNotice.objects.order_by('-datetime')
 
-    if alert_name is None:
-        the_alert = GCNNotice.objects.order_by('-datetime').first()
-    else:
-        the_alert = GCNNotice.objects.filter(superevent__grace_id=alert_name)\
-            .order_by('-datetime').first()
+    try:
+        if grace_id is None:
+            the_alert = GCNNotice.objects.order_by('-datetime').first()
+        else:
+            the_alert = GCNNotice.objects.filter(superevent__grace_id=grace_id)
+            if gcn_pk is None:
+                the_alert = the_alert.order_by('-datetime').first()
+            else:
+                the_alert = the_alert.get(pk=gcn_pk)
+    except:
+        return HttpResponseNotFound()
     context['the_alert'] = the_alert
 
     context['all_assingments'] = Assignment.objects\
