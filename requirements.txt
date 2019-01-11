@@ -4,3 +4,4 @@ wiki==0.3b3
 django-stdimage==3.0.0
 django-contrib-comments==1.8.0
 django-fluent-comments==1.4.3
+wagtail==2.4

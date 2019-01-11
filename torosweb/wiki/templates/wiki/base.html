@@ -1,9 +1,9 @@
 {% extends "wiki/base_site.html" %}
-
+{% load wagtailcore_tags %}
 {% block wiki_site_title %} - Wiki{% endblock %}
 
 {% block wiki_header_branding %}
-<a class="navbar-brand" href="{% url 'home' %}">TOROS Website</a>
+<a class="navbar-brand" href="{% pageurl request.site.root_page %}">TOROS Website</a>
 {% endblock %}
 
 {% block wiki_header_navlinks %}

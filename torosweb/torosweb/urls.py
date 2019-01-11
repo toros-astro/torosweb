@@ -19,10 +19,13 @@ from django.views.generic.base import TemplateView
 from wiki.urls import get_pattern as get_wiki_pattern
 from django_nyt.urls import get_pattern as get_nyt_pattern
 
+from wagtail.admin import urls as wagtailadmin_urls
+from wagtail.documents import urls as wagtaildocs_urls
+from wagtail.core import urls as wagtail_urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
+    # url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
     url(r'^account/', include('account.urls', namespace="account")),
     url(r'^account/', include('django.contrib.auth.urls')),
     url(r'^broker/', include('broker.urls', namespace='broker')),
@@ -31,6 +34,9 @@ urlpatterns = [
     url(r'^winnow/', include('winnow.urls', namespace='winnow')),
     url(r'^comments/', include('fluent_comments.urls')),
     url(r'^inauguration/', include('ctmoinaug.urls', namespace='ctmoinaug')),
+    url(r'^cms/', include(wagtailadmin_urls)),
+    # url(r'^documents/', include(wagtaildocs_urls)),
+    url(r'', include(wagtail_urls)),
 ]
 
 from django.conf import settings
