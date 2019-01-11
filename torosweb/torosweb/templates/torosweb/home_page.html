@@ -1,0 +1,75 @@
+{% extends 'torosweb/wagtail_base.html' %}{% load staticfiles wagtailcore_tags wagtailimages_tags %}
+{% block content %}
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">{% for newsart in newspages %}
+                <li data-target="#myCarousel" data-slide-to="{{ forloop.counter0 }}"{% if forloop.first %} class="active"{% endif %}></li>{% endfor %}
+            </ol>
+            <div class="carousel-inner">{% for newsart in newspages %}
+                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                    {% image newsart.specific.image height-500 as carr_photo %}<img class="first-slide" src="{{ carr_photo.url }}" alt="{{ carr_photo.alt }}" style="display: flex; flex: none; overflow: auto; height: auto; width: 100%; color: #65646a; background-color: #65646a;">
+                    <div class="container">
+                        <div class="carousel-caption d-none d-md-block text-left">
+                            <h1 style="color: #ffffff;">{{ newsart.specific.title }}&nbsp;<br></h1>
+                            <p>{{ newsart.specific.lead | richtext }}...</p>
+                            <p><a class="btn btn-lg btn-primary" href="{% pageurl newsart %}" role="button" style="background-color: #65646a;">Learn more</a></p>
+                        </div>
+                    </div>
+                </div>{% endfor %}
+            </div>
+            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
+            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
+        </div>
+        <!-- Marketing messaging and featurettes
+    ================================================== -->
+        <!-- Wrap the rest of the page in another container to center all the content. -->
+        <div class="container marketing">
+            <!-- Three columns of text below the carousel -->
+            <div class="row">{% for article in columnsection %}
+                <div class="col-lg-4">
+                    <a href="{% pageurl article %}">
+                    {% image article.image height-200 class="rounded img-fluid" %}
+                    </a>
+                    <h2>{{ article.specific.title }}</h2>
+                    {{ article.specific.lead | richtext }}
+                    <p><a class="btn btn-secondary" href="{% pageurl article %}" role="button">Read more »</a></p>
+                </div>
+                <!-- /.col-lg-4 -->{% endfor %}
+                <div class="col-lg-4">
+                    <img class="img-fluid rounded" src="{% static 'torosweb/images/news.png' %}" alt="News" height="200" width="160">
+                    <h2>News</h2>
+                    <p>Read the latest news about TOROS Collaboration.</p>
+                    <p><a class="btn btn-secondary" href="{% pageurl newsindex %}" role="button">Read more »</a></p>
+                </div>
+                <!-- /.col-lg-4 -->
+            </div>
+            <!-- /.row -->
+            <!-- START THE FEATURETTES -->
+            <hr class="featurette-divider">{% for article in rowsection %}{% if forloop.counter0|divisibleby:2 %}
+            <div class="row featurette">
+                <div class="col-md-7" style="text-align: left; align-items: flex-start;">
+                    <a href="{% pageurl article %}"><h2>{{ article.title }}</h2></a>
+                    <p class="lead">{{ article.specific.lead }}</p>
+                </div>
+                <div class="col-md-5">
+                <a href="{% pageurl article %}">
+                    {% image article.image height-200 class="featurette-image mx-auto img-fluid" data-holder-rendered="true" %}
+                </a>
+                </div>
+            </div>
+            <hr class="featurette-divider">{% else %}
+            <div class="row featurette">
+                <div class="col-md-7 order-md-2" style="border-top-color: #000000; text-align: left; justify-content: flex-start;">
+                    <a href="{% pageurl article %}"><h2>{{ article.title }}</h2></a>
+                    <p class="lead">{{ article.specific.lead }}</p>
+                </div>
+                <div class="col-md-5 order-md-1">
+                    <a href="{% pageurl article %}">
+                    {% image article.image height-200 class="featurette-image mx-auto img-fluid" data-holder-rendered="true" %}
+                    </a>
+                </div>
+            </div>
+            <hr class="featurette-divider">
+            {% endif %}{% endfor %}
+            <!-- /END THE FEATURETTES -->
+        </div>
+{% endblock %}
