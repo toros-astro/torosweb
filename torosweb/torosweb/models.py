@@ -6,8 +6,15 @@ from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 
 class NewsIndex(Page):
-    "A blank page for the news index page."
-    ...
+    "The index page for news"
+    image = models.ForeignKey('wagtailimages.Image', on_delete=models.SET_NULL, blank=True, null=True)
+
+    content_panels = Page.content_panels + [
+        MultiFieldPanel([
+            ImageChooserPanel('image'),
+        ], heading="News Logo Image"),
+    ]
+
 
 class HomePage(Page):
     "A blank page for the home page"

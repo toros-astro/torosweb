@@ -1,7 +1,8 @@
 {% extends "torosweb/wagtail_base.html" %}{% load wagtailcore_tags wagtailimages_tags %}{% block content %}
 <div class="container" style="padding: 4em; padding-top: 5em;">
+  <h1>{{ page.title }}</h1>
 {% for news in page.get_children %}
-<div class="row">
+<div class="row mt-3">
   <div class="col-sm-2">
     <a href="{% pageurl news %}">
       <div class="float-right">
