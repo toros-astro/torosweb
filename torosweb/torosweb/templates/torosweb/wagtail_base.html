@@ -27,7 +27,7 @@
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #cf4411;">
-            <a class="navbar-brand text-white" href="{% pageurl request.site.root_page %}">
+            <a class="navbar-brand text-white" href="{% slugurl 'home' %}">
                 <img src="{% static 'torosweb/images/toros_logo_gray.png' %}">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +36,7 @@
             <div class="collapse navbar-collapse text-left" id="navbarsExampleDefault">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link text-uppercase" href="{% pageurl request.site.root_page %}" style="font-size: 22px;">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link text-uppercase" href="{% slugurl 'home' %}" style="font-size: 22px;">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-uppercase" href="#" style="font-size: 22px; color: #ffffff;">About Us</a>
