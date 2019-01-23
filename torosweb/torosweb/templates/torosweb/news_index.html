@@ -1,7 +1,7 @@
 {% extends "torosweb/wagtail_base.html" %}{% load wagtailcore_tags wagtailimages_tags %}{% block content %}
 <div class="container" style="padding: 4em; padding-top: 5em;">
   <h1>{{ page.title }}</h1>
-{% for news in page.get_children %}
+{% for news in news_on_page.object_list %}
 <div class="row mt-3">
   <div class="col-sm-2">
     <a href="{% pageurl news %}">
@@ -18,12 +18,12 @@
   </div>
 </div>
 {% endfor %}
+
   <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    <li class="page-item{% if not news_on_page.has_previous %} disabled{% endif %}"><a class="page-link"{% if news_on_page.has_previous %} href="?page={{ news_on_page.previous_page_number }}"{% endif %}>Previous</a></li>
+    {% for page_num in news_on_page.paginator.page_range %}<li class="page-item"><a class="page-link" href="?page={{ page_num }}">{{ page_num }}</a></li>{% endfor %}
+    <li class="page-item{% if not news_on_page.has_next %} disabled{% endif %}"><a class="page-link"{% if news_on_page.has_next %} href="?page={{ news_on_page.next_page_number }}"{% endif %}>Next</a></li>
   </ul>
+
 </div>
 {% endblock %}

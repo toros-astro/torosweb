@@ -1,9 +1,11 @@
 from django.db import models
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from wagtail.core.models import Page
 from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
+
 
 class NewsIndex(Page):
     "The index page for news"
@@ -15,6 +17,23 @@ class NewsIndex(Page):
         ], heading="News Logo Image"),
     ]
 
+    def get_context(self, request):
+        context = super().get_context(request)
+
+        all_news = self.get_children().live()
+        news_per_page = 10
+        paginator = Paginator(all_news, news_per_page)
+        page_requested = request.GET.get('page')
+        try:
+            news_on_page = paginator.page(page_requested)
+        except PageNotAnInteger:
+            # If page is not an integer, deliver first page.
+            news_on_page = paginator.page(1)
+        except EmptyPage:
+            # If page is out of range (e.g. 9999), deliver last page of results.
+            news_on_page = paginator.page(paginator.num_pages)
+        context['news_on_page'] = news_on_page
+        return context
 
 class HomePage(Page):
     "A blank page for the home page"
