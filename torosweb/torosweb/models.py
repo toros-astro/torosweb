@@ -10,8 +10,10 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 class NewsIndex(Page):
     "The index page for news"
     image = models.ForeignKey('wagtailimages.Image', on_delete=models.SET_NULL, blank=True, null=True)
+    news_per_page = models.IntegerField(default=10)
 
     content_panels = Page.content_panels + [
+        FieldPanel('news_per_page'),
         MultiFieldPanel([
             ImageChooserPanel('image'),
         ], heading="News Logo Image"),
@@ -21,8 +23,7 @@ class NewsIndex(Page):
         context = super().get_context(request)
 
         all_news = self.get_children().live()
-        news_per_page = 10
-        paginator = Paginator(all_news, news_per_page)
+        paginator = Paginator(all_news, self.news_per_page)
         page_requested = request.GET.get('page')
         try:
             news_on_page = paginator.page(page_requested)
