@@ -7,7 +7,9 @@ from django.db import migrations
 def create_groups(apps, schema_editor):
     from django.contrib.auth.models import Group, Permission
     from django.contrib.contenttypes.models import ContentType
-    from broker.models import Observatory, Alert, Assignment
+    Observatory = apps.get_model('broker', 'Observatory')
+    Alert = apps.get_model('broker', 'Alert')
+    Assignment = apps.get_model('broker', 'Assignment')
 
     brokeradmins_group, created = Group.objects.get_or_create(name='broker_admins')
     if created:
