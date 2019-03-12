@@ -24,3 +24,8 @@ class User(AbstractUser):
         'medium': (200, 200),
     })
     is_active = models.BooleanField(_('active'), default=False)
+
+    def save(self, *args, **kwargs):
+        if self.is_superuser:
+            self.is_active = True
+        super().save(*args, **kwargs)
