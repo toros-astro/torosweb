@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Assignment, Observatory, SuperEvent, GWGCCatalog, GCNNotice
+from .models import Assignment, Observatory, SuperEvent, SourceCatalog, GCNNotice
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseNotFound
 from django.db.models import Q
 from django.views.decorators.csrf import csrf_exempt
@@ -97,7 +97,7 @@ def process_upload_target_form(request):
                 error_msg.append("Could not parse '{}'".format(obj_prob))
                 continue
             try:
-                theobj = GWGCCatalog.objects.get(name=obj)
+                theobj = SourceCatalog.objects.get(name=obj)
             except:
                 was_error = True
                 error_msg.append("Could not find object {}".format(obj))
@@ -223,7 +223,7 @@ def uploadjson(request):
                     continue
                 for obj, prob in obs_assgn.items():
                     try:
-                        theobj = GWGCCatalog.objects.get(name=obj)
+                        theobj = SourceCatalog.objects.get(name=obj)
                     except:
                         continue
                     new_assgn = Assignment(
