@@ -6,7 +6,6 @@
 {% endblock %}
 {% block content %}
 
-
 <div class="alert alert-success alert-dismissable my-1">
   <button type="button" class="close" data-dismiss="alert">&times;</button>
   <h1>Guidelines</h1>
@@ -36,7 +35,6 @@
   </li>
 </ul>
 {% endif %}
-
 {% if errors %}
 <div class="alert alert-danger">
   <ul>
@@ -123,7 +121,7 @@
   <p>This is a drill.</p>
 </div>
 {% endif %}
-
+<img src="https://gracedb.ligo.org/api/superevents/{{the_alert.superevent}}/files/bayestar.png" alt="bayestar map" width="500em">
 {% else %}
 <h1>No alerts to show</h1>
 {% endif %}
