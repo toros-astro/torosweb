@@ -259,7 +259,7 @@
                         <td>{{asg.target.b_john_mag }}</td>
                         <td>{{asg.target.b_john_absmag}}</td>
                         <td>{{asg.target.dist}}</td>
-                        <td>{{asg.probability|stringformat:".3f"}}</td>
+                        <td>{{asg.probability|stringformat:".3e"}}</td>
                         <td>
                             <div align="center">
                                 <input type="checkbox" name="istaken[]" {% if asg.is_taken %}checked{% endif %} value="{{asg.pk}}">
