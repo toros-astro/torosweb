@@ -9,15 +9,15 @@ window.onload = function init_ra_dec_arrays() {
     alltables = document.getElementsByTagName('table')
     for (var i = 0; i < alltables.length; i++) {
         var table = alltables[i]
-        var rah_list = []
+        var rad_list = []
         var rahms_list = []
         var decdeg_list = []
         var decdms_list = []
         for (var j = 1, row; row = table.rows[j]; j++) {
             // Push Right Ascensions
-            rah = row.cells[2].innerHTML
-            rahms = raDeg2Hms(rah * 15)
-            rah_list.push(rah)
+            rad = row.cells[2].innerHTML
+            rahms = raDeg2Hms(rad)
+            rad_list.push(rad)
             rahms_list.push(rahms)
             // Push Declinations
             decdeg = row.cells[3].innerHTML
@@ -26,7 +26,7 @@ window.onload = function init_ra_dec_arrays() {
             decdms_list.push(decdms)
         }
         right_ascension[alltables[i].id] = {
-            'hour': rah_list,
+            'degree': rad_list,
             'hms': rahms_list,
         }
         declination[alltables[i].id] = {
@@ -103,10 +103,10 @@ function set_column_ra_hms(table_id) {
     }
 }
 
-function set_column_ra_hourangle(table_id) {
+function set_column_ra_degree(table_id) {
     var table = document.getElementById(table_id);
     for (var i = 1, row; row = table.rows[i]; i++) {
-        row.cells[2].innerHTML = right_ascension[table_id]['hour'][i - 1]
+        row.cells[2].innerHTML = right_ascension[table_id]['degree'][i - 1]
     }
 }
 

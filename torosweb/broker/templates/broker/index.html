@@ -136,23 +136,22 @@
                         <th>PGC</th>
                         <th>Name</th>
                         <th class="dropdown">
-                          <a class="dropdown-toggle" data-toggle="dropdown">RA <span class="caret"></span></a>
+                          <a class="dropdown-toggle btn btn-outline-secondary" data-toggle="dropdown">RA<span class="caret"></span></a>
                           <div class="dropdown-menu">
-                            <a class="dropdown-item" onclick="set_column_ra_hourangle('general_table')">hour angle</a>
-                            <a class="dropdown-item" onclick="set_column_ra_hms('general_table')">hh:mm:ss</a>
+                            <a class="dropdown-item" onclick="set_column_ra_degree('general_table')">degree</a>
+                            <a class="dropdown-item" onclick="set_column_ra_hms('general_table')">h:m:s</a>
                           </div>
                         </th>
-
                         <th class="dropdown">
-                          <a class="dropdown-toggle" data-toggle="dropdown">Dec <span class="caret"></span></a>
+                          <a class="dropdown-toggle btn btn-outline-secondary" data-toggle="dropdown">Dec<span class="caret"></span></a>
                           <div class="dropdown-menu">
                                 <a class="dropdown-item" onclick="set_column_dec_degree('general_table')">degrees</a>
-                                <a class="dropdown-item" onclick="set_column_dec_dms('general_table')">dd:mm:ss</a>
+                                <a class="dropdown-item" onclick="set_column_dec_dms('general_table')">d:m:s</a>
                             </div>
                         </th>
-                        <th>Apparent Magnitude</th>
-                        <th>Absolute Magnitude</th>
-                        <th>Distance (MPc)</th>
+                        <th>B App</th>
+                        <th>B Abs</th>
+                        <th>Distance [MPc]</th>
                         <th>Localization probability</th>
                         <th>Selected</th>
                         <th>Observed</th>
@@ -165,11 +164,11 @@
                     <tr>
                         <td>{{asg.target.pgc}}</td>
                         <td>{{asg.target.name}}</td>
-                        <td>{{asg.target.ra}}</td>
-                        <td>{{asg.target.dec}}</td>
-                        <td>{{asg.target.app_mag }}</td>
-                        <td>{{asg.target.abs_mag}}</td>
-                        <td>{{asg.target.dist}}</td>
+                        <td>{{asg.target.ra|stringformat:".6f"}}</td>
+                        <td>{{asg.target.dec|stringformat:".6f"}}</td>
+                        <td>{{asg.target.b_john_mag}}</td>
+                        <td>{{asg.target.b_john_absmag}}</td>
+                        <td>{{asg.target.dist|stringformat:".2f"}}</td>
                         <td>{{asg.probability|stringformat:".3e"}}</td>
                         <td>
                             <div align="center">
@@ -225,22 +224,22 @@
                         <th>PGC</th>
                         <th>Name</th>
                         <th class="dropdown">
-                          <a class="dropdown-toggle" data-toggle="dropdown">RA <span class="caret"></span></a>
+                          <a class="dropdown-toggle btn btn-outline-secondary" data-toggle="dropdown">RA<span class="caret"></span></a>
                           <div class="dropdown-menu">
-                            <a class="dropdown-item" onclick="set_column_ra_hourangle('table_{{obs.id}}')">hour angle</a>
-                            <a class="dropdown-item" onclick="set_column_ra_hms('table_{{obs.id}}')">hh:mm:ss</a>
+                            <a class="dropdown-item" onclick="set_column_ra_degree('table_{{obs.id}}')">degree</a>
+                            <a class="dropdown-item" onclick="set_column_ra_hms('table_{{obs.id}}')">h:m:s</a>
                           </div>
                         </th>
                         <th class="dropdown">
-                          <a class="dropdown-toggle" data-toggle="dropdown">Dec <span class="caret"></span></a>
+                          <a class="dropdown-toggle btn btn-outline-secondary" data-toggle="dropdown">Dec<span class="caret"></span></a>
                           <div class="dropdown-menu">
-                                <a class="dropdown-item" onclick="set_column_dec_degree('table_{{obs.id}}')">degrees</a>
-                                <a class="dropdown-item" onclick="set_column_dec_dms('table_{{obs.id}}')">dd:mm:ss</a>
+                                <a class="dropdown-item" onclick="set_column_dec_degree('table_{{obs.id}}')">degree</a>
+                                <a class="dropdown-item" onclick="set_column_dec_dms('table_{{obs.id}}')">d:m:s</a>
                             </div>
                         </th>
-                        <th>Apparent Magnitude</th>
-                        <th>Absolute Magnitude</th>
-                        <th>Distance (MPc)</th>
+                        <th>B App</th>
+                        <th>B Abs</th>
+                        <th>Distance [Mpc]</th>
                         <th>Localization probability</th>
                         <th>Selected</th>
                         <th>Observed</th>
@@ -253,11 +252,11 @@
 
                         <td>{{asg.target.pgc}}</td>
                         <td>{{asg.target.name}}</td>
-                        <td>{{asg.target.ra}}</td>
+                        <td>{{asg.target.ra|stringformat:".6f"}}</td>
                         <td>{{asg.target.dec}}</td>
-                        <td>{{asg.target.app_mag }}</td>
-                        <td>{{asg.target.abs_mag}}</td>
-                        <td>{{asg.target.dist}}</td>
+                        <td>{{asg.target.b_john_mag }}</td>
+                        <td>{{asg.target.b_john_absmag}}</td>
+                        <td>{{asg.target.dist|stringformat:".2f"}}</td>
                         <td>{{asg.probability|stringformat:".3e"}}</td>
                         <td>
                             <div align="center">

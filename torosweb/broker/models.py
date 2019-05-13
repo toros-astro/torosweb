@@ -1,47 +1,54 @@
 from django.db import models
 
 
-class GWGCCatalog(models.Model):
-    pgc = models.IntegerField("PGC Identifier from HYPERLEDA")
-    name = models.CharField("Common Name", max_length=20)
-    ra = models.FloatField("Right Ascension", null=True, blank=True)
-    dec = models.FloatField("Declination", null=True, blank=True)
+class CatalogManager(models.Manager):
+    def get_by_natural_key(self, name):
+        return self.get(name=name)
+
+class SourceCatalog(models.Model):
+    objects = CatalogManager()
+
+    pgc = models.IntegerField("PGC Identifier from HYPERLEDA", null=True, blank=True)
+    name = models.CharField("Common Name", max_length=40, unique=True)
+    ra = models.FloatField("Right Ascension [deg]", null=True, blank=True)
+    dec = models.FloatField("Declination [deg]", null=True, blank=True)
     obj_type = models.CharField("Type", max_length=5, null=True, blank=True)
-    app_mag = models.FloatField("Apparent Blue Magnitude",
-                                null=True, blank=True)
-    maj_diam_a = models.FloatField("Major Diameter(a)", null=True, blank=True)
-    err_maj_diam = models.FloatField("Error in Major Diameter",
-                                     null=True, blank=True)
-    min_diam_b = models.FloatField("Minor diameter (b) ",
-                                   null=True, blank=True)
-    err_min_diam = models.FloatField("Error in Minor diameter",
-                                     null=True, blank=True)
-    b_over_a = models.FloatField("b/a(Ratio of minor to major diameters) ",
-                                 null=True, blank=True)
-    err_b_over_a = models.FloatField("Error b/a (Ratio of minor to major"
-                                     " diameters)", null=True, blank=True)
-    pa = models.FloatField("Position Angle of Galaxy", null=True, blank=True)
-    abs_mag = models.FloatField("Absolute Blue Magnitude",
-                                null=True, blank=True)
+    b_mag = models.FloatField("Apparent B Magnitude", null=True, blank=True)
+    b_err = models.FloatField("Error on Apparent B Magnitude", null=True, blank=True)
+    b_abs = models.FloatField("Absolute B Magnitude", null=True, blank=True)
+    j_mag = models.FloatField("Apparent J Magnitude", null=True, blank=True)
+    j_err = models.FloatField("Error on Apparent J Magnitude", null=True, blank=True)
+    h_mag = models.FloatField("Apparent H Magnitude", null=True, blank=True)
+    h_err = models.FloatField("Error on Apparent H Magnitude", null=True, blank=True)
+    k_mag = models.FloatField("Apparent K Magnitude", null=True, blank=True)
+    k_err = models.FloatField("Error on Apparent K Magnitude", null=True, blank=True)
     dist = models.FloatField("Distance", null=True, blank=True)
-    err_dist = models.FloatField("Error on Distance", null=True, blank=True)
-    err_app_mag = models.FloatField("Error on Apparent blue magnitude",
-                                    null=True, blank=True)
-    err_abs_mag = models.FloatField("Error on Absolute blue magnitude",
-                                    null=True, blank=True)
+    dist_err = models.FloatField("Error on Distance", null=True, blank=True)
+
+    def natural_key(self):
+        return (self.name,)
 
     def __str__(self):
         return self.name
 
 
+class ObservatoryManager(models.Manager):
+    def get_by_natural_key(self, name):
+        return self.get(name=name)
+
 class Observatory(models.Model):
-    name = models.CharField(max_length=50)
+    objects = ObservatoryManager()
+
+    name = models.CharField(max_length=50, unique=True)
     short_name = models.CharField(max_length=10, null=True, blank=True)
     country = models.CharField(max_length=20)
     city = models.CharField(max_length=20)
     latitude = models.FloatField()
     longitude = models.FloatField()
     elevation = models.FloatField()
+
+    def natural_key(self):
+        return (self.name,)
 
     def __str__(self):
         return self.name
@@ -50,7 +57,13 @@ class Observatory(models.Model):
         verbose_name_plural = "observatories"
 
 
+class SuperEventManager(models.Manager):
+    def get_by_natural_key(self, grace_id):
+        return self.get(grace_id=grace_id)
+
 class SuperEvent(models.Model):
+    objects = SuperEventManager()
+
     ligo_run = models.CharField("LIGO run", max_length=20,
                                 null=True, blank=True)
     grace_id = models.CharField("GraceDB ID", max_length=20, unique=True)
@@ -63,6 +76,9 @@ class SuperEvent(models.Model):
     was_confirmed_GW = models.BooleanField(default=False)
     datetime = models.DateTimeField()
     description = models.TextField(null=True, blank=True)
+
+    def natural_key(self):
+        return (self.grace_id,)
 
     def __str__(self):
         return self.grace_id
@@ -92,7 +108,7 @@ class GCNNotice(models.Model):
 
 
 class Assignment(models.Model):
-    target = models.ForeignKey(GWGCCatalog)
+    target = models.ForeignKey(SourceCatalog)
     observatory = models.ForeignKey(Observatory)
     gcnnotice = models.ForeignKey(GCNNotice)
     datetime = models.DateTimeField()
