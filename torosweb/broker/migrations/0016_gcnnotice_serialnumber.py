@@ -5,6 +5,16 @@ from __future__ import unicode_literals
 from django.db import migrations, models
 
 
+def correct_serial_number(apps, schema_editor):
+    GCNNotice = apps.get_model("broker", "GCNNotice")
+    SuperEvent = apps.get_model("broker", "SuperEvent")
+    for event in SuperEvent.objects.all():
+        sn = 0
+        for notice in GCNNotice.objects.filter(superevent=event).order_by("datetime"):
+            sn = sn + 1
+            notice.serialnumber = sn
+            notice.save()
+
 class Migration(migrations.Migration):
 
     dependencies = [
@@ -17,4 +27,5 @@ class Migration(migrations.Migration):
             name='serialnumber',
             field=models.IntegerField(default=1, help_text='Pkt_Ser_Num: A serial number for the GCN'),
         ),
+        migrations.RunPython(correct_serial_number),
     ]
