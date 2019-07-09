@@ -84,8 +84,13 @@ class SuperEvent(models.Model):
         return self.grace_id
 
 
+class GCNNoticeManager(models.Manager):
+    def get_by_natural_key(self, serialnumber):
+        return self.get(serialnumber=serialnumber)
+
 class GCNNotice(models.Model):
     "Gamma-ray Coordinates Network Notice"
+    objects = GCNNoticeManager()
     GCNORIGIN_OPTIONS = (('GW', 'Gravitational Wave'),
                          ('GRB', 'Gamma Ray Burst'),
                          ('OTH', 'Other'))
@@ -97,11 +102,15 @@ class GCNNotice(models.Model):
                        (3, 'Retraction'))
     gcntype = models.IntegerField(default=0, choices=GCNTYPE_OPTIONS, verbose_name="GCN Type")
     superevent = models.ForeignKey(SuperEvent, verbose_name="Super Event")
+    serialnumber = models.IntegerField(default=1, help_text="Pkt_Ser_Num: A serial number for the GCN")
     datetime = models.DateTimeField()
 
     class Meta():
         verbose_name = "GCN Notice"
         verbose_name_plural = "GCN Notices"
+
+    def natural_key(self):
+        return (self.serialnumber,)
 
     def __str__(self):
         return "{} GCN for {}".format(self.get_gcntype_display(), self.superevent.grace_id)
