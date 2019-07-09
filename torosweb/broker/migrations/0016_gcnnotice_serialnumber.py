@@ -28,4 +28,8 @@ class Migration(migrations.Migration):
             field=models.IntegerField(default=1, help_text='Pkt_Ser_Num: A serial number for the GCN'),
         ),
         migrations.RunPython(correct_serial_number),
+        migrations.AlterUniqueTogether(
+            name='gcnnotice',
+            unique_together=set([('superevent', 'serialnumber')]),
+        ),
     ]

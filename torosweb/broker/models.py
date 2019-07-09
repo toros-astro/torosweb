@@ -85,8 +85,9 @@ class SuperEvent(models.Model):
 
 
 class GCNNoticeManager(models.Manager):
-    def get_by_natural_key(self, serialnumber):
-        return self.get(serialnumber=serialnumber)
+    def get_by_natural_key(self, grace_id, serialnumber):
+        event = SuperEvent.objects.get(grace_id=grace_id)
+        return self.get(superevent=event, serialnumber=serialnumber)
 
 class GCNNotice(models.Model):
     "Gamma-ray Coordinates Network Notice"
@@ -108,9 +109,11 @@ class GCNNotice(models.Model):
     class Meta():
         verbose_name = "GCN Notice"
         verbose_name_plural = "GCN Notices"
+        unique_together = (('superevent', 'serialnumber'),)
 
     def natural_key(self):
-        return (self.serialnumber,)
+        return self.superevent.natural_key() + (self.serialnumber,)
+    natural_key.dependencies = ['broker.superevent']
 
     def __str__(self):
         return "{} GCN for {}".format(self.get_gcntype_display(), self.superevent.grace_id)
