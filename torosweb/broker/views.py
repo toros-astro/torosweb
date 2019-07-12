@@ -206,6 +206,7 @@ def uploadjson(request):
         thegcn = GCNNotice(
             gcnorigin='GW',
             gcntype=gcntype_translation[gcnnotice['gcntype']],
+            serialnumber=gcnnotice['gcnserial'],
             datetime=dt,
             superevent=thealert,
             )
