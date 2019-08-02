@@ -125,20 +125,24 @@ def index(request, grace_id=None, gcn_pk=None):
         status, context['errors'] = process_assignment_form(request)
 
     context['alerts'] = GCNNotice.objects.order_by('-datetime')
-
+    
+    
     try:
         if grace_id is None:
             the_alert = GCNNotice.objects.order_by('-datetime').first()
         else:
             the_alert = GCNNotice.objects.filter(superevent__grace_id=grace_id)
+            
             if gcn_pk is None:
                 the_alert = the_alert.order_by('-datetime').first()
+               
             else:
                 the_alert = the_alert.get(pk=gcn_pk)
+                
     except:
         return HttpResponseNotFound()
     context['the_alert'] = the_alert
-
+    
     context['all_assingments'] = Assignment.objects\
         .filter((Q(is_taken=True) | Q(was_observed=True)), gcnnotice=the_alert)\
         .order_by('target__name')
