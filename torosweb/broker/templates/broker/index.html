@@ -14,27 +14,46 @@
 </div>
 
 
+<style>
+ul1 {
+  background-color: lightblue;
+  width: auto;
+  height: 800px;
+  overflow: auto;
+}        
+</style>
 
 
 {% if alerts %}
-<ul class="nav nav-tabs my-4">
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" data-toggle="dropdown">{{the_alert}}<span class="caret"></span></a>
-      
-      
-<div class="dropdown-menu">
+<ul class="nav nav-tabs my-4"> 
+<div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">{{the_alert}}
+    <span class="caret"></span></button>
+    <ul1 class="dropdown-menu" style="overflow: auto">
+      <input class="form-control" id="myInput" type="text" placeholder="Search..">
       {% for alert in alerts %}
-      <a class="dropdown-item" href="{% url 'broker:alert_detail' alert.superevent.grace_id alert.pk %}">
-          {{alert}} ({{alert.datetime | date:"N j, Y"}})
-      </a>
-      {% endfor %}
-    </div> 
+      <li><a class="dropdown-item" href="{% url 'broker:alert_detail' alert.superevent.grace_id alert.pk %}">
+          {{alert}} ({{alert.datetime | date:"N j, Y"}})</a>
+      </li>
+       {% endfor %}
+    </ul1>
+  </div>
+    
+    
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $(".dropdown-menu li").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>       
+    
       
       
-      
-      
-      
-  </li>
+
 {% if is_admin %}
   <li class="nav-item">
     <a class="nav-link" data-toggle="modal" data-target="#targetUploadModal">Upload Targets</a>
