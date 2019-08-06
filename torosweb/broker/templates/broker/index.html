@@ -18,7 +18,7 @@
 ul1 {
   background-color: lightblue;
   width: auto;
-  height: 800px;
+  max-height: 800px;
   overflow: auto;
 }        
 </style>
@@ -133,11 +133,11 @@ $(document).ready(function(){
 {% if alerts %}
 {% if the_alert.superevent.was_retracted %}
 <div class="alert alert-danger">
-    <h1>Assignments for the LVC alert {{the_alert.get_gcntype_display}} GCN for <a href="https://gracedb.ligo.org/superevents/{{the_alert.superevent}}/view/">{{the_alert.superevent.grace_id}}</a></h1>
+    <h1>Assignments for the LVC alert {{the_alert.get_gcntype_display}} GCN for <a href="https://gracedb.ligo.org/superevents/{{the_alert.superevent}}/view/" target="_blank" >{{the_alert.superevent.grace_id}}</a></h1>
   <p>This Super Event has been retracted.</p>
 </div>
 {% else %}
-<h1>Assignments for the LVC alert {{the_alert.get_gcntype_display}} GCN for <a href="https://gracedb.ligo.org/superevents/{{the_alert.superevent}}/view/">{{the_alert.superevent.grace_id}}</a></h1>
+<h1>Assignments for the LVC alert {{the_alert.get_gcntype_display}} GCN for <a href="https://gracedb.ligo.org/superevents/{{the_alert.superevent}}/view/" target="_blank">{{the_alert.superevent.grace_id}}</a></h1>
 {% endif %}
 {% if the_alert.superevent.se_type == "T" %}
 <div class="alert alert-dismissable alert-warning">
@@ -152,78 +152,33 @@ $(document).ready(function(){
 </div>
 {% endif %}
 
-<div class="row">
+
 <div class="column">
 <img src="https://gracedb.ligo.org/api/superevents/{{the_alert.superevent}}/files/bayestar.png" alt="bayestar map" width="500em">
 </div>
-<div class="column">
-<img src="https://gracedb.ligo.org/api/superevents/{{the_alert.superevent}}/files/p_astro.png,0" alt="bayestar map" width="500em">
-</div>
-</div>
+
     
 {% else %}
 <h1>No alerts to show</h1>
 {% endif %}
-<br>
-<br>
-<br>
 
 
 
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {font-family: Arial;}
-
-/* Style the tab */
-.tab {
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
-}
-
-/* Style the buttons inside the tab */
-.tab button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-  font-size: 17px;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #ddd;
-}
-
-/* Create an active/current tablink class */
-.tab button.active {
-  background-color: #ccc;
-}
-
-/* Style the tab content */
-.tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
-}
-</style>
-
-<div class="tab">
-<button class="tablinks" onclick="openCity(event, 'all')" id="defaultOpen">All</button>   
-    
+<div class="container">
+<ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#all">All</a>
+    </li> 
 {% for obs, assignments_obs in assn_per_obs %}
-  <button class="tablinks" onclick="openCity(event, '{{obs.name}}')">{% if obs.short_name %} {{obs.short_name}}
-      {% else %} {{obs.name}} {% endif %}</button>{% endfor %}
-  
-</div>
+<li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#obstab_{{obs.pk}}">{% if obs.short_name %}{{obs.short_name}}
+      {% else %}{{obs.name}}{% endif %}</a> 
+    </li>  
+    {% endfor %}
+</ul>    
 
-
-<div id="all" class="tabcontent">
+<div class="tab-content">
+<div id="all" class="container tab-pane active">
    <div class="card my-5">
     <div class="card-header bg-primary text-white">Selected targets for all observatories</div>
     <div class="card-body">
@@ -291,14 +246,15 @@ body {font-family: Arial;}
         </div class="table-responsive">
         <p>Total observed galaxies: {{observed_targets}}</p>
         <p>Total ongoing galaxy observations: {{selected_targets}}</p>
-    </div class="card-body">
-</div class="card"> 
     
-</div>    
-      
+       </div class="card-body">
+
+    </div class="card">    
+</div>
+    
 
 {% for obs, assignments_obs in assn_per_obs %}
-<div id="{{obs.name}}" class="tabcontent">
+<div id="obstab_{{obs.pk}}" class="container tab-pane fade">
   
     <div class="card my-5">
     <div class="card-header bg-primary text-white">
@@ -385,28 +341,10 @@ body {font-family: Arial;}
     </div class="card-footer">
     </form>
 </div class="card bg-primary">
-    
-</div>
+</div>    
 {% endfor %}
+    </div>
 
-<script>
-function openCity(evt, cityName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
-    
-document.getElementById("defaultOpen").click();
-</script>
-
-    
+   
 
 {% endblock %}
