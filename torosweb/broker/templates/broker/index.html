@@ -13,18 +13,47 @@
     once the images are completely taken then check the 'Observed' checkbox.</p>
 </div>
 
+
+<style>
+ul1 {
+  background-color: lightblue;
+  width: auto;
+  max-height: 800px;
+  overflow: auto;
+}        
+</style>
+
+
 {% if alerts %}
-<ul class="nav nav-tabs my-4">
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" data-toggle="dropdown">{{the_alert}}<span class="caret"></span></a>
-    <div class="dropdown-menu">
+<ul class="nav nav-tabs my-4"> 
+<div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">{{the_alert}}
+    <span class="caret"></span></button>
+    <ul1 class="dropdown-menu" style="overflow: auto">
+      <input class="form-control" id="myInput" type="text" placeholder="Search..">
       {% for alert in alerts %}
-      <a class="dropdown-item" href="{% url 'broker:alert_detail' alert.superevent.grace_id alert.pk %}">
-          {{alert}} ({{alert.datetime | date:"N j, Y"}})
-      </a>
-      {% endfor %}
-    </div>
-  </li>
+      <li><a class="dropdown-item" href="{% url 'broker:alert_detail' alert.superevent.grace_id alert.pk %}">
+          {{alert}} ({{alert.datetime | date:"N j, Y"}})</a>
+      </li>
+       {% endfor %}
+    </ul1>
+  </div>
+    
+    
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $(".dropdown-menu li").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>       
+    
+      
+      
+
 {% if is_admin %}
   <li class="nav-item">
     <a class="nav-link" data-toggle="modal" data-target="#targetUploadModal">Upload Targets</a>
@@ -100,14 +129,15 @@
   </div>
 </div>
 
+
 {% if alerts %}
 {% if the_alert.superevent.was_retracted %}
 <div class="alert alert-danger">
-  <h1>Assignments for the LVC alert {{the_alert}}</h1>
+    <h1>Assignments for the LVC alert {{the_alert.get_gcntype_display}} GCN for <a href="https://gracedb.ligo.org/superevents/{{the_alert.superevent}}/view/" target="_blank" >{{the_alert.superevent.grace_id}}</a></h1>
   <p>This Super Event has been retracted.</p>
 </div>
 {% else %}
-<h1>Assignments for the LVC alert {{the_alert}}</h1>
+<h1>Assignments for the LVC alert {{the_alert.get_gcntype_display}} GCN for <a href="https://gracedb.ligo.org/superevents/{{the_alert.superevent}}/view/" target="_blank">{{the_alert.superevent.grace_id}}</a></h1>
 {% endif %}
 {% if the_alert.superevent.se_type == "T" %}
 <div class="alert alert-dismissable alert-warning">
@@ -121,12 +151,35 @@
   <p>This is a drill.</p>
 </div>
 {% endif %}
+
+
+<div class="column">
 <img src="https://gracedb.ligo.org/api/superevents/{{the_alert.superevent}}/files/bayestar.png" alt="bayestar map" width="500em">
+</div>
+
+    
 {% else %}
 <h1>No alerts to show</h1>
 {% endif %}
 
-<div class="card my-5">
+
+
+<div class="container">
+<ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#all">All</a>
+    </li> 
+{% for obs, assignments_obs in assn_per_obs %}
+<li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#obstab_{{obs.pk}}">{% if obs.short_name %}{{obs.short_name}}
+      {% else %}{{obs.name}}{% endif %}</a> 
+    </li>  
+    {% endfor %}
+</ul>    
+
+<div class="tab-content">
+<div id="all" class="container tab-pane active">
+   <div class="card my-5">
     <div class="card-header bg-primary text-white">Selected targets for all observatories</div>
     <div class="card-body">
         <div class="table-responsive">
@@ -193,13 +246,19 @@
         </div class="table-responsive">
         <p>Total observed galaxies: {{observed_targets}}</p>
         <p>Total ongoing galaxy observations: {{selected_targets}}</p>
-    </div class="card-body">
-</div class="card">
+    
+       </div class="card-body">
+
+    </div class="card">    
+</div>
+    
 
 {% for obs, assignments_obs in assn_per_obs %}
-<div class="card my-5">
+<div id="obstab_{{obs.pk}}" class="container tab-pane fade">
+  
+    <div class="card my-5">
     <div class="card-header bg-primary text-white">
-        {{obs.name}}{% if obs.short_name %} ({{obs.short_name}}){% endif %}
+       {{obs.name}}{% if obs.short_name %} ({{obs.short_name}}){% endif %}
         at {{obs.city}}, {{obs.country}}
     </div>
     <form method="post" action="{% url 'broker:index' %}">
@@ -282,5 +341,10 @@
     </div class="card-footer">
     </form>
 </div class="card bg-primary">
+</div>    
 {% endfor %}
+    </div>
+
+   
+
 {% endblock %}
