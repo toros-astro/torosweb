@@ -1,0 +1,996 @@
+[
+{
+  "model": "wagtailcore.page",
+  "pk": 1,
+  "fields": {
+    "path": "0001",
+    "depth": 1,
+    "numchild": 1,
+    "title": "Root",
+    "draft_title": "Root",
+    "slug": "root",
+    "content_type": [
+      "wagtailcore",
+      "page"
+    ],
+    "live": true,
+    "has_unpublished_changes": false,
+    "url_path": "/",
+    "owner": null,
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "first_published_at": null,
+    "last_published_at": null,
+    "latest_revision_created_at": null,
+    "live_revision": null
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 3,
+  "fields": {
+    "path": "00010002",
+    "depth": 2,
+    "numchild": 3,
+    "title": "Home Page",
+    "draft_title": "Home Page",
+    "slug": "home",
+    "content_type": [
+      "torosweb",
+      "homepage"
+    ],
+    "live": true,
+    "has_unpublished_changes": false,
+    "url_path": "/home/",
+    "owner": [
+      "admin"
+    ],
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "first_published_at": "2019-01-20T02:57:42.552Z",
+    "last_published_at": "2019-01-22T20:14:37.831Z",
+    "latest_revision_created_at": "2019-01-22T20:14:37.809Z",
+    "live_revision": 19
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 4,
+  "fields": {
+    "path": "000100020001",
+    "depth": 3,
+    "numchild": 3,
+    "title": "News Index Page",
+    "draft_title": "News Index Page",
+    "slug": "news",
+    "content_type": [
+      "torosweb",
+      "newsindex"
+    ],
+    "live": true,
+    "has_unpublished_changes": false,
+    "url_path": "/home/news/",
+    "owner": [
+      "admin"
+    ],
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "first_published_at": "2019-01-20T03:04:45.829Z",
+    "last_published_at": "2019-01-23T21:40:07.844Z",
+    "latest_revision_created_at": "2019-01-23T21:40:07.819Z",
+    "live_revision": 32
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 5,
+  "fields": {
+    "path": "000100020002",
+    "depth": 3,
+    "numchild": 0,
+    "title": "Our People",
+    "draft_title": "Our People",
+    "slug": "our-people",
+    "content_type": [
+      "torosweb",
+      "infopage"
+    ],
+    "live": true,
+    "has_unpublished_changes": false,
+    "url_path": "/home/our-people/",
+    "owner": [
+      "admin"
+    ],
+    "seo_title": "TOROS - Our People",
+    "show_in_menus": false,
+    "search_description": "",
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "first_published_at": "2019-01-22T18:16:45.667Z",
+    "last_published_at": "2019-08-08T15:41:35.771Z",
+    "latest_revision_created_at": "2019-08-08T15:41:35.701Z",
+    "live_revision": 38
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 6,
+  "fields": {
+    "path": "0001000200010001",
+    "depth": 4,
+    "numchild": 0,
+    "title": "Our Sites",
+    "draft_title": "Our Sites",
+    "slug": "our-sites",
+    "content_type": [
+      "torosweb",
+      "infopage"
+    ],
+    "live": true,
+    "has_unpublished_changes": false,
+    "url_path": "/home/news/our-sites/",
+    "owner": [
+      "admin"
+    ],
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "first_published_at": "2019-01-22T18:26:01.222Z",
+    "last_published_at": "2019-01-22T18:26:01.222Z",
+    "latest_revision_created_at": "2019-01-22T18:26:01.200Z",
+    "live_revision": 15
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 7,
+  "fields": {
+    "path": "0001000200010002",
+    "depth": 4,
+    "numchild": 0,
+    "title": "TORITOS First Light",
+    "draft_title": "TORITOS First Light",
+    "slug": "toritos-first-light",
+    "content_type": [
+      "torosweb",
+      "infopage"
+    ],
+    "live": true,
+    "has_unpublished_changes": false,
+    "url_path": "/home/news/toritos-first-light/",
+    "owner": [
+      "admin"
+    ],
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "first_published_at": "2019-01-22T18:27:41.106Z",
+    "last_published_at": "2019-01-22T18:27:41.106Z",
+    "latest_revision_created_at": "2019-01-22T18:27:41.081Z",
+    "live_revision": 17
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 9,
+  "fields": {
+    "path": "000100020003",
+    "depth": 3,
+    "numchild": 0,
+    "title": "TORITOS",
+    "draft_title": "TORITOS",
+    "slug": "toritos",
+    "content_type": [
+      "torosweb",
+      "infopage"
+    ],
+    "live": true,
+    "has_unpublished_changes": false,
+    "url_path": "/home/toritos/",
+    "owner": [
+      "admin"
+    ],
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "first_published_at": "2019-01-22T21:46:20.619Z",
+    "last_published_at": "2019-01-22T21:46:20.619Z",
+    "latest_revision_created_at": "2019-01-22T21:46:20.598Z",
+    "live_revision": 24
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 10,
+  "fields": {
+    "path": "0001000200010003",
+    "depth": 4,
+    "numchild": 0,
+    "title": "NSF funds UTRGV professor\u2019s TOROS telescope project to track cosmic gravitational wave events",
+    "draft_title": "NSF funds UTRGV professor\u2019s TOROS telescope project to track cosmic gravitational wave events",
+    "slug": "nsf-funds-utrgv-professors-toros-telescope-project-to-track-cosmic-gravitational-wave-events",
+    "content_type": [
+      "torosweb",
+      "infopage"
+    ],
+    "live": true,
+    "has_unpublished_changes": false,
+    "url_path": "/home/news/nsf-funds-utrgv-professors-toros-telescope-project-to-track-cosmic-gravitational-wave-events/",
+    "owner": [
+      "admin"
+    ],
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "first_published_at": "2019-08-08T15:39:34.207Z",
+    "last_published_at": "2019-08-08T16:49:36.149Z",
+    "latest_revision_created_at": "2019-08-08T16:49:36.109Z",
+    "live_revision": 39
+  }
+},
+{
+  "model": "wagtailcore.site",
+  "fields": {
+    "hostname": "https://toros.utrgv.edu/winnow/",
+    "port": 80,
+    "site_name": "TOROS",
+    "root_page": 3,
+    "is_default_site": true
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 1,
+  "fields": {
+    "page": 3,
+    "submitted_for_moderation": false,
+    "created_at": "2019-01-20T02:57:42.533Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 3, \"path\": \"00010002\", \"depth\": 2, \"numchild\": 0, \"title\": \"Home Page\", \"draft_title\": \"Home Page\", \"slug\": \"home-page\", \"content_type\": 46, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home-page/\", \"owner\": 2, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": null, \"live_revision\": null}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 2,
+  "fields": {
+    "page": 4,
+    "submitted_for_moderation": false,
+    "created_at": "2019-01-20T03:04:43.456Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 4, \"path\": \"000100020001\", \"depth\": 3, \"numchild\": 0, \"title\": \"News Index Page\", \"draft_title\": \"News Index Page\", \"slug\": \"news\", \"content_type\": 48, \"live\": false, \"has_unpublished_changes\": false, \"url_path\": \"/home-page/news/\", \"owner\": 2, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": null, \"live_revision\": null}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 3,
+  "fields": {
+    "page": 4,
+    "submitted_for_moderation": false,
+    "created_at": "2019-01-20T03:04:45.809Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 4, \"path\": \"000100020001\", \"depth\": 3, \"numchild\": 0, \"title\": \"News Index Page\", \"draft_title\": \"News Index Page\", \"slug\": \"news\", \"content_type\": 48, \"live\": false, \"has_unpublished_changes\": true, \"url_path\": \"/home-page/news/\", \"owner\": 2, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": \"2019-01-20T03:04:43.456Z\", \"live_revision\": null}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 4,
+  "fields": {
+    "page": 4,
+    "submitted_for_moderation": false,
+    "created_at": "2019-01-21T16:43:40.366Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 4, \"path\": \"000100020001\", \"depth\": 3, \"numchild\": 0, \"title\": \"News Index Page\", \"draft_title\": \"News Index Page\", \"slug\": \"news\", \"content_type\": 48, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home-page/news/\", \"owner\": 2, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": \"2019-01-20T03:04:45.829Z\", \"last_published_at\": \"2019-01-20T03:04:45.829Z\", \"latest_revision_created_at\": \"2019-01-20T03:04:45.809Z\", \"live_revision\": 3, \"image\": 1}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 5,
+  "fields": {
+    "page": 4,
+    "submitted_for_moderation": false,
+    "created_at": "2019-01-21T16:43:43.227Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 4, \"path\": \"000100020001\", \"depth\": 3, \"numchild\": 0, \"title\": \"News Index Page\", \"draft_title\": \"News Index Page\", \"slug\": \"news\", \"content_type\": 48, \"live\": true, \"has_unpublished_changes\": true, \"url_path\": \"/home-page/news/\", \"owner\": 2, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": \"2019-01-20T03:04:45.829Z\", \"last_published_at\": \"2019-01-20T03:04:45.829Z\", \"latest_revision_created_at\": \"2019-01-21T16:43:40.366Z\", \"live_revision\": 3, \"image\": 1}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 6,
+  "fields": {
+    "page": 5,
+    "submitted_for_moderation": false,
+    "created_at": "2019-01-22T18:16:21.199Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 5, \"path\": \"000100020002\", \"depth\": 3, \"numchild\": 0, \"title\": \"Our People\", \"draft_title\": \"Our People\", \"slug\": \"our-people\", \"content_type\": 47, \"live\": false, \"has_unpublished_changes\": false, \"url_path\": \"/home-page/our-people/\", \"owner\": 42, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": null, \"live_revision\": null, \"date\": \"2019-01-22\", \"body\": \"<p>Our collaboration is formed by scientists from Universidad Nacional de Cordoba (Argentina), Texas A&amp;M University (USA); CGWA The University of Texas Rio Grande Valley (USA), Universidad Nacional de Salta (Argentina), Universit\\u00e0 Carlo Bo di Urbino (Italy), Loas Alamos National Laboratory (USA) and University of Warsaw (Poland)</p>\", \"lead\": \"\", \"image\": 2, \"caption\": \"\", \"featuredInColumnSection\": false, \"featuredInRowSection\": false}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 7,
+  "fields": {
+    "page": 5,
+    "submitted_for_moderation": false,
+    "created_at": "2019-01-22T18:16:33.914Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 5, \"path\": \"000100020002\", \"depth\": 3, \"numchild\": 0, \"title\": \"Our People\", \"draft_title\": \"Our People\", \"slug\": \"our-people\", \"content_type\": 47, \"live\": false, \"has_unpublished_changes\": true, \"url_path\": \"/home-page/our-people/\", \"owner\": 42, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": \"2019-01-22T18:16:21.199Z\", \"live_revision\": null, \"date\": \"2019-01-22\", \"body\": \"<p>Our collaboration is formed by scientists from Universidad Nacional de Cordoba (Argentina), Texas A&amp;M University (USA); CGWA The University of Texas Rio Grande Valley (USA), Universidad Nacional de Salta (Argentina), Universit\\u00e0 Carlo Bo di Urbino (Italy), Loas Alamos National Laboratory (USA) and University of Warsaw (Poland)</p>\", \"lead\": \"\", \"image\": 2, \"caption\": \"\", \"featuredInColumnSection\": false, \"featuredInRowSection\": false}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 8,
+  "fields": {
+    "page": 5,
+    "submitted_for_moderation": false,
+    "created_at": "2019-01-22T18:16:45.644Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 5, \"path\": \"000100020002\", \"depth\": 3, \"numchild\": 0, \"title\": \"Our People\", \"draft_title\": \"Our People\", \"slug\": \"our-people\", \"content_type\": 47, \"live\": false, \"has_unpublished_changes\": true, \"url_path\": \"/home-page/our-people/\", \"owner\": 42, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": \"2019-01-22T18:16:33.914Z\", \"live_revision\": null, \"date\": \"2019-01-22\", \"body\": \"<p>Our collaboration is formed by scientists from Universidad Nacional de Cordoba (Argentina), Texas A&amp;M University (USA); CGWA The University of Texas Rio Grande Valley (USA), Universidad Nacional de Salta (Argentina), Universit\\u00e0 Carlo Bo di Urbino (Italy), Loas Alamos National Laboratory (USA) and University of Warsaw (Poland)</p>\", \"lead\": \"\", \"image\": 2, \"caption\": \"\", \"featuredInColumnSection\": false, \"featuredInRowSection\": false}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 9,
+  "fields": {
+    "page": 5,
+    "submitted_for_moderation": false,
+    "created_at": "2019-01-22T18:18:10.883Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 5, \"path\": \"000100020002\", \"depth\": 3, \"numchild\": 0, \"title\": \"Our People\", \"draft_title\": \"Our People\", \"slug\": \"our-people\", \"content_type\": 47, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home-page/our-people/\", \"owner\": 42, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": \"2019-01-22T18:16:45.667Z\", \"last_published_at\": \"2019-01-22T18:16:45.667Z\", \"latest_revision_created_at\": \"2019-01-22T18:16:45.644Z\", \"live_revision\": 8, \"date\": \"2019-01-22\", \"body\": \"<p>Our collaboration is formed by scientists from Universidad Nacional de Cordoba (Argentina), Texas A&amp;M University (USA); CGWA The University of Texas Rio Grande Valley (USA), Universidad Nacional de Salta (Argentina), Universit\\u00e0 Carlo Bo di Urbino (Italy), Loas Alamos National Laboratory (USA) and University of Warsaw (Poland)</p>\", \"lead\": \"\", \"image\": 2, \"caption\": \"\", \"featuredInColumnSection\": true, \"featuredInRowSection\": false}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 10,
+  "fields": {
+    "page": 5,
+    "submitted_for_moderation": false,
+    "created_at": "2019-01-22T18:18:17.335Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 5, \"path\": \"000100020002\", \"depth\": 3, \"numchild\": 0, \"title\": \"Our People\", \"draft_title\": \"Our People\", \"slug\": \"our-people\", \"content_type\": 47, \"live\": true, \"has_unpublished_changes\": true, \"url_path\": \"/home-page/our-people/\", \"owner\": 42, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": \"2019-01-22T18:16:45.667Z\", \"last_published_at\": \"2019-01-22T18:16:45.667Z\", \"latest_revision_created_at\": \"2019-01-22T18:18:10.883Z\", \"live_revision\": 8, \"date\": \"2019-01-22\", \"body\": \"<p>Our collaboration is formed by scientists from Universidad Nacional de Cordoba (Argentina), Texas A&amp;M University (USA); CGWA The University of Texas Rio Grande Valley (USA), Universidad Nacional de Salta (Argentina), Universit\\u00e0 Carlo Bo di Urbino (Italy), Loas Alamos National Laboratory (USA) and University of Warsaw (Poland)</p>\", \"lead\": \"\", \"image\": 2, \"caption\": \"\", \"featuredInColumnSection\": true, \"featuredInRowSection\": false}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 11,
+  "fields": {
+    "page": 5,
+    "submitted_for_moderation": false,
+    "created_at": "2019-01-22T18:19:22.870Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 5, \"path\": \"000100020002\", \"depth\": 3, \"numchild\": 0, \"title\": \"Our People\", \"draft_title\": \"Our People\", \"slug\": \"our-people\", \"content_type\": 47, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home-page/our-people/\", \"owner\": 42, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": \"2019-01-22T18:16:45.667Z\", \"last_published_at\": \"2019-01-22T18:18:17.360Z\", \"latest_revision_created_at\": \"2019-01-22T18:18:17.335Z\", \"live_revision\": 10, \"date\": \"2019-01-22\", \"body\": \"<p>Our collaboration is formed by scientists from Universidad Nacional de Cordoba (Argentina), Texas A&amp;M University (USA); CGWA The University of Texas Rio Grande Valley (USA), Universidad Nacional de Salta (Argentina), Universit\\u00e0 Carlo Bo di Urbino (Italy), Loas Alamos National Laboratory (USA) and University of Warsaw (Poland)</p>\", \"lead\": \"Our collaboration is formed by scientists from several universities\", \"image\": 2, \"caption\": \"\", \"featuredInColumnSection\": true, \"featuredInRowSection\": false}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 12,
+  "fields": {
+    "page": 5,
+    "submitted_for_moderation": false,
+    "created_at": "2019-01-22T18:19:27.709Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 5, \"path\": \"000100020002\", \"depth\": 3, \"numchild\": 0, \"title\": \"Our People\", \"draft_title\": \"Our People\", \"slug\": \"our-people\", \"content_type\": 47, \"live\": true, \"has_unpublished_changes\": true, \"url_path\": \"/home-page/our-people/\", \"owner\": 42, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": \"2019-01-22T18:16:45.667Z\", \"last_published_at\": \"2019-01-22T18:18:17.360Z\", \"latest_revision_created_at\": \"2019-01-22T18:19:22.870Z\", \"live_revision\": 10, \"date\": \"2019-01-22\", \"body\": \"<p>Our collaboration is formed by scientists from Universidad Nacional de Cordoba (Argentina), Texas A&amp;M University (USA); CGWA The University of Texas Rio Grande Valley (USA), Universidad Nacional de Salta (Argentina), Universit\\u00e0 Carlo Bo di Urbino (Italy), Loas Alamos National Laboratory (USA) and University of Warsaw (Poland)</p>\", \"lead\": \"Our collaboration is formed by scientists from several universities\", \"image\": 2, \"caption\": \"\", \"featuredInColumnSection\": true, \"featuredInRowSection\": false}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 13,
+  "fields": {
+    "page": 5,
+    "submitted_for_moderation": false,
+    "created_at": "2019-01-22T18:20:42.755Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 5, \"path\": \"000100020002\", \"depth\": 3, \"numchild\": 0, \"title\": \"Our People\", \"draft_title\": \"Our People\", \"slug\": \"our-people\", \"content_type\": 47, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home-page/our-people/\", \"owner\": 42, \"seo_title\": \"TOROS - Our People\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": \"2019-01-22T18:16:45.667Z\", \"last_published_at\": \"2019-01-22T18:19:27.733Z\", \"latest_revision_created_at\": \"2019-01-22T18:19:27.709Z\", \"live_revision\": 12, \"date\": \"2019-01-22\", \"body\": \"<p>Our collaboration is formed by scientists from Universidad Nacional de Cordoba (Argentina), Texas A&amp;M University (USA); CGWA The University of Texas Rio Grande Valley (USA), Universidad Nacional de Salta (Argentina), Universit\\u00e0 Carlo Bo di Urbino (Italy), Loas Alamos National Laboratory (USA) and University of Warsaw (Poland)</p>\", \"lead\": \"Our collaboration is formed by scientists from several universities\", \"image\": 2, \"caption\": \"\", \"featuredInColumnSection\": true, \"featuredInRowSection\": false}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 14,
+  "fields": {
+    "page": 6,
+    "submitted_for_moderation": false,
+    "created_at": "2019-01-22T18:25:58.995Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 6, \"path\": \"0001000200010001\", \"depth\": 4, \"numchild\": 0, \"title\": \"Our Sites\", \"draft_title\": \"Our Sites\", \"slug\": \"our-sites\", \"content_type\": 47, \"live\": false, \"has_unpublished_changes\": false, \"url_path\": \"/home-page/news/our-sites/\", \"owner\": 2, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": null, \"live_revision\": null, \"date\": \"2019-01-22\", \"body\": \"<p>The site is located at Cordon Mac\\u00f3n, in the province of Salta in Argentina. The area is part of a high plateau, shared by Argentina and Chile named as the Atacama Puna (desert).</p>\", \"lead\": \"The site is located at Cordon Mac\\u00f3n, in the province of Salta in Argentina. The area is part of a high plateau, shared by Argentina and Chile named as the Atacama Puna (desert).\", \"image\": 3, \"caption\": \"\", \"featuredInColumnSection\": false, \"featuredInRowSection\": false}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 15,
+  "fields": {
+    "page": 6,
+    "submitted_for_moderation": false,
+    "created_at": "2019-01-22T18:26:01.200Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 6, \"path\": \"0001000200010001\", \"depth\": 4, \"numchild\": 0, \"title\": \"Our Sites\", \"draft_title\": \"Our Sites\", \"slug\": \"our-sites\", \"content_type\": 47, \"live\": false, \"has_unpublished_changes\": true, \"url_path\": \"/home-page/news/our-sites/\", \"owner\": 2, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": \"2019-01-22T18:25:58.995Z\", \"live_revision\": null, \"date\": \"2019-01-22\", \"body\": \"<p>The site is located at Cordon Mac\\u00f3n, in the province of Salta in Argentina. The area is part of a high plateau, shared by Argentina and Chile named as the Atacama Puna (desert).</p>\", \"lead\": \"The site is located at Cordon Mac\\u00f3n, in the province of Salta in Argentina. The area is part of a high plateau, shared by Argentina and Chile named as the Atacama Puna (desert).\", \"image\": 3, \"caption\": \"\", \"featuredInColumnSection\": false, \"featuredInRowSection\": false}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 16,
+  "fields": {
+    "page": 7,
+    "submitted_for_moderation": false,
+    "created_at": "2019-01-22T18:27:07.568Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 7, \"path\": \"0001000200010002\", \"depth\": 4, \"numchild\": 0, \"title\": \"TORITOS First Light\", \"draft_title\": \"TORITOS First Light\", \"slug\": \"toritos-first-light\", \"content_type\": 47, \"live\": false, \"has_unpublished_changes\": false, \"url_path\": \"/home-page/news/toritos-first-light/\", \"owner\": 42, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": null, \"live_revision\": null, \"date\": \"2014-04-20\", \"body\": \"<p><b> CGWA and IATE press release </b></p><p></p><p>The Institute of Theoretical and Experimental Astronomy (IATE in Spanish), an  institute of CONICET (Argentine Council for Scientific and Technological Research) and the National University of C\\u00f3rdoba (UNC), the Astronomical Observatory also from UNC, and the Center for Gravitational Wave Astronomy of the University of Texas at Brownsville are pleased to announce the first successful operation of the TORITOS telescope at Co. Mac\\u00f3n, in the Argentine province of Salta.</p><p></p><p>From April 10 through April 18 a group of scientists and engineers from IATE, OAC and CGWA integrated by Carlos Colazo, Manuel Stark, Matias Schneiter (IATE-OAC) and admin Beroiz, Mariano Dominguez and Mario D\\u00edaz (CGWA) conducted the first successful observational campaign at the Co. Mac\\u00f3n with the TORITOS telescope which will function as a pilot instrument for the TOROS (Transient Optical Robotic Observatory of the South) project, planned to start operations at the site in 2016.</p><p></p><p>The Mac\\u00f3n range has been declared an Astronomical Park by the government of the Salta province, and the CGWA, and UNC,as well as the Ministry of Science and Technology (MinCyT) from Argentina and the University of San Pablo, Brasil (ABRAS project) are working to develop the scientific potential of one of the best sites in the world for astronomical observations.</p><p></p><p>The campaign just finished is the first step to secure the permanent operation of telescopes at the site. Due to the height of Co. Mac\\u00f3n (4,650 meters -15,260 ft above sea level) the operation will  be robotic, a feature that was tested during the campaign. The information obtained from it will be used to secure permanent operation during 2015.</p><p>One of the most immediate objectives for this operation will be the detection and characterization of transient phenomena. This search will be performed simultaneously with the two gravitational wave detectors, LIGO, located in the USA, which will start operating in their advanced upgrade configuration in the second half of 2015.</p>\", \"lead\": \"We are pleased to announce the first successful operation of the TORITOS telescope at Co. Mac\\u00f3n, in the Argentine province of Salta.\", \"image\": null, \"caption\": \"\", \"featuredInColumnSection\": false, \"featuredInRowSection\": false}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 17,
+  "fields": {
+    "page": 7,
+    "submitted_for_moderation": false,
+    "created_at": "2019-01-22T18:27:41.081Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 7, \"path\": \"0001000200010002\", \"depth\": 4, \"numchild\": 0, \"title\": \"TORITOS First Light\", \"draft_title\": \"TORITOS First Light\", \"slug\": \"toritos-first-light\", \"content_type\": 47, \"live\": false, \"has_unpublished_changes\": true, \"url_path\": \"/home-page/news/toritos-first-light/\", \"owner\": 42, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": \"2019-01-22T18:27:07.568Z\", \"live_revision\": null, \"date\": \"2014-04-20\", \"body\": \"<p><b>CGWA and IATE press release</b></p><p></p><p>The Institute of Theoretical and Experimental Astronomy (IATE in Spanish), an institute of CONICET (Argentine Council for Scientific and Technological Research) and the National University of C\\u00f3rdoba (UNC), the Astronomical Observatory also from UNC, and the Center for Gravitational Wave Astronomy of the University of Texas at Brownsville are pleased to announce the first successful operation of the TORITOS telescope at Co. Mac\\u00f3n, in the Argentine province of Salta.</p><p></p><p>From April 10 through April 18 a group of scientists and engineers from IATE, OAC and CGWA integrated by Carlos Colazo, Manuel Stark, Matias Schneiter (IATE-OAC) and admin Beroiz, Mariano Dominguez and Mario D\\u00edaz (CGWA) conducted the first successful observational campaign at the Co. Mac\\u00f3n with the TORITOS telescope which will function as a pilot instrument for the TOROS (Transient Optical Robotic Observatory of the South) project, planned to start operations at the site in 2016.</p><p></p><p>The Mac\\u00f3n range has been declared an Astronomical Park by the government of the Salta province, and the CGWA, and UNC,as well as the Ministry of Science and Technology (MinCyT) from Argentina and the University of San Pablo, Brasil (ABRAS project) are working to develop the scientific potential of one of the best sites in the world for astronomical observations.</p><p></p><p>The campaign just finished is the first step to secure the permanent operation of telescopes at the site. Due to the height of Co. Mac\\u00f3n (4,650 meters -15,260 ft above sea level) the operation will be robotic, a feature that was tested during the campaign. The information obtained from it will be used to secure permanent operation during 2015.</p><p>One of the most immediate objectives for this operation will be the detection and characterization of transient phenomena. This search will be performed simultaneously with the two gravitational wave detectors, LIGO, located in the USA, which will start operating in their advanced upgrade configuration in the second half of 2015.</p>\", \"lead\": \"We are pleased to announce the first successful operation of the TORITOS telescope at Co. Mac\\u00f3n, in the Argentine province of Salta.\", \"image\": 4, \"caption\": \"\", \"featuredInColumnSection\": false, \"featuredInRowSection\": false}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 18,
+  "fields": {
+    "page": 3,
+    "submitted_for_moderation": false,
+    "created_at": "2019-01-22T20:14:06.679Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 3, \"path\": \"00010002\", \"depth\": 2, \"numchild\": 2, \"title\": \"Home Page\", \"draft_title\": \"Home Page\", \"slug\": \"home-page\", \"content_type\": 46, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home-page/\", \"owner\": 2, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": \"2019-01-20T02:57:42.552Z\", \"last_published_at\": \"2019-01-20T02:57:42.552Z\", \"latest_revision_created_at\": \"2019-01-20T02:57:42.533Z\", \"live_revision\": 1}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 19,
+  "fields": {
+    "page": 3,
+    "submitted_for_moderation": false,
+    "created_at": "2019-01-22T20:14:37.809Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 3, \"path\": \"00010002\", \"depth\": 2, \"numchild\": 2, \"title\": \"Home Page\", \"draft_title\": \"Home Page\", \"slug\": \"home\", \"content_type\": 46, \"live\": true, \"has_unpublished_changes\": true, \"url_path\": \"/home-page/\", \"owner\": 2, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": \"2019-01-20T02:57:42.552Z\", \"last_published_at\": \"2019-01-20T02:57:42.552Z\", \"latest_revision_created_at\": \"2019-01-22T20:14:06.679Z\", \"live_revision\": 1}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 20,
+  "fields": {
+    "page": 5,
+    "submitted_for_moderation": false,
+    "created_at": "2019-01-22T21:15:49.358Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 5, \"path\": \"000100020002\", \"depth\": 3, \"numchild\": 0, \"title\": \"Our People\", \"draft_title\": \"Our People\", \"slug\": \"our-people\", \"content_type\": 47, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home/our-people/\", \"owner\": 42, \"seo_title\": \"TOROS - Our People\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": \"2019-01-22T18:16:45.667Z\", \"last_published_at\": \"2019-01-22T18:20:42.781Z\", \"latest_revision_created_at\": \"2019-01-22T18:20:42.755Z\", \"live_revision\": 13, \"date\": \"2019-01-22\", \"body\": \"<p>Our collaboration is formed by scientists from Universidad Nacional de Cordoba (Argentina), Texas A&amp;M University (USA); CGWA The University of Texas Rio Grande Valley (USA), Universidad Nacional de Salta (Argentina), Universit\\u00e0 Carlo Bo di Urbino (Italy), Loas Alamos National Laboratory (USA) and University of Warsaw (Poland)</p>\", \"lead\": \"Our collaboration is formed by scientists from several universities\", \"image\": 5, \"caption\": \"\", \"featuredInColumnSection\": true, \"featuredInRowSection\": false}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 21,
+  "fields": {
+    "page": 5,
+    "submitted_for_moderation": false,
+    "created_at": "2019-01-22T21:15:57.205Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 5, \"path\": \"000100020002\", \"depth\": 3, \"numchild\": 0, \"title\": \"Our People\", \"draft_title\": \"Our People\", \"slug\": \"our-people\", \"content_type\": 47, \"live\": true, \"has_unpublished_changes\": true, \"url_path\": \"/home/our-people/\", \"owner\": 42, \"seo_title\": \"TOROS - Our People\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": \"2019-01-22T18:16:45.667Z\", \"last_published_at\": \"2019-01-22T18:20:42.781Z\", \"latest_revision_created_at\": \"2019-01-22T21:15:49.358Z\", \"live_revision\": 13, \"date\": \"2019-01-22\", \"body\": \"<p>Our collaboration is formed by scientists from Universidad Nacional de Cordoba (Argentina), Texas A&amp;M University (USA); CGWA The University of Texas Rio Grande Valley (USA), Universidad Nacional de Salta (Argentina), Universit\\u00e0 Carlo Bo di Urbino (Italy), Loas Alamos National Laboratory (USA) and University of Warsaw (Poland)</p>\", \"lead\": \"Our collaboration is formed by scientists from several universities\", \"image\": 5, \"caption\": \"\", \"featuredInColumnSection\": true, \"featuredInRowSection\": false}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 24,
+  "fields": {
+    "page": 9,
+    "submitted_for_moderation": false,
+    "created_at": "2019-01-22T21:46:20.598Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 9, \"path\": \"000100020003\", \"depth\": 3, \"numchild\": 0, \"title\": \"TORITOS\", \"draft_title\": \"TORITOS\", \"slug\": \"toritos\", \"content_type\": 47, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home/toritos/\", \"owner\": 42, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": null, \"live_revision\": null, \"date\": \"2019-01-22\", \"body\": \"<p><b> WHAT IS THE TORITOS PROJECT?</b></p><p>\\u00a0 \\u00a0 \\u00a0Cordon Mac\\u00f3n is a new site. As such a series of observations beyond the characterization already performed by Argentina and European astronomers for ESO, are needed. The TORITOS project consists in deploying a small telescope in Cordon Macon to start testing operability at the site.Additionally during the austral winter (June) scientists and students from Texas A&amp;M 2013 with the participation of scientists and students from IATE and UT Bronwsville will be sustaining a 10 days campaign observing at the site.</p><p></p><p><b>TORITOS Instrument</b><br/></p><p>\\u00a0 \\u00a0 \\u00a0The instrumentation to be deployed at Mac\\u00f3n for the TORITOS project consists in a Meade LX200 16\\u201d telescope and an Apogee U10 camera with a filter wheel. This instrument has already reached Argentine customs at Buenos Aires and after inspection, and adjustments it will be deployed at Cordon Mac\\u00f3n becoming the first instrument to work at the site in this pilto project for TOROS. The TOROS collaboration expects to determine the most suitable instrument for study of transients,particularly those associated with kilonovae explosions by the end of 2013. The key science target in this phase will be a survey of nearby galaxies for the early discovery of nearby supernovae for follow-up observations with large telescopes. This is a much needed activity for supernova astronomy, since all current southern hemisphere supernova surveys focus on cosmological supernovae and nearby ones are often missed.\\u00a0</p>\", \"lead\": \"The TORITOS project consists in deploying a small telescope in Cordon Macon to start testing operability at the site.\", \"image\": 4, \"caption\": \"\", \"featuredInColumnSection\": true, \"featuredInRowSection\": false}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 25,
+  "fields": {
+    "page": 4,
+    "submitted_for_moderation": false,
+    "created_at": "2019-01-23T00:47:59.785Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 4, \"path\": \"000100020001\", \"depth\": 3, \"numchild\": 2, \"title\": \"News Index Page\", \"draft_title\": \"News Index Page\", \"slug\": \"news\", \"content_type\": 48, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home/news/\", \"owner\": 2, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": \"2019-01-20T03:04:45.829Z\", \"last_published_at\": \"2019-01-21T16:43:43.254Z\", \"latest_revision_created_at\": \"2019-01-21T16:43:43.227Z\", \"live_revision\": 5, \"image\": 1, \"news_per_page\": 1}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 26,
+  "fields": {
+    "page": 4,
+    "submitted_for_moderation": false,
+    "created_at": "2019-01-23T00:48:02.519Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 4, \"path\": \"000100020001\", \"depth\": 3, \"numchild\": 2, \"title\": \"News Index Page\", \"draft_title\": \"News Index Page\", \"slug\": \"news\", \"content_type\": 48, \"live\": true, \"has_unpublished_changes\": true, \"url_path\": \"/home/news/\", \"owner\": 2, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": \"2019-01-20T03:04:45.829Z\", \"last_published_at\": \"2019-01-21T16:43:43.254Z\", \"latest_revision_created_at\": \"2019-01-23T00:47:59.785Z\", \"live_revision\": 5, \"image\": 1, \"news_per_page\": 1}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 27,
+  "fields": {
+    "page": 4,
+    "submitted_for_moderation": false,
+    "created_at": "2019-01-23T00:48:18.677Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 4, \"path\": \"000100020001\", \"depth\": 3, \"numchild\": 2, \"title\": \"News Index Page\", \"draft_title\": \"News Index Page\", \"slug\": \"news\", \"content_type\": 48, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home/news/\", \"owner\": 2, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": \"2019-01-20T03:04:45.829Z\", \"last_published_at\": \"2019-01-23T00:48:02.544Z\", \"latest_revision_created_at\": \"2019-01-23T00:48:02.519Z\", \"live_revision\": 26, \"image\": 1, \"news_per_page\": 10}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 28,
+  "fields": {
+    "page": 4,
+    "submitted_for_moderation": false,
+    "created_at": "2019-01-23T00:48:20.915Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 4, \"path\": \"000100020001\", \"depth\": 3, \"numchild\": 2, \"title\": \"News Index Page\", \"draft_title\": \"News Index Page\", \"slug\": \"news\", \"content_type\": 48, \"live\": true, \"has_unpublished_changes\": true, \"url_path\": \"/home/news/\", \"owner\": 2, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": \"2019-01-20T03:04:45.829Z\", \"last_published_at\": \"2019-01-23T00:48:02.544Z\", \"latest_revision_created_at\": \"2019-01-23T00:48:18.677Z\", \"live_revision\": 26, \"image\": 1, \"news_per_page\": 10}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 29,
+  "fields": {
+    "page": 4,
+    "submitted_for_moderation": false,
+    "created_at": "2019-01-23T21:39:48.916Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 4, \"path\": \"000100020001\", \"depth\": 3, \"numchild\": 2, \"title\": \"News Index Page\", \"draft_title\": \"News Index Page\", \"slug\": \"news\", \"content_type\": 48, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home/news/\", \"owner\": 2, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": \"2019-01-20T03:04:45.829Z\", \"last_published_at\": \"2019-01-23T00:48:20.956Z\", \"latest_revision_created_at\": \"2019-01-23T00:48:20.915Z\", \"live_revision\": 28, \"image\": 1, \"news_per_page\": 1}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 30,
+  "fields": {
+    "page": 4,
+    "submitted_for_moderation": false,
+    "created_at": "2019-01-23T21:39:51.184Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 4, \"path\": \"000100020001\", \"depth\": 3, \"numchild\": 2, \"title\": \"News Index Page\", \"draft_title\": \"News Index Page\", \"slug\": \"news\", \"content_type\": 48, \"live\": true, \"has_unpublished_changes\": true, \"url_path\": \"/home/news/\", \"owner\": 2, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": \"2019-01-20T03:04:45.829Z\", \"last_published_at\": \"2019-01-23T00:48:20.956Z\", \"latest_revision_created_at\": \"2019-01-23T21:39:48.916Z\", \"live_revision\": 28, \"image\": 1, \"news_per_page\": 1}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 31,
+  "fields": {
+    "page": 4,
+    "submitted_for_moderation": false,
+    "created_at": "2019-01-23T21:40:05.394Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 4, \"path\": \"000100020001\", \"depth\": 3, \"numchild\": 2, \"title\": \"News Index Page\", \"draft_title\": \"News Index Page\", \"slug\": \"news\", \"content_type\": 48, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home/news/\", \"owner\": 2, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": \"2019-01-20T03:04:45.829Z\", \"last_published_at\": \"2019-01-23T21:39:51.210Z\", \"latest_revision_created_at\": \"2019-01-23T21:39:51.184Z\", \"live_revision\": 30, \"image\": 1, \"news_per_page\": 10}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 32,
+  "fields": {
+    "page": 4,
+    "submitted_for_moderation": false,
+    "created_at": "2019-01-23T21:40:07.819Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 4, \"path\": \"000100020001\", \"depth\": 3, \"numchild\": 2, \"title\": \"News Index Page\", \"draft_title\": \"News Index Page\", \"slug\": \"news\", \"content_type\": 48, \"live\": true, \"has_unpublished_changes\": true, \"url_path\": \"/home/news/\", \"owner\": 2, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": \"2019-01-20T03:04:45.829Z\", \"last_published_at\": \"2019-01-23T21:39:51.210Z\", \"latest_revision_created_at\": \"2019-01-23T21:40:05.394Z\", \"live_revision\": 30, \"image\": 1, \"news_per_page\": 10}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 33,
+  "fields": {
+    "page": 10,
+    "submitted_for_moderation": false,
+    "created_at": "2019-08-08T15:37:22.341Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 10, \"path\": \"0001000200010003\", \"depth\": 4, \"numchild\": 0, \"title\": \"NSF funds UTRGV professor\\u2019s TOROS telescope project to track cosmic gravitational wave events\", \"draft_title\": \"NSF funds UTRGV professor\\u2019s TOROS telescope project to track cosmic gravitational wave events\", \"slug\": \"nsf-funds-utrgv-professors-toros-telescope-project-to-track-cosmic-gravitational-wave-events\", \"content_type\": 47, \"live\": false, \"has_unpublished_changes\": false, \"url_path\": \"/home/news/nsf-funds-utrgv-professors-toros-telescope-project-to-track-cosmic-gravitational-wave-events/\", \"owner\": 2, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": null, \"live_revision\": null, \"date\": \"2019-08-08\", \"body\": \"<p><b>BROWNSVILLE, TEXAS \\u2013 AUG. 8, 2019 \\u2013</b> The <a href=\\\"https://www.nsf.gov/\\\">National Science Foundation</a> has awarded UTRGV\\u2019s <a href=\\\"https://www.utrgv.edu/cgwa/\\\">Center for Gravitational Wave Astronomy</a> (CGWA) $516,000 for the second phase of construction of a telescope dedicated to research on gravitational waves.</p><p><a href=\\\"http://www.mariodiaz.org/Mario_Diaz/Home.html\\\">Dr. Mario D\\u00edaz </a>\\u2013 UTRGV professor of physics and astronomy, director of CGWA and principal investigator on this binational project \\u2013 said g<a href=\\\"https://www.worldsciencefestival.com/videos/gravitational-waves-a-new-era-of-astronomy-begins/?gclid=Cj0KCQjwp5_qBRDBARIsANxdcinhl-XciKGgJlYzLzyjZFdYbe92X3Q-2vqsu1xTCEXj4Ceg3a2prY0aAj1AEALw_wcB\\\">ravitational waves </a>are ripples in the fabric of space and time, generated by c<a href=\\\"https://www.ligo.caltech.edu/mit/page/why-detect-gw\\\">ataclysmic astrophysical events </a>\\u2013 like exploding stars, the collision of black holes and merging neutron stars \\u2013 in the far reaches of the universe.</p><p>\\u201cThere are many challenges associated with searching large areas of the sky for fast-evolving astronomical sources, and this funding is critical for the projects investigated by UTRGV physics and astronomy students, who are now using the recently upgraded UTRGV <a href=\\\"https://www.utrgv.edu/newsroom/2018/05/07-utrgv-names-observatory-for-faculty-member-torres-with-may-5-stargazing-celebration.htm\\\">Dr. Cristina Torres Memorial Astronomical Observatory</a> at Resaca de la Palma State Park north of Brownsville,\\u201d<br/>Construction on the telescope \\u2013 which is physically located at <a href=\\\"http://fof.oac.uncor.edu/2011/talks/ruben.pdf\\\">Cord\\u00f3n Mac\\u00f3n i</a>n Salta Province, Argentina, away from light pollution and other factors that could interfere with the sensitive research \\u2013 started earlier in 2019 with funding provided by the Argentine National Science Foundation (CO<a href=\\\"https://www.natureindex.com/institution-outputs/argentina/national-scientific-and-technical-research-council-conicet/5139073d34d6b65e6a0022be\\\">NICET) </a>and about $500,000 in NSF funding previously awarded to Diaz.</p><p>The telescope is expected to be operational \\u2013 with some limited capabilities \\u2013 in early 2020, and is scheduled to achieve <a href=\\\"http://www.mate.tue.nl/~piet/edu/dos/pdf/designth.pdf\\\">design sensitivity</a> in early 2021. Diaz and the team will be able to monitor remotely any observations of deep space events based on alarms released through special <a href=\\\"https://www.ligo.caltech.edu/page/what-is-ligo\\\">LIGO</a> networks.</p><p>LIGO \\u2013 the Laser Interferometer Gravitational-Wave Observatory operated by Caltech and MIT \\u2013 includes more than 1,200 scientists from around the world and is the world\\u2019s largest gravitational wave observatory. In September 2017, the LIGO Scientific Collaboration announced the first joint detection of gravitational waves in the first significant signal recorded.</p><p><b>BACKGROUND</b></p><p>Diaz\\u2019s project began six years when he, <a href=\\\"https://www.unc.edu.ar/comunicaci%C3%B3n/el-astr%C3%B3nomo-diego-garc%C3%ADa-lambas-fue-distinguido-por-el-senado-de-la-naci%C3%B3n\\\">Dr. Diego Garcia Lambas</a>, professor of astronomy and director of the Institute of Theoretical and Experimental Astronomy at the University of C\\u00f3rdoba in Argentina, and D<a href=\\\"http://people.physics.tamu.edu/lmacri/\\\">r. Lucas Macri,</a> professor of astronomy at Texas A&amp;M University and associate dean of the College of Science there, launched a collaboration, named \\u201cTransient Optical Robotic Observatory of the South,\\u201d referred to as T<a href=\\\"https://toros.utrgv.edu/news/toritos-first-light/\\\">OROS.</a> UTRGV and the University of C\\u00f3rdoba in Argentina since then have signed agreements to develop this bi-national collaboration.<br/>In addition, TAMU professors Darren DePoy and Jennifer Marshall will use a portion of the funds to modify the TOROS telescope, building a \\u201cprime-focus corrector\\u201d in the Charles &amp; Judith Munnerlyn Astronomical and Space Sciences Laboratory at Texas A&amp;M.<br/>Diaz said this precisely-crafted set of lenses will maximize the field of view of a top-of-the-line camera that will be the dedicated instrument of the TOROS telescope.<br/>\\u201cTOROS will make important contributions to the follow-up observation of gravitational wave sources,\\u201d Diaz said, \\u201cand will help develop the next generation of \\u2018big data\\u2019 astronomers across diverse communities in the Valley, and across Texas and Argentina.\\u201d<br/>In addition to Diaz, UTRGV currently has two full-time scientists, 12 graduate and undergraduate students from the Edinburg and Brownsville campuses, and two teachers from local high schools (all members of the Time Domain Astronomy research group), actively participating in the binational project. Local high school physics teachers also are expected to engage area students in this research.</p><p><b>THE SCIENCE</b></p><p>One of the most important and frequent sources of gravitational waves are the collision of compact and dense objects, like two Black Holes. But if one of the two colliding objects is a neutron star \\u2013 the latest stage in the evolution of stars, and a bit heavier than our Sun \\u2013 or two neutron stars, space-time ripples will be produced during the event.<br/>However, a strong electromagnetic emission also occurs during collision, because the \\u201cbreaking\\u201d of one of the stars sheds matter, which whirls at breathtaking speeds around the new object being formed. In events of this sort, many of the chemical elements heavier than iron, like gold and platinum, are formed.</p><p>      </p><p>Because gravitational wave detectors have poor localization capabilities \\u2013 that is, they cannot pinpoint the exact position of the source \\u2013 wide field surveys provided by telescopes like the TOROS telescope could be extremely valuable in generating not only an exact localization of the source, but also other information associated with such events. This information could not be captured by gravitational wave detectors alone.</p><p>In recent years, the TOROS collaboration has searched for electromagnetic counterparts to gravitational wave sources using a variety of telescopes across the globe, and pursued funding opportunities to establish their own state-of-the-art CGWA telescope and camera at Cord\\u00f3n Mac\\u00f3n, in the remote Atacama region of northwestern Argentina and one of the best astronomical sites on earth.</p><p><b>ABOUT UTRGV</b></p><p>The University of Texas Rio Grande Valley (UTRGV) was created by the Texas Legislature in 2013 as the first major public university of the 21st century in Texas. This transformative initiative provided the opportunity to expand educational opportunities in the Rio Grande Valley, including a new School of Medicine, and made it possible for residents of the region to benefit from the Permanent University Fund \\u2013 a public endowment contributing support to the University of Texas System and other institutions.</p><p>UTRGV has campuses and off-campus research and teaching sites throughout the Rio Grande Valley including in Boca Chica Beach, Brownsville (formerly The University of Texas at Brownsville campus), Edinburg (formerly The University of Texas-Pan American campus), Harlingen, McAllen, Port Isabel, Rio Grande City, and South Padre Island. UTRGV, a comprehensive academic institution, enrolled its first class in the fall of 2015, and the School of Medicine welcomed its first class in the summer of 2016.</p>\", \"lead\": \"UTRGV, TAMU, University of Cordoba part of research collaboration\", \"image\": 7, \"caption\": \"Dr. Mario D\\u00edaz (at center), UTRGV professor of physics and astronomy and director of the university\\u2019s Center for Gravitational Wave Astronomy, is principal investigator on a binational project recently funded by the National Science Foundation to hel\", \"featuredInColumnSection\": true, \"featuredInRowSection\": false}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 34,
+  "fields": {
+    "page": 10,
+    "submitted_for_moderation": false,
+    "created_at": "2019-08-08T15:38:44.437Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 10, \"path\": \"0001000200010003\", \"depth\": 4, \"numchild\": 0, \"title\": \"NSF funds UTRGV professor\\u2019s TOROS telescope project to track cosmic gravitational wave events\", \"draft_title\": \"NSF funds UTRGV professor\\u2019s TOROS telescope project to track cosmic gravitational wave events\", \"slug\": \"nsf-funds-utrgv-professors-toros-telescope-project-to-track-cosmic-gravitational-wave-events\", \"content_type\": 47, \"live\": false, \"has_unpublished_changes\": true, \"url_path\": \"/home/news/nsf-funds-utrgv-professors-toros-telescope-project-to-track-cosmic-gravitational-wave-events/\", \"owner\": 2, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": \"2019-08-08T15:37:22.341Z\", \"live_revision\": null, \"date\": \"2019-08-08\", \"body\": \"<p><b>BROWNSVILLE, TEXAS \\u2013 AUG. 8, 2019 \\u2013</b> The <a href=\\\"https://www.nsf.gov/\\\">National Science Foundation</a> has awarded UTRGV\\u2019s <a href=\\\"https://www.utrgv.edu/cgwa/\\\">Center for Gravitational Wave Astronomy</a> (CGWA) $516,000 for the second phase of construction of a telescope dedicated to research on gravitational waves.</p><p><a href=\\\"http://www.mariodiaz.org/Mario_Diaz/Home.html\\\">Dr. Mario D\\u00edaz</a> \\u2013 UTRGV professor of physics and astronomy, director of CGWA and principal investigator on this binational project \\u2013 said g<a href=\\\"https://www.worldsciencefestival.com/videos/gravitational-waves-a-new-era-of-astronomy-begins/?gclid=Cj0KCQjwp5_qBRDBARIsANxdcinhl-XciKGgJlYzLzyjZFdYbe92X3Q-2vqsu1xTCEXj4Ceg3a2prY0aAj1AEALw_wcB\\\">ravitational waves</a> are ripples in the fabric of space and time, generated by c<a href=\\\"https://www.ligo.caltech.edu/mit/page/why-detect-gw\\\">ataclysmic astrophysical events</a> \\u2013 like exploding stars, the collision of black holes and merging neutron stars \\u2013 in the far reaches of the universe.</p><p>\\u201cThere are many challenges associated with searching large areas of the sky for fast-evolving astronomical sources, and this funding is critical for the projects investigated by UTRGV physics and astronomy students, who are now using the recently upgraded UTRGV <a href=\\\"https://www.utrgv.edu/newsroom/2018/05/07-utrgv-names-observatory-for-faculty-member-torres-with-may-5-stargazing-celebration.htm\\\">Dr. Cristina Torres Memorial Astronomical Observatory</a> at Resaca de la Palma State Park north of Brownsville,\\u201d<br/>Construction on the telescope \\u2013 which is physically located at <a href=\\\"http://fof.oac.uncor.edu/2011/talks/ruben.pdf\\\">Cord\\u00f3n Mac\\u00f3n i</a>n Salta Province, Argentina, away from light pollution and other factors that could interfere with the sensitive research \\u2013 started earlier in 2019 with funding provided by the Argentine National Science Foundation (CO<a href=\\\"https://www.natureindex.com/institution-outputs/argentina/national-scientific-and-technical-research-council-conicet/5139073d34d6b65e6a0022be\\\">NICET)</a> and about $500,000 in NSF funding previously awarded to Diaz.</p><p>The telescope is expected to be operational \\u2013 with some limited capabilities \\u2013 in early 2020, and is scheduled to achieve <a href=\\\"http://www.mate.tue.nl/~piet/edu/dos/pdf/designth.pdf\\\">design sensitivity</a> in early 2021. Diaz and the team will be able to monitor remotely any observations of deep space events based on alarms released through special <a href=\\\"https://www.ligo.caltech.edu/page/what-is-ligo\\\">LIGO</a> networks.</p><p>LIGO \\u2013 the Laser Interferometer Gravitational-Wave Observatory operated by Caltech and MIT \\u2013 includes more than 1,200 scientists from around the world and is the world\\u2019s largest gravitational wave observatory. In September 2017, the LIGO Scientific Collaboration announced the first joint detection of gravitational waves in the first significant signal recorded.</p><p><b>BACKGROUND</b></p><p>Diaz\\u2019s project began six years when he, <a href=\\\"https://www.unc.edu.ar/comunicaci%C3%B3n/el-astr%C3%B3nomo-diego-garc%C3%ADa-lambas-fue-distinguido-por-el-senado-de-la-naci%C3%B3n\\\">Dr. Diego Garcia Lambas</a>, professor of astronomy and director of the Institute of Theoretical and Experimental Astronomy at the University of C\\u00f3rdoba in Argentina, and D<a href=\\\"http://people.physics.tamu.edu/lmacri/\\\">r. Lucas Macri,</a> professor of astronomy at Texas A&amp;M University and associate dean of the College of Science there, launched a collaboration, named \\u201cTransient Optical Robotic Observatory of the South,\\u201d referred to as T<a href=\\\"https://toros.utrgv.edu/news/toritos-first-light/\\\">OROS.</a> UTRGV and the University of C\\u00f3rdoba in Argentina since then have signed agreements to develop this bi-national collaboration.<br/>In addition, TAMU professors Darren DePoy and Jennifer Marshall will use a portion of the funds to modify the TOROS telescope, building a \\u201cprime-focus corrector\\u201d in the Charles &amp; Judith Munnerlyn Astronomical and Space Sciences Laboratory at Texas A&amp;M.<br/>Diaz said this precisely-crafted set of lenses will maximize the field of view of a top-of-the-line camera that will be the dedicated instrument of the TOROS telescope.<br/>\\u201cTOROS will make important contributions to the follow-up observation of gravitational wave sources,\\u201d Diaz said, \\u201cand will help develop the next generation of \\u2018big data\\u2019 astronomers across diverse communities in the Valley, and across Texas and Argentina.\\u201d<br/>In addition to Diaz, UTRGV currently has two full-time scientists, 12 graduate and undergraduate students from the Edinburg and Brownsville campuses, and two teachers from local high schools (all members of the Time Domain Astronomy research group), actively participating in the binational project. Local high school physics teachers also are expected to engage area students in this research.</p><p><b>THE SCIENCE</b></p><p>One of the most important and frequent sources of gravitational waves are the collision of compact and dense objects, like two Black Holes. But if one of the two colliding objects is a neutron star \\u2013 the latest stage in the evolution of stars, and a bit heavier than our Sun \\u2013 or two neutron stars, space-time ripples will be produced during the event.<br/>However, a strong electromagnetic emission also occurs during collision, because the \\u201cbreaking\\u201d of one of the stars sheds matter, which whirls at breathtaking speeds around the new object being formed. In events of this sort, many of the chemical elements heavier than iron, like gold and platinum, are formed.</p><p></p><p>Because gravitational wave detectors have poor localization capabilities \\u2013 that is, they cannot pinpoint the exact position of the source \\u2013 wide field surveys provided by telescopes like the TOROS telescope could be extremely valuable in generating not only an exact localization of the source, but also other information associated with such events. This information could not be captured by gravitational wave detectors alone.</p><p>In recent years, the TOROS collaboration has searched for electromagnetic counterparts to gravitational wave sources using a variety of telescopes across the globe, and pursued funding opportunities to establish their own state-of-the-art CGWA telescope and camera at Cord\\u00f3n Mac\\u00f3n, in the remote Atacama region of northwestern Argentina and one of the best astronomical sites on earth.</p><p><b>ABOUT UTRGV</b></p><p>The University of Texas Rio Grande Valley (UTRGV) was created by the Texas Legislature in 2013 as the first major public university of the 21st century in Texas. This transformative initiative provided the opportunity to expand educational opportunities in the Rio Grande Valley, including a new School of Medicine, and made it possible for residents of the region to benefit from the Permanent University Fund \\u2013 a public endowment contributing support to the University of Texas System and other institutions.</p><p>UTRGV has campuses and off-campus research and teaching sites throughout the Rio Grande Valley including in Boca Chica Beach, Brownsville (formerly The University of Texas at Brownsville campus), Edinburg (formerly The University of Texas-Pan American campus), Harlingen, McAllen, Port Isabel, Rio Grande City, and South Padre Island. UTRGV, a comprehensive academic institution, enrolled its first class in the fall of 2015, and the School of Medicine welcomed its first class in the summer of 2016.</p>\", \"lead\": \"UTRGV, TAMU, University of Cordoba part of research collaboration\", \"image\": 7, \"caption\": \"Dr. Mario D\\u00edaz (center), with his TOROS collaborators on the project, Dr. Diego Garc\\u00eda Lambas (right), and Dr. Lucas Macri (left)\", \"featuredInColumnSection\": true, \"featuredInRowSection\": false}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 35,
+  "fields": {
+    "page": 10,
+    "submitted_for_moderation": false,
+    "created_at": "2019-08-08T15:39:34.174Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 10, \"path\": \"0001000200010003\", \"depth\": 4, \"numchild\": 0, \"title\": \"NSF funds UTRGV professor\\u2019s TOROS telescope project to track cosmic gravitational wave events\", \"draft_title\": \"NSF funds UTRGV professor\\u2019s TOROS telescope project to track cosmic gravitational wave events\", \"slug\": \"nsf-funds-utrgv-professors-toros-telescope-project-to-track-cosmic-gravitational-wave-events\", \"content_type\": 47, \"live\": false, \"has_unpublished_changes\": true, \"url_path\": \"/home/news/nsf-funds-utrgv-professors-toros-telescope-project-to-track-cosmic-gravitational-wave-events/\", \"owner\": 2, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": \"2019-08-08T15:38:44.437Z\", \"live_revision\": null, \"date\": \"2019-08-08\", \"body\": \"<p><b>BROWNSVILLE, TEXAS \\u2013 AUG. 8, 2019 \\u2013</b> The <a href=\\\"https://www.nsf.gov/\\\">National Science Foundation</a> has awarded UTRGV\\u2019s <a href=\\\"https://www.utrgv.edu/cgwa/\\\">Center for Gravitational Wave Astronomy</a> (CGWA) $516,000 for the second phase of construction of a telescope dedicated to research on gravitational waves.</p><p><a href=\\\"http://www.mariodiaz.org/Mario_Diaz/Home.html\\\">Dr. Mario D\\u00edaz</a> \\u2013 UTRGV professor of physics and astronomy, director of CGWA and principal investigator on this binational project \\u2013 said g<a href=\\\"https://www.worldsciencefestival.com/videos/gravitational-waves-a-new-era-of-astronomy-begins/?gclid=Cj0KCQjwp5_qBRDBARIsANxdcinhl-XciKGgJlYzLzyjZFdYbe92X3Q-2vqsu1xTCEXj4Ceg3a2prY0aAj1AEALw_wcB\\\">ravitational waves</a> are ripples in the fabric of space and time, generated by c<a href=\\\"https://www.ligo.caltech.edu/mit/page/why-detect-gw\\\">ataclysmic astrophysical events</a> \\u2013 like exploding stars, the collision of black holes and merging neutron stars \\u2013 in the far reaches of the universe.</p><p>\\u201cThere are many challenges associated with searching large areas of the sky for fast-evolving astronomical sources, and this funding is critical for the projects investigated by UTRGV physics and astronomy students, who are now using the recently upgraded UTRGV <a href=\\\"https://www.utrgv.edu/newsroom/2018/05/07-utrgv-names-observatory-for-faculty-member-torres-with-may-5-stargazing-celebration.htm\\\">Dr. Cristina Torres Memorial Astronomical Observatory</a> at Resaca de la Palma State Park north of Brownsville,\\u201d<br/>Construction on the telescope \\u2013 which is physically located at <a href=\\\"http://fof.oac.uncor.edu/2011/talks/ruben.pdf\\\">Cord\\u00f3n Mac\\u00f3n i</a>n Salta Province, Argentina, away from light pollution and other factors that could interfere with the sensitive research \\u2013 started earlier in 2019 with funding provided by the Argentine National Science Foundation (CO<a href=\\\"https://www.natureindex.com/institution-outputs/argentina/national-scientific-and-technical-research-council-conicet/5139073d34d6b65e6a0022be\\\">NICET)</a> and about $500,000 in NSF funding previously awarded to Diaz.</p><p>The telescope is expected to be operational \\u2013 with some limited capabilities \\u2013 in early 2020, and is scheduled to achieve <a href=\\\"http://www.mate.tue.nl/~piet/edu/dos/pdf/designth.pdf\\\">design sensitivity</a> in early 2021. Diaz and the team will be able to monitor remotely any observations of deep space events based on alarms released through special <a href=\\\"https://www.ligo.caltech.edu/page/what-is-ligo\\\">LIGO</a> networks.</p><p>LIGO \\u2013 the Laser Interferometer Gravitational-Wave Observatory operated by Caltech and MIT \\u2013 includes more than 1,200 scientists from around the world and is the world\\u2019s largest gravitational wave observatory. In September 2017, the LIGO Scientific Collaboration announced the first joint detection of gravitational waves in the first significant signal recorded.</p><p><b>BACKGROUND</b></p><p>Diaz\\u2019s project began six years when he, <a href=\\\"https://www.unc.edu.ar/comunicaci%C3%B3n/el-astr%C3%B3nomo-diego-garc%C3%ADa-lambas-fue-distinguido-por-el-senado-de-la-naci%C3%B3n\\\">Dr. Diego Garcia Lambas</a>, professor of astronomy and director of the Institute of Theoretical and Experimental Astronomy at the University of C\\u00f3rdoba in Argentina, and D<a href=\\\"http://people.physics.tamu.edu/lmacri/\\\">r. Lucas Macri,</a> professor of astronomy at Texas A&amp;M University and associate dean of the College of Science there, launched a collaboration, named \\u201cTransient Optical Robotic Observatory of the South,\\u201d referred to as T<a href=\\\"https://toros.utrgv.edu/news/toritos-first-light/\\\">OROS.</a> UTRGV and the University of C\\u00f3rdoba in Argentina since then have signed agreements to develop this bi-national collaboration.<br/>In addition, TAMU professors Darren DePoy and Jennifer Marshall will use a portion of the funds to modify the TOROS telescope, building a \\u201cprime-focus corrector\\u201d in the Charles &amp; Judith Munnerlyn Astronomical and Space Sciences Laboratory at Texas A&amp;M.<br/>Diaz said this precisely-crafted set of lenses will maximize the field of view of a top-of-the-line camera that will be the dedicated instrument of the TOROS telescope.<br/>\\u201cTOROS will make important contributions to the follow-up observation of gravitational wave sources,\\u201d Diaz said, \\u201cand will help develop the next generation of \\u2018big data\\u2019 astronomers across diverse communities in the Valley, and across Texas and Argentina.\\u201d<br/>In addition to Diaz, UTRGV currently has two full-time scientists, 12 graduate and undergraduate students from the Edinburg and Brownsville campuses, and two teachers from local high schools (all members of the Time Domain Astronomy research group), actively participating in the binational project. Local high school physics teachers also are expected to engage area students in this research.</p><p><b>THE SCIENCE</b></p><p>One of the most important and frequent sources of gravitational waves are the collision of compact and dense objects, like two Black Holes. But if one of the two colliding objects is a neutron star \\u2013 the latest stage in the evolution of stars, and a bit heavier than our Sun \\u2013 or two neutron stars, space-time ripples will be produced during the event.<br/>However, a strong electromagnetic emission also occurs during collision, because the \\u201cbreaking\\u201d of one of the stars sheds matter, which whirls at breathtaking speeds around the new object being formed. In events of this sort, many of the chemical elements heavier than iron, like gold and platinum, are formed.</p><p></p><p>Because gravitational wave detectors have poor localization capabilities \\u2013 that is, they cannot pinpoint the exact position of the source \\u2013 wide field surveys provided by telescopes like the TOROS telescope could be extremely valuable in generating not only an exact localization of the source, but also other information associated with such events. This information could not be captured by gravitational wave detectors alone.</p><p>In recent years, the TOROS collaboration has searched for electromagnetic counterparts to gravitational wave sources using a variety of telescopes across the globe, and pursued funding opportunities to establish their own state-of-the-art CGWA telescope and camera at Cord\\u00f3n Mac\\u00f3n, in the remote Atacama region of northwestern Argentina and one of the best astronomical sites on earth.</p><p><b>ABOUT UTRGV</b></p><p>The University of Texas Rio Grande Valley (UTRGV) was created by the Texas Legislature in 2013 as the first major public university of the 21st century in Texas. This transformative initiative provided the opportunity to expand educational opportunities in the Rio Grande Valley, including a new School of Medicine, and made it possible for residents of the region to benefit from the Permanent University Fund \\u2013 a public endowment contributing support to the University of Texas System and other institutions.</p><p>UTRGV has campuses and off-campus research and teaching sites throughout the Rio Grande Valley including in Boca Chica Beach, Brownsville (formerly The University of Texas at Brownsville campus), Edinburg (formerly The University of Texas-Pan American campus), Harlingen, McAllen, Port Isabel, Rio Grande City, and South Padre Island. UTRGV, a comprehensive academic institution, enrolled its first class in the fall of 2015, and the School of Medicine welcomed its first class in the summer of 2016.</p>\", \"lead\": \"UTRGV, TAMU, University of Cordoba part of research collaboration\", \"image\": 7, \"caption\": \"Dr. Mario D\\u00edaz (center), with his TOROS collaborators on the project, Dr. Diego Garc\\u00eda Lambas (right), and Dr. Lucas Macri (left)\", \"featuredInColumnSection\": true, \"featuredInRowSection\": false}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 36,
+  "fields": {
+    "page": 10,
+    "submitted_for_moderation": false,
+    "created_at": "2019-08-08T15:40:37.974Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 10, \"path\": \"0001000200010003\", \"depth\": 4, \"numchild\": 0, \"title\": \"NSF funds UTRGV professor\\u2019s TOROS telescope project to track cosmic gravitational wave events\", \"draft_title\": \"NSF funds UTRGV professor\\u2019s TOROS telescope project to track cosmic gravitational wave events\", \"slug\": \"nsf-funds-utrgv-professors-toros-telescope-project-to-track-cosmic-gravitational-wave-events\", \"content_type\": 47, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home/news/nsf-funds-utrgv-professors-toros-telescope-project-to-track-cosmic-gravitational-wave-events/\", \"owner\": 2, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": \"2019-08-08T15:39:34.207Z\", \"last_published_at\": \"2019-08-08T15:39:34.207Z\", \"latest_revision_created_at\": \"2019-08-08T15:39:34.174Z\", \"live_revision\": 35, \"date\": \"2019-08-08\", \"body\": \"<p><b>BROWNSVILLE, TEXAS \\u2013 AUG. 8, 2019 \\u2013</b> The <a href=\\\"https://www.nsf.gov/\\\">National Science Foundation</a> has awarded UTRGV\\u2019s <a href=\\\"https://www.utrgv.edu/cgwa/\\\">Center for Gravitational Wave Astronomy</a> (CGWA) $516,000 for the second phase of construction of a telescope dedicated to research on gravitational waves.</p><p><a href=\\\"http://www.mariodiaz.org/Mario_Diaz/Home.html\\\">Dr. Mario D\\u00edaz</a> \\u2013 UTRGV professor of physics and astronomy, director of CGWA and principal investigator on this binational project \\u2013 said g<a href=\\\"https://www.worldsciencefestival.com/videos/gravitational-waves-a-new-era-of-astronomy-begins/?gclid=Cj0KCQjwp5_qBRDBARIsANxdcinhl-XciKGgJlYzLzyjZFdYbe92X3Q-2vqsu1xTCEXj4Ceg3a2prY0aAj1AEALw_wcB\\\">ravitational waves</a> are ripples in the fabric of space and time, generated by c<a href=\\\"https://www.ligo.caltech.edu/mit/page/why-detect-gw\\\">ataclysmic astrophysical events</a> \\u2013 like exploding stars, the collision of black holes and merging neutron stars \\u2013 in the far reaches of the universe.</p><p>\\u201cThere are many challenges associated with searching large areas of the sky for fast-evolving astronomical sources, and this funding is critical for the projects investigated by UTRGV physics and astronomy students, who are now using the recently upgraded UTRGV <a href=\\\"https://www.utrgv.edu/newsroom/2018/05/07-utrgv-names-observatory-for-faculty-member-torres-with-may-5-stargazing-celebration.htm\\\">Dr. Cristina Torres Memorial Astronomical Observatory</a> at Resaca de la Palma State Park north of Brownsville,\\u201d<br/>Construction on the telescope \\u2013 which is physically located at <a href=\\\"http://fof.oac.uncor.edu/2011/talks/ruben.pdf\\\">Cord\\u00f3n Mac\\u00f3n i</a>n Salta Province, Argentina, away from light pollution and other factors that could interfere with the sensitive research \\u2013 started earlier in 2019 with funding provided by the Argentine National Science Foundation (CO<a href=\\\"https://www.natureindex.com/institution-outputs/argentina/national-scientific-and-technical-research-council-conicet/5139073d34d6b65e6a0022be\\\">NICET)</a> and about $500,000 in NSF funding previously awarded to Diaz.</p><p>The telescope is expected to be operational \\u2013 with some limited capabilities \\u2013 in early 2020, and is scheduled to achieve <a href=\\\"http://www.mate.tue.nl/~piet/edu/dos/pdf/designth.pdf\\\">design sensitivity</a> in early 2021. Diaz and the team will be able to monitor remotely any observations of deep space events based on alarms released through special <a href=\\\"https://www.ligo.caltech.edu/page/what-is-ligo\\\">LIGO</a> networks.</p><p>LIGO \\u2013 the Laser Interferometer Gravitational-Wave Observatory operated by Caltech and MIT \\u2013 includes more than 1,200 scientists from around the world and is the world\\u2019s largest gravitational wave observatory. In September 2017, the LIGO Scientific Collaboration announced the first joint detection of gravitational waves in the first significant signal recorded.</p><p><b>BACKGROUND</b></p><p>Diaz\\u2019s project began six years when he, <a href=\\\"https://www.unc.edu.ar/comunicaci%C3%B3n/el-astr%C3%B3nomo-diego-garc%C3%ADa-lambas-fue-distinguido-por-el-senado-de-la-naci%C3%B3n\\\">Dr. Diego Garcia Lambas</a>, professor of astronomy and director of the Institute of Theoretical and Experimental Astronomy at the University of C\\u00f3rdoba in Argentina, and D<a href=\\\"http://people.physics.tamu.edu/lmacri/\\\">r. Lucas Macri,</a> professor of astronomy at Texas A&amp;M University and associate dean of the College of Science there, launched a collaboration, named \\u201cTransient Optical Robotic Observatory of the South,\\u201d referred to as T<a href=\\\"https://toros.utrgv.edu/news/toritos-first-light/\\\">OROS.</a> UTRGV and the University of C\\u00f3rdoba in Argentina since then have signed agreements to develop this bi-national collaboration.<br/>In addition, TAMU professors Darren DePoy and Jennifer Marshall will use a portion of the funds to modify the TOROS telescope, building a \\u201cprime-focus corrector\\u201d in the Charles &amp; Judith Munnerlyn Astronomical and Space Sciences Laboratory at Texas A&amp;M.<br/>Diaz said this precisely-crafted set of lenses will maximize the field of view of a top-of-the-line camera that will be the dedicated instrument of the TOROS telescope.<br/>\\u201cTOROS will make important contributions to the follow-up observation of gravitational wave sources,\\u201d Diaz said, \\u201cand will help develop the next generation of \\u2018big data\\u2019 astronomers across diverse communities in the Valley, and across Texas and Argentina.\\u201d<br/>In addition to Diaz, UTRGV currently has two full-time scientists, 12 graduate and undergraduate students from the Edinburg and Brownsville campuses, and two teachers from local high schools (all members of the Time Domain Astronomy research group), actively participating in the binational project. Local high school physics teachers also are expected to engage area students in this research.</p><p><b>THE SCIENCE</b></p><p>One of the most important and frequent sources of gravitational waves are the collision of compact and dense objects, like two Black Holes. But if one of the two colliding objects is a neutron star \\u2013 the latest stage in the evolution of stars, and a bit heavier than our Sun \\u2013 or two neutron stars, space-time ripples will be produced during the event.<br/>However, a strong electromagnetic emission also occurs during collision, because the \\u201cbreaking\\u201d of one of the stars sheds matter, which whirls at breathtaking speeds around the new object being formed. In events of this sort, many of the chemical elements heavier than iron, like gold and platinum, are formed.</p><p></p><p>Because gravitational wave detectors have poor localization capabilities \\u2013 that is, they cannot pinpoint the exact position of the source \\u2013 wide field surveys provided by telescopes like the TOROS telescope could be extremely valuable in generating not only an exact localization of the source, but also other information associated with such events. This information could not be captured by gravitational wave detectors alone.</p><p>In recent years, the TOROS collaboration has searched for electromagnetic counterparts to gravitational wave sources using a variety of telescopes across the globe, and pursued funding opportunities to establish their own state-of-the-art CGWA telescope and camera at Cord\\u00f3n Mac\\u00f3n, in the remote Atacama region of northwestern Argentina and one of the best astronomical sites on earth.</p><p><b>ABOUT UTRGV</b></p><p>The University of Texas Rio Grande Valley (UTRGV) was created by the Texas Legislature in 2013 as the first major public university of the 21st century in Texas. This transformative initiative provided the opportunity to expand educational opportunities in the Rio Grande Valley, including a new School of Medicine, and made it possible for residents of the region to benefit from the Permanent University Fund \\u2013 a public endowment contributing support to the University of Texas System and other institutions.</p><p>UTRGV has campuses and off-campus research and teaching sites throughout the Rio Grande Valley including in Boca Chica Beach, Brownsville (formerly The University of Texas at Brownsville campus), Edinburg (formerly The University of Texas-Pan American campus), Harlingen, McAllen, Port Isabel, Rio Grande City, and South Padre Island. UTRGV, a comprehensive academic institution, enrolled its first class in the fall of 2015, and the School of Medicine welcomed its first class in the summer of 2016.</p><hr/><p><b>MEDIA CONTACTS</b></p><p><b>Marci.Caltabiano@UTRGV.edu</b></p><p>UTRGV Director of News and Internal Communications <b>/</b> (956) 665-2742</p>\", \"lead\": \"UTRGV, TAMU, University of Cordoba part of research collaboration\", \"image\": 7, \"caption\": \"Dr. Mario D\\u00edaz (center), with his TOROS collaborators on the project, Dr. Diego Garc\\u00eda Lambas (right), and Dr. Lucas Macri (left)\", \"featuredInColumnSection\": true, \"featuredInRowSection\": false}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 37,
+  "fields": {
+    "page": 10,
+    "submitted_for_moderation": false,
+    "created_at": "2019-08-08T15:40:40.839Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 10, \"path\": \"0001000200010003\", \"depth\": 4, \"numchild\": 0, \"title\": \"NSF funds UTRGV professor\\u2019s TOROS telescope project to track cosmic gravitational wave events\", \"draft_title\": \"NSF funds UTRGV professor\\u2019s TOROS telescope project to track cosmic gravitational wave events\", \"slug\": \"nsf-funds-utrgv-professors-toros-telescope-project-to-track-cosmic-gravitational-wave-events\", \"content_type\": 47, \"live\": true, \"has_unpublished_changes\": true, \"url_path\": \"/home/news/nsf-funds-utrgv-professors-toros-telescope-project-to-track-cosmic-gravitational-wave-events/\", \"owner\": 2, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": \"2019-08-08T15:39:34.207Z\", \"last_published_at\": \"2019-08-08T15:39:34.207Z\", \"latest_revision_created_at\": \"2019-08-08T15:40:37.974Z\", \"live_revision\": 35, \"date\": \"2019-08-08\", \"body\": \"<p><b>BROWNSVILLE, TEXAS \\u2013 AUG. 8, 2019 \\u2013</b> The <a href=\\\"https://www.nsf.gov/\\\">National Science Foundation</a> has awarded UTRGV\\u2019s <a href=\\\"https://www.utrgv.edu/cgwa/\\\">Center for Gravitational Wave Astronomy</a> (CGWA) $516,000 for the second phase of construction of a telescope dedicated to research on gravitational waves.</p><p><a href=\\\"http://www.mariodiaz.org/Mario_Diaz/Home.html\\\">Dr. Mario D\\u00edaz</a> \\u2013 UTRGV professor of physics and astronomy, director of CGWA and principal investigator on this binational project \\u2013 said g<a href=\\\"https://www.worldsciencefestival.com/videos/gravitational-waves-a-new-era-of-astronomy-begins/?gclid=Cj0KCQjwp5_qBRDBARIsANxdcinhl-XciKGgJlYzLzyjZFdYbe92X3Q-2vqsu1xTCEXj4Ceg3a2prY0aAj1AEALw_wcB\\\">ravitational waves</a> are ripples in the fabric of space and time, generated by c<a href=\\\"https://www.ligo.caltech.edu/mit/page/why-detect-gw\\\">ataclysmic astrophysical events</a> \\u2013 like exploding stars, the collision of black holes and merging neutron stars \\u2013 in the far reaches of the universe.</p><p>\\u201cThere are many challenges associated with searching large areas of the sky for fast-evolving astronomical sources, and this funding is critical for the projects investigated by UTRGV physics and astronomy students, who are now using the recently upgraded UTRGV <a href=\\\"https://www.utrgv.edu/newsroom/2018/05/07-utrgv-names-observatory-for-faculty-member-torres-with-may-5-stargazing-celebration.htm\\\">Dr. Cristina Torres Memorial Astronomical Observatory</a> at Resaca de la Palma State Park north of Brownsville,\\u201d<br/>Construction on the telescope \\u2013 which is physically located at <a href=\\\"http://fof.oac.uncor.edu/2011/talks/ruben.pdf\\\">Cord\\u00f3n Mac\\u00f3n i</a>n Salta Province, Argentina, away from light pollution and other factors that could interfere with the sensitive research \\u2013 started earlier in 2019 with funding provided by the Argentine National Science Foundation (CO<a href=\\\"https://www.natureindex.com/institution-outputs/argentina/national-scientific-and-technical-research-council-conicet/5139073d34d6b65e6a0022be\\\">NICET)</a> and about $500,000 in NSF funding previously awarded to Diaz.</p><p>The telescope is expected to be operational \\u2013 with some limited capabilities \\u2013 in early 2020, and is scheduled to achieve <a href=\\\"http://www.mate.tue.nl/~piet/edu/dos/pdf/designth.pdf\\\">design sensitivity</a> in early 2021. Diaz and the team will be able to monitor remotely any observations of deep space events based on alarms released through special <a href=\\\"https://www.ligo.caltech.edu/page/what-is-ligo\\\">LIGO</a> networks.</p><p>LIGO \\u2013 the Laser Interferometer Gravitational-Wave Observatory operated by Caltech and MIT \\u2013 includes more than 1,200 scientists from around the world and is the world\\u2019s largest gravitational wave observatory. In September 2017, the LIGO Scientific Collaboration announced the first joint detection of gravitational waves in the first significant signal recorded.</p><p><b>BACKGROUND</b></p><p>Diaz\\u2019s project began six years when he, <a href=\\\"https://www.unc.edu.ar/comunicaci%C3%B3n/el-astr%C3%B3nomo-diego-garc%C3%ADa-lambas-fue-distinguido-por-el-senado-de-la-naci%C3%B3n\\\">Dr. Diego Garcia Lambas</a>, professor of astronomy and director of the Institute of Theoretical and Experimental Astronomy at the University of C\\u00f3rdoba in Argentina, and D<a href=\\\"http://people.physics.tamu.edu/lmacri/\\\">r. Lucas Macri,</a> professor of astronomy at Texas A&amp;M University and associate dean of the College of Science there, launched a collaboration, named \\u201cTransient Optical Robotic Observatory of the South,\\u201d referred to as T<a href=\\\"https://toros.utrgv.edu/news/toritos-first-light/\\\">OROS.</a> UTRGV and the University of C\\u00f3rdoba in Argentina since then have signed agreements to develop this bi-national collaboration.<br/>In addition, TAMU professors Darren DePoy and Jennifer Marshall will use a portion of the funds to modify the TOROS telescope, building a \\u201cprime-focus corrector\\u201d in the Charles &amp; Judith Munnerlyn Astronomical and Space Sciences Laboratory at Texas A&amp;M.<br/>Diaz said this precisely-crafted set of lenses will maximize the field of view of a top-of-the-line camera that will be the dedicated instrument of the TOROS telescope.<br/>\\u201cTOROS will make important contributions to the follow-up observation of gravitational wave sources,\\u201d Diaz said, \\u201cand will help develop the next generation of \\u2018big data\\u2019 astronomers across diverse communities in the Valley, and across Texas and Argentina.\\u201d<br/>In addition to Diaz, UTRGV currently has two full-time scientists, 12 graduate and undergraduate students from the Edinburg and Brownsville campuses, and two teachers from local high schools (all members of the Time Domain Astronomy research group), actively participating in the binational project. Local high school physics teachers also are expected to engage area students in this research.</p><p><b>THE SCIENCE</b></p><p>One of the most important and frequent sources of gravitational waves are the collision of compact and dense objects, like two Black Holes. But if one of the two colliding objects is a neutron star \\u2013 the latest stage in the evolution of stars, and a bit heavier than our Sun \\u2013 or two neutron stars, space-time ripples will be produced during the event.<br/>However, a strong electromagnetic emission also occurs during collision, because the \\u201cbreaking\\u201d of one of the stars sheds matter, which whirls at breathtaking speeds around the new object being formed. In events of this sort, many of the chemical elements heavier than iron, like gold and platinum, are formed.</p><p></p><p>Because gravitational wave detectors have poor localization capabilities \\u2013 that is, they cannot pinpoint the exact position of the source \\u2013 wide field surveys provided by telescopes like the TOROS telescope could be extremely valuable in generating not only an exact localization of the source, but also other information associated with such events. This information could not be captured by gravitational wave detectors alone.</p><p>In recent years, the TOROS collaboration has searched for electromagnetic counterparts to gravitational wave sources using a variety of telescopes across the globe, and pursued funding opportunities to establish their own state-of-the-art CGWA telescope and camera at Cord\\u00f3n Mac\\u00f3n, in the remote Atacama region of northwestern Argentina and one of the best astronomical sites on earth.</p><p><b>ABOUT UTRGV</b></p><p>The University of Texas Rio Grande Valley (UTRGV) was created by the Texas Legislature in 2013 as the first major public university of the 21st century in Texas. This transformative initiative provided the opportunity to expand educational opportunities in the Rio Grande Valley, including a new School of Medicine, and made it possible for residents of the region to benefit from the Permanent University Fund \\u2013 a public endowment contributing support to the University of Texas System and other institutions.</p><p>UTRGV has campuses and off-campus research and teaching sites throughout the Rio Grande Valley including in Boca Chica Beach, Brownsville (formerly The University of Texas at Brownsville campus), Edinburg (formerly The University of Texas-Pan American campus), Harlingen, McAllen, Port Isabel, Rio Grande City, and South Padre Island. UTRGV, a comprehensive academic institution, enrolled its first class in the fall of 2015, and the School of Medicine welcomed its first class in the summer of 2016.</p><hr/><p><b>MEDIA CONTACTS</b></p><p><b>Marci.Caltabiano@UTRGV.edu</b></p><p>UTRGV Director of News and Internal Communications <b>/</b> (956) 665-2742</p>\", \"lead\": \"UTRGV, TAMU, University of Cordoba part of research collaboration\", \"image\": 7, \"caption\": \"Dr. Mario D\\u00edaz (center), with his TOROS collaborators on the project, Dr. Diego Garc\\u00eda Lambas (right), and Dr. Lucas Macri (left)\", \"featuredInColumnSection\": true, \"featuredInRowSection\": false}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 38,
+  "fields": {
+    "page": 5,
+    "submitted_for_moderation": false,
+    "created_at": "2019-08-08T15:41:35.701Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 5, \"path\": \"000100020002\", \"depth\": 3, \"numchild\": 0, \"title\": \"Our People\", \"draft_title\": \"Our People\", \"slug\": \"our-people\", \"content_type\": 47, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home/our-people/\", \"owner\": 42, \"seo_title\": \"TOROS - Our People\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": \"2019-01-22T18:16:45.667Z\", \"last_published_at\": \"2019-01-22T21:15:57.230Z\", \"latest_revision_created_at\": \"2019-01-22T21:15:57.205Z\", \"live_revision\": 21, \"date\": \"2019-01-22\", \"body\": \"<p>Our collaboration is formed by scientists from Universidad Nacional de Cordoba (Argentina), Texas A&amp;M University (USA); CGWA The University of Texas Rio Grande Valley (USA), Universidad Nacional de Salta (Argentina), Universit\\u00e0 Carlo Bo di Urbino (Italy), Loas Alamos National Laboratory (USA) and University of Warsaw (Poland)</p>\", \"lead\": \"Our collaboration is formed by scientists from several universities\", \"image\": 5, \"caption\": \"\", \"featuredInColumnSection\": false, \"featuredInRowSection\": true}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 39,
+  "fields": {
+    "page": 10,
+    "submitted_for_moderation": false,
+    "created_at": "2019-08-08T16:49:36.109Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 10, \"path\": \"0001000200010003\", \"depth\": 4, \"numchild\": 0, \"title\": \"NSF funds UTRGV professor\\u2019s TOROS telescope project to track cosmic gravitational wave events\", \"draft_title\": \"NSF funds UTRGV professor\\u2019s TOROS telescope project to track cosmic gravitational wave events\", \"slug\": \"nsf-funds-utrgv-professors-toros-telescope-project-to-track-cosmic-gravitational-wave-events\", \"content_type\": 47, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home/news/nsf-funds-utrgv-professors-toros-telescope-project-to-track-cosmic-gravitational-wave-events/\", \"owner\": 2, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": \"2019-08-08T15:39:34.207Z\", \"last_published_at\": \"2019-08-08T15:40:40.880Z\", \"latest_revision_created_at\": \"2019-08-08T15:40:40.839Z\", \"live_revision\": 37, \"date\": \"2019-08-08\", \"body\": \"<p><b>BROWNSVILLE, TEXAS \\u2013 AUG. 8, 2019 \\u2013</b> The <a href=\\\"https://www.nsf.gov/\\\">National Science Foundation</a> has awarded UTRGV\\u2019s <a href=\\\"https://www.utrgv.edu/cgwa/\\\">Center for Gravitational Wave Astronomy</a> (CGWA) $516,000 for the second phase of construction of a telescope dedicated to research on gravitational waves.</p><p><a href=\\\"http://www.mariodiaz.org/Mario_Diaz/Home.html\\\">Dr. Mario D\\u00edaz</a> \\u2013 UTRGV professor of physics and astronomy, director of CGWA and principal investigator on this binational project \\u2013 said <a href=\\\"https://www.worldsciencefestival.com/videos/gravitational-waves-a-new-era-of-astronomy-begins/?gclid=Cj0KCQjwp5_qBRDBARIsANxdcinhl-XciKGgJlYzLzyjZFdYbe92X3Q-2vqsu1xTCEXj4Ceg3a2prY0aAj1AEALw_wcB\\\">gravitational waves</a> are ripples in the fabric of space and time, generated by <a href=\\\"https://www.ligo.caltech.edu/mit/page/why-detect-gw\\\">cataclysmic astrophysical events</a> \\u2013 like exploding stars, the collision of black holes and merging neutron stars \\u2013 in the far reaches of the universe.</p><p>\\u201cThere are many challenges associated with searching large areas of the sky for fast-evolving astronomical sources, and this funding is critical for the projects investigated by UTRGV physics and astronomy students, who are now using the recently upgraded UTRGV <a href=\\\"https://www.utrgv.edu/newsroom/2018/05/07-utrgv-names-observatory-for-faculty-member-torres-with-may-5-stargazing-celebration.htm\\\">Dr. Cristina Torres Memorial Astronomical Observatory</a> at Resaca de la Palma State Park north of Brownsville,\\u201d<br/>Construction on the telescope \\u2013 which is physically located at <a href=\\\"http://fof.oac.uncor.edu/2011/talks/ruben.pdf\\\">Cord\\u00f3n Mac\\u00f3n i</a>n Salta Province, Argentina, away from light pollution and other factors that could interfere with the sensitive research \\u2013 started earlier in 2019 with funding provided by the Argentine National Science Foundation (<a href=\\\"https://www.natureindex.com/institution-outputs/argentina/national-scientific-and-technical-research-council-conicet/5139073d34d6b65e6a0022be\\\">CONICET)</a> and about $500,000 in NSF funding previously awarded to Diaz.</p><p>The telescope is expected to be operational \\u2013 with some limited capabilities \\u2013 in early 2020, and is scheduled to achieve <a href=\\\"http://www.mate.tue.nl/~piet/edu/dos/pdf/designth.pdf\\\">design sensitivity</a> in early 2021. Diaz and the team will be able to monitor remotely any observations of deep space events based on alarms released through special <a href=\\\"https://www.ligo.caltech.edu/page/what-is-ligo\\\">LIGO</a> networks.</p><p>LIGO \\u2013 the Laser Interferometer Gravitational-Wave Observatory operated by Caltech and MIT \\u2013 includes more than 1,200 scientists from around the world and is the world\\u2019s largest gravitational wave observatory. In September 2017, the LIGO Scientific Collaboration announced the first joint detection of gravitational waves in the first significant signal recorded.</p><p><b>BACKGROUND</b></p><p>Diaz\\u2019s project began six years when he, <a href=\\\"https://www.unc.edu.ar/comunicaci%C3%B3n/el-astr%C3%B3nomo-diego-garc%C3%ADa-lambas-fue-distinguido-por-el-senado-de-la-naci%C3%B3n\\\">Dr. Diego Garcia Lambas</a>, professor of astronomy and director of the Institute of Theoretical and Experimental Astronomy at the University of C\\u00f3rdoba in Argentina, and <a href=\\\"http://people.physics.tamu.edu/lmacri/\\\">Dr.  Lucas Macri,</a> professor of astronomy at Texas A&amp;M University and associate dean of the College of Science there, launched a collaboration, named \\u201cTransient Optical Robotic Observatory of the South,\\u201d referred to as <a href=\\\"https://toros.utrgv.edu/news/toritos-first-light/\\\">TOROS.</a> UTRGV and the University of C\\u00f3rdoba in Argentina since then have signed agreements to develop this bi-national collaboration.<br/>In addition, TAMU professors Darren DePoy and Jennifer Marshall will use a portion of the funds to modify the TOROS telescope, building a \\u201cprime-focus corrector\\u201d in the Charles &amp; Judith Munnerlyn Astronomical and Space Sciences Laboratory at Texas A&amp;M.<br/>Diaz said this precisely-crafted set of lenses will maximize the field of view of a top-of-the-line camera that will be the dedicated instrument of the TOROS telescope.<br/>\\u201cTOROS will make important contributions to the follow-up observation of gravitational wave sources,\\u201d Diaz said, \\u201cand will help develop the next generation of \\u2018big data\\u2019 astronomers across diverse communities in the Valley, and across Texas and Argentina.\\u201d<br/>In addition to Diaz, UTRGV currently has two full-time scientists, 12 graduate and undergraduate students from the Edinburg and Brownsville campuses, and two teachers from local high schools (all members of the Time Domain Astronomy research group), actively participating in the binational project. Local high school physics teachers also are expected to engage area students in this research.</p><p><b>THE SCIENCE</b></p><p>One of the most important and frequent sources of gravitational waves are the collision of compact and dense objects, like two Black Holes. But if one of the two colliding objects is a neutron star \\u2013 the latest stage in the evolution of stars, and a bit heavier than our Sun \\u2013 or two neutron stars, space-time ripples will be produced during the event.<br/>However, a strong electromagnetic emission also occurs during collision, because the \\u201cbreaking\\u201d of one of the stars sheds matter, which whirls at breathtaking speeds around the new object being formed. In events of this sort, many of the chemical elements heavier than iron, like gold and platinum, are formed.</p><p></p><p>Because gravitational wave detectors have poor localization capabilities \\u2013 that is, they cannot pinpoint the exact position of the source \\u2013 wide field surveys provided by telescopes like the TOROS telescope could be extremely valuable in generating not only an exact localization of the source, but also other information associated with such events. This information could not be captured by gravitational wave detectors alone.</p><p>In recent years, the TOROS collaboration has searched for electromagnetic counterparts to gravitational wave sources using a variety of telescopes across the globe, and pursued funding opportunities to establish their own state-of-the-art CGWA telescope and camera at Cord\\u00f3n Mac\\u00f3n, in the remote Atacama region of northwestern Argentina and one of the best astronomical sites on earth.</p><p><b>ABOUT UTRGV</b></p><p>The University of Texas Rio Grande Valley (UTRGV) was created by the Texas Legislature in 2013 as the first major public university of the 21st century in Texas. This transformative initiative provided the opportunity to expand educational opportunities in the Rio Grande Valley, including a new School of Medicine, and made it possible for residents of the region to benefit from the Permanent University Fund \\u2013 a public endowment contributing support to the University of Texas System and other institutions.</p><p>UTRGV has campuses and off-campus research and teaching sites throughout the Rio Grande Valley including in Boca Chica Beach, Brownsville (formerly The University of Texas at Brownsville campus), Edinburg (formerly The University of Texas-Pan American campus), Harlingen, McAllen, Port Isabel, Rio Grande City, and South Padre Island. UTRGV, a comprehensive academic institution, enrolled its first class in the fall of 2015, and the School of Medicine welcomed its first class in the summer of 2016.</p><hr/><p><b>MEDIA CONTACTS</b></p><p><b>Marci.Caltabiano@UTRGV.edu</b></p><p>UTRGV Director of News and Internal Communications <b>/</b> (956) 665-2742</p>\", \"lead\": \"UTRGV, TAMU, University of Cordoba part of research collaboration\", \"image\": 7, \"caption\": \"Dr. Mario D\\u00edaz (center), with his TOROS collaborators on the project, Dr. Diego Garc\\u00eda Lambas (right), and Dr. Lucas Macri (left)\", \"featuredInColumnSection\": true, \"featuredInRowSection\": false}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 1,
+  "fields": {
+    "collection": 1,
+    "title": "news.png",
+    "file": "original_images/news.png",
+    "width": 1280,
+    "height": 1102,
+    "created_at": "2019-01-21T16:43:37.927Z",
+    "uploaded_by_user": [
+      "admin"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 209559,
+    "file_hash": "b90de5983d1ccab9f2f8fb60afdad8755a02d5c1"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 3,
+  "fields": {
+    "collection": 1,
+    "title": "IMG_2988-2.jpg",
+    "file": "original_images/IMG_2988-2.jpg",
+    "width": 3456,
+    "height": 2304,
+    "created_at": "2019-01-22T18:25:53.405Z",
+    "uploaded_by_user": [
+      "admin"
+    ],
+    "focal_point_x": 1427,
+    "focal_point_y": 998,
+    "focal_point_width": 2694,
+    "focal_point_height": 1910,
+    "file_size": 898111,
+    "file_hash": "c55c66137ab3ac9ea415bb656c2bc4ea1b5328b1"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 4,
+  "fields": {
+    "collection": 1,
+    "title": "toritos.png",
+    "file": "original_images/toritos.png",
+    "width": 397,
+    "height": 248,
+    "created_at": "2019-01-22T18:27:36.803Z",
+    "uploaded_by_user": [
+      "admin"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 188242,
+    "file_hash": "36e244c96638aa09ae266768c665b336bee53bf6"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 5,
+  "fields": {
+    "collection": 1,
+    "title": "TOROS_team_cropped.jpg",
+    "file": "original_images/TOROS_team_cropped.jpg",
+    "width": 2800,
+    "height": 1690,
+    "created_at": "2019-01-22T21:15:46.207Z",
+    "uploaded_by_user": [
+      "admin"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 1047729,
+    "file_hash": "bf96af2da401543fd347db49b57dbf8b0777a61a"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 6,
+  "fields": {
+    "collection": 1,
+    "title": "dome.jpg",
+    "file": "original_images/dome.jpg",
+    "width": 328,
+    "height": 246,
+    "created_at": "2019-01-22T21:32:41.670Z",
+    "uploaded_by_user": [
+      "admin"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 26655,
+    "file_hash": "f2ae83ebddec38ca1c08059749629c75f98e2424"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 7,
+  "fields": {
+    "collection": 1,
+    "title": "pi_group.png",
+    "file": "original_images/pi_group.png",
+    "width": 1530,
+    "height": 1074,
+    "created_at": "2019-08-08T15:36:36.808Z",
+    "uploaded_by_user": [
+      "admin"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 1886740,
+    "file_hash": "33274faf94d8e1e86489978b0cf55783e0b768f1"
+  }
+},
+{
+  "model": "torosweb.newsindex",
+  "pk": 4,
+  "fields": {
+    "image": 1,
+    "news_per_page": 10
+  }
+},
+{
+  "model": "torosweb.homepage",
+  "pk": 3,
+  "fields": {}
+},
+{
+  "model": "torosweb.infopage",
+  "pk": 5,
+  "fields": {
+    "date": "2019-01-22",
+    "body": "<p>Our collaboration is formed by scientists from Universidad Nacional de Cordoba (Argentina), Texas A&amp;M University (USA); CGWA The University of Texas Rio Grande Valley (USA), Universidad Nacional de Salta (Argentina), Universit\u00e0 Carlo Bo di Urbino (Italy), Loas Alamos National Laboratory (USA) and University of Warsaw (Poland)</p>",
+    "lead": "Our collaboration is formed by scientists from several universities",
+    "image": 5,
+    "caption": "",
+    "featuredInColumnSection": false,
+    "featuredInRowSection": true
+  }
+},
+{
+  "model": "torosweb.infopage",
+  "pk": 6,
+  "fields": {
+    "date": "2019-01-22",
+    "body": "<p>The site is located at Cordon Mac\u00f3n, in the province of Salta in Argentina. The area is part of a high plateau, shared by Argentina and Chile named as the Atacama Puna (desert).</p>",
+    "lead": "The site is located at Cordon Mac\u00f3n, in the province of Salta in Argentina. The area is part of a high plateau, shared by Argentina and Chile named as the Atacama Puna (desert).",
+    "image": 3,
+    "caption": "",
+    "featuredInColumnSection": false,
+    "featuredInRowSection": false
+  }
+},
+{
+  "model": "torosweb.infopage",
+  "pk": 7,
+  "fields": {
+    "date": "2014-04-20",
+    "body": "<p><b>CGWA and IATE press release</b></p><p></p><p>The Institute of Theoretical and Experimental Astronomy (IATE in Spanish), an institute of CONICET (Argentine Council for Scientific and Technological Research) and the National University of C\u00f3rdoba (UNC), the Astronomical Observatory also from UNC, and the Center for Gravitational Wave Astronomy of the University of Texas at Brownsville are pleased to announce the first successful operation of the TORITOS telescope at Co. Mac\u00f3n, in the Argentine province of Salta.</p><p></p><p>From April 10 through April 18 a group of scientists and engineers from IATE, OAC and CGWA integrated by Carlos Colazo, Manuel Stark, Matias Schneiter (IATE-OAC) and admin Beroiz, Mariano Dominguez and Mario D\u00edaz (CGWA) conducted the first successful observational campaign at the Co. Mac\u00f3n with the TORITOS telescope which will function as a pilot instrument for the TOROS (Transient Optical Robotic Observatory of the South) project, planned to start operations at the site in 2016.</p><p></p><p>The Mac\u00f3n range has been declared an Astronomical Park by the government of the Salta province, and the CGWA, and UNC,as well as the Ministry of Science and Technology (MinCyT) from Argentina and the University of San Pablo, Brasil (ABRAS project) are working to develop the scientific potential of one of the best sites in the world for astronomical observations.</p><p></p><p>The campaign just finished is the first step to secure the permanent operation of telescopes at the site. Due to the height of Co. Mac\u00f3n (4,650 meters -15,260 ft above sea level) the operation will be robotic, a feature that was tested during the campaign. The information obtained from it will be used to secure permanent operation during 2015.</p><p>One of the most immediate objectives for this operation will be the detection and characterization of transient phenomena. This search will be performed simultaneously with the two gravitational wave detectors, LIGO, located in the USA, which will start operating in their advanced upgrade configuration in the second half of 2015.</p>",
+    "lead": "We are pleased to announce the first successful operation of the TORITOS telescope at Co. Mac\u00f3n, in the Argentine province of Salta.",
+    "image": 4,
+    "caption": "",
+    "featuredInColumnSection": false,
+    "featuredInRowSection": false
+  }
+},
+{
+  "model": "torosweb.infopage",
+  "pk": 9,
+  "fields": {
+    "date": "2019-01-22",
+    "body": "<p><b> WHAT IS THE TORITOS PROJECT?</b></p><p>\u00a0 \u00a0 \u00a0Cordon Mac\u00f3n is a new site. As such a series of observations beyond the characterization already performed by Argentina and European astronomers for ESO, are needed. The TORITOS project consists in deploying a small telescope in Cordon Macon to start testing operability at the site.Additionally during the austral winter (June) scientists and students from Texas A&amp;M 2013 with the participation of scientists and students from IATE and UT Bronwsville will be sustaining a 10 days campaign observing at the site.</p><p></p><p><b>TORITOS Instrument</b><br/></p><p>\u00a0 \u00a0 \u00a0The instrumentation to be deployed at Mac\u00f3n for the TORITOS project consists in a Meade LX200 16\u201d telescope and an Apogee U10 camera with a filter wheel. This instrument has already reached Argentine customs at Buenos Aires and after inspection, and adjustments it will be deployed at Cordon Mac\u00f3n becoming the first instrument to work at the site in this pilto project for TOROS. The TOROS collaboration expects to determine the most suitable instrument for study of transients,particularly those associated with kilonovae explosions by the end of 2013. The key science target in this phase will be a survey of nearby galaxies for the early discovery of nearby supernovae for follow-up observations with large telescopes. This is a much needed activity for supernova astronomy, since all current southern hemisphere supernova surveys focus on cosmological supernovae and nearby ones are often missed.\u00a0</p>",
+    "lead": "The TORITOS project consists in deploying a small telescope in Cordon Macon to start testing operability at the site.",
+    "image": 4,
+    "caption": "",
+    "featuredInColumnSection": true,
+    "featuredInRowSection": false
+  }
+},
+{
+  "model": "torosweb.infopage",
+  "pk": 10,
+  "fields": {
+    "date": "2019-08-08",
+    "body": "<p><b>BROWNSVILLE, TEXAS \u2013 AUG. 8, 2019 \u2013</b> The <a href=\"https://www.nsf.gov/\">National Science Foundation</a> has awarded UTRGV\u2019s <a href=\"https://www.utrgv.edu/cgwa/\">Center for Gravitational Wave Astronomy</a> (CGWA) $516,000 for the second phase of construction of a telescope dedicated to research on gravitational waves.</p><p><a href=\"http://www.mariodiaz.org/Mario_Diaz/Home.html\">Dr. Mario D\u00edaz</a> \u2013 UTRGV professor of physics and astronomy, director of CGWA and principal investigator on this binational project \u2013 said <a href=\"https://www.worldsciencefestival.com/videos/gravitational-waves-a-new-era-of-astronomy-begins/?gclid=Cj0KCQjwp5_qBRDBARIsANxdcinhl-XciKGgJlYzLzyjZFdYbe92X3Q-2vqsu1xTCEXj4Ceg3a2prY0aAj1AEALw_wcB\">gravitational waves</a> are ripples in the fabric of space and time, generated by <a href=\"https://www.ligo.caltech.edu/mit/page/why-detect-gw\">cataclysmic astrophysical events</a> \u2013 like exploding stars, the collision of black holes and merging neutron stars \u2013 in the far reaches of the universe.</p><p>\u201cThere are many challenges associated with searching large areas of the sky for fast-evolving astronomical sources, and this funding is critical for the projects investigated by UTRGV physics and astronomy students, who are now using the recently upgraded UTRGV <a href=\"https://www.utrgv.edu/newsroom/2018/05/07-utrgv-names-observatory-for-faculty-member-torres-with-may-5-stargazing-celebration.htm\">Dr. Cristina Torres Memorial Astronomical Observatory</a> at Resaca de la Palma State Park north of Brownsville,\u201d<br/>Construction on the telescope \u2013 which is physically located at <a href=\"http://fof.oac.uncor.edu/2011/talks/ruben.pdf\">Cord\u00f3n Mac\u00f3n i</a>n Salta Province, Argentina, away from light pollution and other factors that could interfere with the sensitive research \u2013 started earlier in 2019 with funding provided by the Argentine National Science Foundation (<a href=\"https://www.natureindex.com/institution-outputs/argentina/national-scientific-and-technical-research-council-conicet/5139073d34d6b65e6a0022be\">CONICET)</a> and about $500,000 in NSF funding previously awarded to Diaz.</p><p>The telescope is expected to be operational \u2013 with some limited capabilities \u2013 in early 2020, and is scheduled to achieve <a href=\"http://www.mate.tue.nl/~piet/edu/dos/pdf/designth.pdf\">design sensitivity</a> in early 2021. Diaz and the team will be able to monitor remotely any observations of deep space events based on alarms released through special <a href=\"https://www.ligo.caltech.edu/page/what-is-ligo\">LIGO</a> networks.</p><p>LIGO \u2013 the Laser Interferometer Gravitational-Wave Observatory operated by Caltech and MIT \u2013 includes more than 1,200 scientists from around the world and is the world\u2019s largest gravitational wave observatory. In September 2017, the LIGO Scientific Collaboration announced the first joint detection of gravitational waves in the first significant signal recorded.</p><p><b>BACKGROUND</b></p><p>Diaz\u2019s project began six years when he, <a href=\"https://www.unc.edu.ar/comunicaci%C3%B3n/el-astr%C3%B3nomo-diego-garc%C3%ADa-lambas-fue-distinguido-por-el-senado-de-la-naci%C3%B3n\">Dr. Diego Garcia Lambas</a>, professor of astronomy and director of the Institute of Theoretical and Experimental Astronomy at the University of C\u00f3rdoba in Argentina, and <a href=\"http://people.physics.tamu.edu/lmacri/\">Dr.  Lucas Macri,</a> professor of astronomy at Texas A&amp;M University and associate dean of the College of Science there, launched a collaboration, named \u201cTransient Optical Robotic Observatory of the South,\u201d referred to as <a href=\"https://toros.utrgv.edu/news/toritos-first-light/\">TOROS.</a> UTRGV and the University of C\u00f3rdoba in Argentina since then have signed agreements to develop this bi-national collaboration.<br/>In addition, TAMU professors Darren DePoy and Jennifer Marshall will use a portion of the funds to modify the TOROS telescope, building a \u201cprime-focus corrector\u201d in the Charles &amp; Judith Munnerlyn Astronomical and Space Sciences Laboratory at Texas A&amp;M.<br/>Diaz said this precisely-crafted set of lenses will maximize the field of view of a top-of-the-line camera that will be the dedicated instrument of the TOROS telescope.<br/>\u201cTOROS will make important contributions to the follow-up observation of gravitational wave sources,\u201d Diaz said, \u201cand will help develop the next generation of \u2018big data\u2019 astronomers across diverse communities in the Valley, and across Texas and Argentina.\u201d<br/>In addition to Diaz, UTRGV currently has two full-time scientists, 12 graduate and undergraduate students from the Edinburg and Brownsville campuses, and two teachers from local high schools (all members of the Time Domain Astronomy research group), actively participating in the binational project. Local high school physics teachers also are expected to engage area students in this research.</p><p><b>THE SCIENCE</b></p><p>One of the most important and frequent sources of gravitational waves are the collision of compact and dense objects, like two Black Holes. But if one of the two colliding objects is a neutron star \u2013 the latest stage in the evolution of stars, and a bit heavier than our Sun \u2013 or two neutron stars, space-time ripples will be produced during the event.<br/>However, a strong electromagnetic emission also occurs during collision, because the \u201cbreaking\u201d of one of the stars sheds matter, which whirls at breathtaking speeds around the new object being formed. In events of this sort, many of the chemical elements heavier than iron, like gold and platinum, are formed.</p><p></p><p>Because gravitational wave detectors have poor localization capabilities \u2013 that is, they cannot pinpoint the exact position of the source \u2013 wide field surveys provided by telescopes like the TOROS telescope could be extremely valuable in generating not only an exact localization of the source, but also other information associated with such events. This information could not be captured by gravitational wave detectors alone.</p><p>In recent years, the TOROS collaboration has searched for electromagnetic counterparts to gravitational wave sources using a variety of telescopes across the globe, and pursued funding opportunities to establish their own state-of-the-art CGWA telescope and camera at Cord\u00f3n Mac\u00f3n, in the remote Atacama region of northwestern Argentina and one of the best astronomical sites on earth.</p><p><b>ABOUT UTRGV</b></p><p>The University of Texas Rio Grande Valley (UTRGV) was created by the Texas Legislature in 2013 as the first major public university of the 21st century in Texas. This transformative initiative provided the opportunity to expand educational opportunities in the Rio Grande Valley, including a new School of Medicine, and made it possible for residents of the region to benefit from the Permanent University Fund \u2013 a public endowment contributing support to the University of Texas System and other institutions.</p><p>UTRGV has campuses and off-campus research and teaching sites throughout the Rio Grande Valley including in Boca Chica Beach, Brownsville (formerly The University of Texas at Brownsville campus), Edinburg (formerly The University of Texas-Pan American campus), Harlingen, McAllen, Port Isabel, Rio Grande City, and South Padre Island. UTRGV, a comprehensive academic institution, enrolled its first class in the fall of 2015, and the School of Medicine welcomed its first class in the summer of 2016.</p><hr/><p><b>MEDIA CONTACTS</b></p><p><b>Marci.Caltabiano@UTRGV.edu</b></p><p>UTRGV Director of News and Internal Communications <b>/</b> (956) 665-2742</p>",
+    "lead": "UTRGV, TAMU, University of Cordoba part of research collaboration",
+    "image": 7,
+    "caption": "Dr. Mario D\u00edaz (center), with his TOROS collaborators on the project, Dr. Diego Garc\u00eda Lambas (right), and Dr. Lucas Macri (left)",
+    "featuredInColumnSection": true,
+    "featuredInRowSection": false
+  }
+}
+]
