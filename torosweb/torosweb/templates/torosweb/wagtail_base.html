@@ -39,26 +39,62 @@
                         <a class="nav-link text-uppercase" href="{% slugurl 'home' %}" style="font-size: 22px;">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-uppercase" href="#" style="font-size: 22px; color: #ffffff;">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-uppercase" href="#" style="font-size: 22px; color: #ffffff;">People</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-uppercase" href="#" style="font-size: 22px; color: #ffffff;">Toritos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-uppercase" href="#" style="font-size: 22px; color: #ffffff;">Gallery</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link text-uppercase" href="{% slugurl 'news' %}" style="font-size: 22px; color: #ffffff;">News</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-uppercase" href="#" style="font-size: 22px; color: #ffffff;">Contact Us</a>
+                        <a class="nav-link text-uppercase" href="{% url 'broker:index' %}" style="font-size: 22px; color: #ffffff;">Broker</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-uppercase" href="{% url 'wiki:root' %}" style="font-size: 22px; color: #ffffff;">Wiki</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav ml-auto">
+                    <li>
+                    {% if user.is_authenticated %}
+                        <div class="btn-group">
+                            <a class="btn btn-light btn-sm" href="{% url 'account:profile' user.username %}">{{ user.username }}</a>
+                            <a class="btn btn btn-secondary btn-sm" href="{% url 'logout' %}">Log out</a>
+                        </div>
+                    {% else %}
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-light btn-sm" data-toggle="modal" data-target="#loginmodal">Log in</button>
+                            <a class="btn btn-secondary btn-sm" href="{% url 'account:signup' %}">Sign Up</a>
+                        </div>
+                    {% endif %}
                     </li>
                 </ul>
             </div>
         </nav>
+
+        <div class="modal fade" id="loginmodal">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Log in</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <form method="post" role="form" action="{% url 'login' %}">
+                <div class="modal-body">
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <label class="sr-only" for="name">Username:</label>
+                    <input name="username" id="name" value="" class="form-control" type="text" placeholder="Username"/>
+                  </div>
+                  <div class="form-group">
+                    <label class="sr-only" for="password">Password:</label>
+                    <input name="password" id="password" value=""  class="form-control" type="password" placeholder="Password" />
+                  </div>
+                  <input type="hidden" name="next" value="{{ request.get_full_path }}" />
+                </div class="modal-body">
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-secondary">Log in</button>
+                </div class="modal-footer">
+              </form>
+            </div class="modal-content">
+          </div class="modal-dialog modal-sm">
+        </div id="loginmodal" class="modal fade" role="dialog">
+
         <script src="https://unpkg.com/popper.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
     </body>

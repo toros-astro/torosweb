@@ -50,7 +50,7 @@ class HomePage(Page):
         else:
             newspages = None
         context['newspages'] = newspages
-        columnsection = InfoPage.objects.filter(featuredInColumnSection=True)[:2]
+        columnsection = InfoPage.objects.filter(featuredInColumnSection=True)[:3]
         context['columnsection'] = columnsection
         rowsection = InfoPage.objects.filter(featuredInRowSection=True)
         context['rowsection'] = rowsection
