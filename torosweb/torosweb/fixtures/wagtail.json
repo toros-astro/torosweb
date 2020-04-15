@@ -950,7 +950,7 @@
     "lead": "The site is located at Cordon Mac\u00f3n, in the province of Salta in Argentina. The area is part of a high plateau, shared by Argentina and Chile named as the Atacama Puna (desert).",
     "image": 3,
     "caption": "",
-    "featuredInColumnSection": false,
+    "featuredInColumnSection": true,
     "featuredInRowSection": false
   }
 },
@@ -963,7 +963,7 @@
     "lead": "We are pleased to announce the first successful operation of the TORITOS telescope at Co. Mac\u00f3n, in the Argentine province of Salta.",
     "image": 4,
     "caption": "",
-    "featuredInColumnSection": false,
+    "featuredInColumnSection": true,
     "featuredInRowSection": false
   }
 },
